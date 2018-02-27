@@ -1,28 +1,26 @@
 <template>
-  <div class="container">
-    <b-table :hoverable="true" :data="items">
-      <template slot-scope="props">
-        <b-table-column label="Content">
-          <b-icon v-if="props.row.clips_count > 0"
-              pack="fas"
-              icon="image"
-              size="is-small">
-          </b-icon>
-          <strong>
-            {{ props.row.title }}
-          </strong>
-          {{ props.row.content }}
-        </b-table-column>
+  <b-table :hoverable="true" :data="items">
+    <template slot-scope="props">
+      <b-table-column label="Content">
+        <b-icon v-if="props.row.clips_count > 0"
+            pack="fas"
+            icon="image"
+            size="is-small">
+        </b-icon>
+        <strong>
+          {{ props.row.title }}
+        </strong>
+        {{ props.row.content }}
+      </b-table-column>
 
-        <!-- eslint-disable-next-line -->
-        <b-table-column type="is-narrow" label="Last update">
-          <b-tag type="is-dark">
-            {{ props.row.updated_at | moment("from", "now") }}
-          </b-tag>
-        </b-table-column>
-      </template>
-    </b-table>
-  </div>
+      <!-- eslint-disable-next-line -->
+      <b-table-column type="is-narrow" label="Last update">
+        <b-tag type="is-dark">
+          {{ props.row.updated_at | moment("from", "now") }}
+        </b-tag>
+      </b-table-column>
+    </template>
+  </b-table>
 </template>
 
 <script>
