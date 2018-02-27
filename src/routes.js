@@ -1,12 +1,12 @@
 import VueRouter from 'vue-router';
 
-import Articles from './views/Articles';
+import Posts from './views/Posts';
 import About from './views/About';
 
 let routes = [
   {
     path: '/',
-    component: Articles
+    component: Posts
   },
 
   {

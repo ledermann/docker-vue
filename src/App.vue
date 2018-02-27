@@ -23,7 +23,7 @@
           <div class="container">
             <ul>
               <router-link tag="li" to="/" exact>
-                <a>Articles</a>
+                <a>Posts</a>
               </router-link>
 
               <router-link tag="li" to="/about" exact>

@@ -27,7 +27,7 @@
 import axios from 'axios'
 
 export default {
-  name: 'ArticleList',
+  name: 'PostListing',
 
   data() {
     return {
