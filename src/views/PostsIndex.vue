@@ -18,7 +18,7 @@
       <!-- eslint-disable-next-line -->
       <b-table-column type="is-narrow" label="Last update">
         <b-tag type="is-dark">
-          {{ props.row.updated_at | moment("from", "now") }}
+          <timeago :since="props.row.updated_at"></timeago>
         </b-tag>
       </b-table-column>
     </template>

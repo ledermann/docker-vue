@@ -14,8 +14,8 @@
     "buefy": "^0.6.3",
     "vlightbox": "^2.0.2",
     "vue": "^2.5.13",
-    "vue-moment": "^3.2.0",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vue-timeago": "^3.4.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-beta.1",

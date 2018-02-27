@@ -4,7 +4,7 @@
 
     <p>
       <b-tag type="is-dark" v-if="post.updated_at">
-        {{ post.updated_at | moment("from", "now") }}
+        <timeago :since="post.updated_at"></timeago>
       </b-tag>
     </p>
 
