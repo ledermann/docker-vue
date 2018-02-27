@@ -8,7 +8,9 @@
             size="is-small">
         </b-icon>
         <strong>
-          {{ props.row.title }}
+          <router-link :to="{ name: 'post', params: {id: props.row.slug} }">
+            {{ props.row.title }}
+          </router-link>
         </strong>
         {{ props.row.content }}
       </b-table-column>
