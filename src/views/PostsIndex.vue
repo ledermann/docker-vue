@@ -6,7 +6,7 @@
 import PostListing from '../components/PostListing.vue'
 
 export default {
-  name: 'posts',
+  name: 'PostsIndex',
   components: {
     PostListing
   }

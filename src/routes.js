@@ -1,17 +1,17 @@
 import VueRouter from 'vue-router';
 
-import Posts from './views/Posts';
-import About from './views/About';
+import PostsIndex from './views/PostsIndex';
+import AboutShow from './views/AboutShow';
 
 let routes = [
   {
     path: '/',
-    component: Posts
+    component: PostsIndex
   },
 
   {
     path: '/about',
-    component: About
+    component: AboutShow
   },
 ];
 
