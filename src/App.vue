@@ -37,7 +37,9 @@
 
     <section class="section">
       <div class="container">
-        <router-view></router-view>
+        <keep-alive include="PostsIndex">
+          <router-view></router-view>
+        </keep-alive>
       </div>
     </section>
   </div>
