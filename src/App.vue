@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld title="Welcome to DockerRails" subTitle="Cooming soon..."/>
   </div>
 </template>
 
