@@ -1,5 +1,5 @@
 <template>
-  <b-table :hoverable="true" :data="posts">
+  <b-table :hoverable="true" :loading="isLoading" :data="posts">
     <template slot-scope="props">
       <b-table-column label="Content">
         <b-icon v-if="props.row.clips_count > 0"
@@ -33,13 +33,17 @@ export default {
 
   data() {
     return {
+      isLoading: true,
       posts: [],
     }
   },
 
   mounted() {
     axios.get("https://docker-rails.georg-ledermann.de/posts.json").
-      then(response => this.posts = response.data)
+      then(response => {
+        this.posts = response.data
+        this.isLoading = false
+      })
   }
 }
 </script>
