@@ -12,8 +12,9 @@ let routes = [
   },
 
   {
-    path: '/posts/:id',
+    path: '/posts/:slug',
     name: 'post',
+    props: true,
     component: PostShow
   },
 
