@@ -8,6 +8,12 @@
         <h2 class="subtitle">
           {{ subTitle }}
         </h2>
+
+        <b-icon
+            pack="fas"
+            icon="home"
+            size="is-small">
+        </b-icon>
       </div>
     </div>
   </section>
