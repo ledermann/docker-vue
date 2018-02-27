@@ -6,11 +6,13 @@ import AboutShow from './views/AboutShow';
 let routes = [
   {
     path: '/',
+    name: 'posts',
     component: PostsIndex
   },
 
   {
     path: '/about',
+    name: 'about',
     component: AboutShow
   },
 ];
