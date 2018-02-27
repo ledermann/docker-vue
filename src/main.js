@@ -8,12 +8,14 @@ import '@fortawesome/fontawesome-free-webfonts/css/fa-regular.css'
 import '@fortawesome/fontawesome-free-webfonts/css/fa-solid.css'
 import App from './App.vue'
 import router from './routes';
+import lightbox from 'vlightbox'
 
 Vue.use(VueRouter)
 Vue.use(VueMoment)
 Vue.use(Buefy, {
   defaultIconPack: 'fas'
 })
+Vue.use(lightbox)
 
 Vue.config.productionTip = false
 

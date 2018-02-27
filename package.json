@@ -12,6 +12,7 @@
     "@fortawesome/fontawesome-free-webfonts": "^1.0.4",
     "axios": "^0.18.0",
     "buefy": "^0.6.3",
+    "vlightbox": "^2.0.2",
     "vue": "^2.5.13",
     "vue-moment": "^3.2.0",
     "vue-router": "^3.0.1"
