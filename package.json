@@ -16,6 +16,7 @@
     "buefy": "^0.6.3",
     "vlightbox": "^2.0.2",
     "vue": "^2.5.13",
+    "vue-infinite-loading": "^2.2.3",
     "vue-router": "^3.0.1",
     "vue-timeago": "^3.4.4"
   },
