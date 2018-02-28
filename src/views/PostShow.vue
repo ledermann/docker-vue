@@ -30,26 +30,26 @@ export default {
 
   props: ['slug'],
 
-  data() {
+  data () {
     return {
-      post: {},
+      post: {}
     }
   },
 
-  mounted() {
-    axios.get('https://docker-rails.georg-ledermann.de/posts/'+this.slug+'.json').
-      then(response => this.post = response.data)
+  mounted () {
+    axios.get('https://docker-rails.georg-ledermann.de/posts/' + this.slug + '.json')
+      .then(response => { this.post = response.data })
   },
 
   computed: {
-    clips: function() {
+    clips: function () {
       if (this.post.clips) {
         return this.post.clips.map(clip => {
-           return { src: clip.large.url }
-         })
+          return { src: clip.large.url }
+        })
       }
     }
-  },
+  }
 }
 </script>
 

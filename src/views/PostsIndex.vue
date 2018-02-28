@@ -31,16 +31,16 @@ import axios from 'axios'
 export default {
   name: 'PostsIndex',
 
-  data() {
+  data () {
     return {
       isLoading: true,
-      posts: [],
+      posts: []
     }
   },
 
-  mounted() {
-    axios.get("https://docker-rails.georg-ledermann.de/posts.json").
-      then(response => {
+  mounted () {
+    axios.get('https://docker-rails.georg-ledermann.de/posts.json')
+      .then(response => {
         this.posts = response.data
         this.isLoading = false
       })

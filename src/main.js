@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Buefy from 'buefy';
-import 'buefy/lib/buefy.css';
+import Buefy from 'buefy'
+import 'buefy/lib/buefy.css'
 import '@fortawesome/fontawesome-free-webfonts/css/fontawesome.css'
 import '@fortawesome/fontawesome-free-webfonts/css/fa-regular.css'
 import '@fortawesome/fontawesome-free-webfonts/css/fa-solid.css'
 import App from './App.vue'
-import router from './routes';
+import router from './router'
 import lightbox from 'vlightbox'
 import VueTimeago from 'vue-timeago'
 
