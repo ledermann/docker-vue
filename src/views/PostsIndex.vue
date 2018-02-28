@@ -41,34 +41,31 @@ export default {
   },
 
   methods: {
-    infiniteHandler($state) {
+    loadNextPage() {
       this.currentPage++;
-      axios.get('https://docker-rails.georg-ledermann.de/posts.json?page=' + this.currentPage)
-        .then(response => {
-          if (response.data.length > 0) {
-            this.posts.push(...response.data);
-            $state.loaded();
-          } else {
-            $state.complete();
-          }
-        })
+      return axios.get('https://docker-rails.georg-ledermann.de/posts.json?page=' + this.currentPage);
+    },
+
+    infiniteHandler($state) {
+      // This method loads the first page, two
+      this.loadNextPage().then(response => {
+        if (response.data.length > 0) {
+          this.posts.push(...response.data);
+          $state.loaded();
+          this.isLoading = false;
+        } else {
+          $state.complete();
+        };
+      });
     },
   },
 
   data () {
     return {
       isLoading: true,
-      currentPage: 1,
+      currentPage: 0,
       posts: []
     }
-  },
-
-  mounted () {
-    axios.get('https://docker-rails.georg-ledermann.de/posts.json')
-      .then(response => {
-        this.posts = response.data
-        this.isLoading = false
-      })
   }
 }
 </script>
