@@ -1,6 +1,6 @@
 <template>
   <layout-basic>
-    <b-table :hoverable="true" :loading="isLoading" :data="posts">
+    <b-table :hoverable="true" :data="posts">
       <template slot-scope="props">
         <b-table-column label="Content">
           <b-icon v-if="props.row.clips_count > 0"
@@ -54,7 +54,6 @@ export default {
         if (response.data.length > 0) {
           this.posts.push(...response.data)
           $state.loaded()
-          this.isLoading = false
         } else {
           $state.complete()
         };
@@ -64,7 +63,6 @@ export default {
 
   data () {
     return {
-      isLoading: true,
       currentPage: 0,
       posts: []
     }
