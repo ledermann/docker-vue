@@ -1,6 +1,8 @@
 <template>
   <layout-basic>
-    <div class="content">
+    <b-loading :active="isLoading"></b-loading>
+
+    <div class="content" v-if="!isLoading">
       <h1 class="title">{{ post.title }}</h1>
 
       <p>
@@ -39,13 +41,17 @@ export default {
 
   data () {
     return {
+      isLoading: true,
       post: {}
     }
   },
 
   mounted () {
     axios.get('https://docker-rails.georg-ledermann.de/posts/' + this.slug + '.json')
-      .then(response => { this.post = response.data })
+      .then(response => {
+        this.post = response.data
+        this.isLoading = false
+      })
   },
 
   computed: {
@@ -71,5 +77,4 @@ export default {
 
   img
     cursor: pointer
-
 </style>
