@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <layout-basic>
     <b-table :hoverable="true" :loading="isLoading" :data="posts">
       <template slot-scope="props">
         <b-table-column label="Content">
@@ -26,10 +26,11 @@
     </b-table>
 
     <infinite-loading @infinite="infiniteHandler"></infinite-loading>
-  </div>
+  </layout-basic>
 </template>
 
 <script>
+import LayoutBasic from '@/layouts/basic'
 import axios from 'axios'
 import InfiniteLoading from 'vue-infinite-loading'
 
@@ -37,6 +38,7 @@ export default {
   name: 'PostsIndex',
 
   components: {
+    LayoutBasic,
     InfiniteLoading
   },
 

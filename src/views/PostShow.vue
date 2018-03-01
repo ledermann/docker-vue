@@ -1,32 +1,39 @@
 <template>
-  <div class="content">
-    <h1 class="title">{{ post.title }}</h1>
+  <layout-basic>
+    <div class="content">
+      <h1 class="title">{{ post.title }}</h1>
 
-    <p>
-      <b-tag type="is-dark" v-if="post.updated_at">
-        <timeago :since="post.updated_at"></timeago>
-      </b-tag>
-    </p>
+      <p>
+        <b-tag type="is-dark" v-if="post.updated_at">
+          <timeago :since="post.updated_at"></timeago>
+        </b-tag>
+      </p>
 
-    <lightbox :images="clips" :nav="true"></lightbox>
+      <lightbox :images="clips" :nav="true"></lightbox>
 
-    <hr />
+      <hr />
 
-    <div v-html="post.content"></div>
+      <div v-html="post.content"></div>
 
-    <hr />
+      <hr />
 
-    <div class="has-text-grey" v-html="post.copyright"></div>
+      <div class="has-text-grey" v-html="post.copyright"></div>
 
-    <hr />
-  </div>
+      <hr />
+    </div>
+  </layout-basic>
 </template>
 
 <script>
+import LayoutBasic from '@/layouts/basic'
 import axios from 'axios'
 
 export default {
   name: 'PostShow',
+
+  components: {
+    LayoutBasic
+  },
 
   props: ['slug'],
 
