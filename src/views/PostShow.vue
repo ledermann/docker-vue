@@ -60,17 +60,16 @@ export default {
 }
 </script>
 
-<style>
-.vue-lightbox ul {
-  text-align: left !important;
-  max-width: inherit !important;
-}
+<style lang="sass">
+.vue-lightbox
+  ul
+    text-align: left !important
+    max-width: inherit !important
 
-.vue-lightbox li {
-  margin: 0 !important;
-}
+  li
+    margin: 0 !important
 
-.vue-lightbox img {
-  cursor: pointer;
-}
+  img
+    cursor: pointer
+
 </style>
