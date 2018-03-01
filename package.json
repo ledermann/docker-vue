@@ -16,10 +16,10 @@
     "axios": "^0.18.0",
     "buefy": "^0.6.3",
     "es6-promise": "^4.2.4",
-    "vlightbox": "^2.0.2",
     "vue": "^2.5.13",
     "vue-infinite-loading": "^2.2.3",
     "vue-router": "^3.0.1",
+    "vue-silentbox": "^0.1.1",
     "vue-timeago": "^3.4.4"
   },
   "devDependencies": {

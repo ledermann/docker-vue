@@ -8,13 +8,13 @@ import '@fortawesome/fontawesome-free-webfonts/css/fa-regular.css'
 import '@fortawesome/fontawesome-free-webfonts/css/fa-solid.css'
 import App from './App.vue'
 import router from './router'
-import lightbox from 'vlightbox'
+import VueSilentbox from 'vue-silentbox'
 import VueTimeago from 'vue-timeago'
 
 Vue.use(Buefy, {
   defaultIconPack: 'fas'
 })
-Vue.use(lightbox)
+Vue.use(VueSilentbox)
 
 Vue.use(VueTimeago, {
   name: 'timeago', // component name, `timeago` by default

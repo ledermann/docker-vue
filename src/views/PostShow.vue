@@ -11,7 +11,13 @@
         </b-tag>
       </p>
 
-      <lightbox :images="clips" :nav="true"></lightbox>
+      <silentbox-group>
+          <silentbox-item v-for="(clip,index) in clips" :src="clip.urlLarge" v-bind:key="index">
+            <figure class="image is-128x128">
+              <img :src="clip.urlThumb">
+            </figure>
+          </silentbox-item>
+      </silentbox-group>
 
       <hr />
 
@@ -35,6 +41,7 @@ export default {
 
   components: {
     LayoutBasic
+
   },
 
   props: ['slug'],
@@ -58,7 +65,7 @@ export default {
     clips: function () {
       if (this.post.clips) {
         return this.post.clips.map(clip => {
-          return { src: clip.large.url }
+          return { urlLarge: clip.large.url, urlThumb: clip.thumbnail.url }
         })
       }
     }
@@ -67,14 +74,9 @@ export default {
 </script>
 
 <style lang="sass">
-.vue-lightbox
-  ul
-    text-align: left !important
-    max-width: inherit !important
-
-  li
-    margin: 0 !important
-
-  img
-    cursor: pointer
+  .image
+    display: inline-block
+  .content figure
+    margin-left: 0
+    margin-right: 0.5rem
 </style>
