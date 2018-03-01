@@ -31,33 +31,33 @@
 
 <script>
 import axios from 'axios'
-import InfiniteLoading from 'vue-infinite-loading';
+import InfiniteLoading from 'vue-infinite-loading'
 
 export default {
   name: 'PostsIndex',
 
   components: {
-    InfiniteLoading,
+    InfiniteLoading
   },
 
   methods: {
-    loadNextPage() {
-      this.currentPage++;
-      return axios.get('https://docker-rails.georg-ledermann.de/posts.json?page=' + this.currentPage);
+    loadNextPage () {
+      this.currentPage++
+      return axios.get('https://docker-rails.georg-ledermann.de/posts.json?page=' + this.currentPage)
     },
 
-    infiniteHandler($state) {
+    infiniteHandler ($state) {
       // This method loads the first page, two
       this.loadNextPage().then(response => {
         if (response.data.length > 0) {
-          this.posts.push(...response.data);
-          $state.loaded();
-          this.isLoading = false;
+          this.posts.push(...response.data)
+          $state.loaded()
+          this.isLoading = false
         } else {
-          $state.complete();
+          $state.complete()
         };
-      });
-    },
+      })
+    }
   },
 
   data () {

@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
 import Buefy from 'buefy'
 import 'buefy/lib/buefy.css'
 import '@fortawesome/fontawesome-free-webfonts/css/fontawesome.css'
@@ -10,7 +9,6 @@ import router from './router'
 import lightbox from 'vlightbox'
 import VueTimeago from 'vue-timeago'
 
-Vue.use(VueRouter)
 Vue.use(Buefy, {
   defaultIconPack: 'fas'
 })

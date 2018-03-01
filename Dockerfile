@@ -4,7 +4,7 @@ FROM node:8-alpine
 RUN yarn global add serve
 
 # Set the command to start the node server.
-CMD serve -s .
+CMD serve -s dist
 
 # Tell Docker about the port we'll run on.
 EXPOSE 5000
