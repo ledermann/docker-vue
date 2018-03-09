@@ -34,7 +34,6 @@
 
 <script>
 import LayoutBasic from '@/layouts/basic'
-import axios from 'axios'
 
 export default {
   name: 'PostShow',
@@ -54,7 +53,7 @@ export default {
   },
 
   mounted () {
-    axios.get('https://docker-rails.georg-ledermann.de/posts/' + this.slug + '.json')
+    this.$http.get('/posts/' + this.slug + '.json')
       .then(response => {
         this.post = response.data
         this.isLoading = false

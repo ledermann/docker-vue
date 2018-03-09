@@ -29,7 +29,6 @@
 
 <script>
 import LayoutBasic from '@/layouts/basic'
-import axios from 'axios'
 import InfiniteLoading from 'vue-infinite-loading'
 
 export default {
@@ -43,7 +42,7 @@ export default {
   methods: {
     loadNextPage () {
       this.currentPage++
-      return axios.get('https://docker-rails.georg-ledermann.de/posts.json?page=' + this.currentPage)
+      return this.$http.get('/posts.json?page=' + this.currentPage)
     },
 
     onClick (row) {

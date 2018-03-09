@@ -10,6 +10,7 @@ import App from './App.vue'
 import router from './router'
 import VueSilentbox from 'vue-silentbox'
 import VueTimeago from 'vue-timeago'
+import './backend/vue-axios'
 
 Vue.use(Buefy, {
   defaultIconPack: 'fas'
