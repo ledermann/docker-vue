@@ -1,11 +1,11 @@
 <template>
   <div class="basic-layout">
     <div class="wrapper">
-      <!-- Hero head: will stick at the top -->
-      <div class="hero-head">
-      </div>
-
       <section class="hero is-info">
+        <!-- Hero head: will stick at the top -->
+        <div class="hero-head">
+        </div>
+
         <!-- Hero content: will be in the middle -->
         <div class="hero-body">
           <div class="container has-text-centered">
