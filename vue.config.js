@@ -1,4 +1,4 @@
-const merge = require('webpack-merge');
+const merge = require('webpack-merge')
 
 module.exports = {
   chainWebpack: config => {
@@ -8,8 +8,8 @@ module.exports = {
       .tap(options =>
         merge(options, {
           // Important fix to allow Docker builds
-          path: '.postcssrc',
+          path: '.postcssrc'
         })
-      );
+      )
   }
-};
+}
