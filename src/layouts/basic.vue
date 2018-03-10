@@ -4,7 +4,7 @@
       <div class="container">
         <div class="navbar-brand">
           <router-link to="/" exact class="navbar-item">
-            Frontend for DockerRails
+            <b-icon pack="fas" icon="home"></b-icon>
           </router-link>
           <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
             <span></span>
@@ -22,9 +22,7 @@
               <div class="field is-grouped">
                 <p class="control">
                   <a class="button is-success" href="https://github.com/ledermann/docker-vue">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
+                    <b-icon pack="fab" icon="github"></b-icon>
                     <span>Source</span>
                   </a>
                 </p>
