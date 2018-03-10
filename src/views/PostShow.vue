@@ -1,5 +1,17 @@
 <template>
   <layout-basic>
+    <div class="tabs is-boxed is-right">
+      <ul>
+        <router-link tag="li" :to="'/posts/' + post.slug" class="is-active" exact>
+          <a>Article</a>
+        </router-link>
+
+        <router-link tag="li" :to="'/posts/' + post.slug + '/audits'" exact>
+          <a>Audits</a>
+        </router-link>
+      </ul>
+    </div>
+
     <b-loading :active="isLoading"></b-loading>
 
     <div class="content" v-if="!isLoading">
