@@ -6,14 +6,14 @@
           <router-link to="/" exact class="navbar-item">
             <b-icon pack="fas" icon="home"></b-icon>
           </router-link>
-          <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+          <div class="navbar-burger burger" @click="toggleMenu" :class="{'is-active': navIsActive}" data-target="navbarExampleTransparentExample">
             <span></span>
             <span></span>
             <span></span>
           </div>
         </div>
 
-        <div id="navbarExampleTransparentExample" class="navbar-menu">
+        <div id="navbarExampleTransparentExample" class="navbar-menu" :class="{'is-active': navIsActive}">
           <div class="navbar-start">
           </div>
 
@@ -78,6 +78,18 @@ import Vue from 'vue'
 
 export default {
   name: 'BasicLayout',
+
+  data () {
+    return {
+      navIsActive: false
+    }
+  },
+
+  methods: {
+    toggleMenu: function () {
+      this.navIsActive = !this.navIsActive
+    }
+  },
 
   computed: {
     vueVersion () {
