@@ -14,9 +14,12 @@
       </ul>
     </div>
 
-    <!-- <h1 class="title">{{ post.title }}</h1> -->
-
     <div class="content" v-if="!isLoading">
+      <h1 class="title">
+        <small>Audits of</small>
+        {{ post.title }}
+      </h1>
+
       <b-table :hoverable="true" :data="audits">
         <template slot-scope="props">
           <b-table-column type="is-narrow" label="Date">
@@ -50,19 +53,28 @@ export default {
 
   props: ['slug'],
 
+  computed: {
+    isLoading () {
+      return (!this.post) || (!this.audits)
+    }
+  },
+
   data () {
     return {
-      isLoading: true,
       post: null,
       audits: []
     }
   },
 
   mounted () {
+    this.$http.get('/posts/' + this.slug + '.json')
+      .then(response => {
+        this.post = response.data
+      })
+
     this.$http.get('/posts/' + this.slug + '/audits.json')
       .then(response => {
         this.audits = response.data
-        this.isLoading = false
       })
   }
 }
