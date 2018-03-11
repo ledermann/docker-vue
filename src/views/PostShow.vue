@@ -7,7 +7,7 @@
         </router-link>
 
         <router-link tag="li" :to="'/posts/' + post.slug + '/audits'" exact>
-          <a>Audits</a>
+          <a>History</a>
         </router-link>
       </ul>
     </div>

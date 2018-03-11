@@ -9,7 +9,7 @@
         </router-link>
 
         <router-link tag="li" :to="'/posts/' + this.slug + '/audits'" class="is-active" exact>
-          <a>Audits</a>
+          <a>History</a>
         </router-link>
       </ul>
     </div>
