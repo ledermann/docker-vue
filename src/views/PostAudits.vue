@@ -1,18 +1,26 @@
 <template>
   <layout-basic>
-    <b-loading :active="isLoading"></b-loading>
-
-    <div class="tabs is-boxed is-right">
-      <ul>
-        <router-link tag="li" :to="'/posts/' + this.slug" exact>
-          <a>Article</a>
-        </router-link>
-
-        <router-link tag="li" :to="'/posts/' + this.slug + '/audits'" class="is-active" exact>
-          <a>History</a>
-        </router-link>
-      </ul>
+    <div slot="hero-body" class="container has-text-centered">
+      <h1 class="title">
+        {{ post.title }}
+      </h1>
     </div>
+
+    <div slot="hero-foot" class="container">
+      <div class="tabs is-boxed is-centered">
+        <ul>
+          <router-link tag="li" :to="'/posts/' + this.slug" exact>
+            <a>Article</a>
+          </router-link>
+
+          <router-link tag="li" :to="'/posts/' + this.slug + '/audits'" class="is-active" exact>
+            <a>History</a>
+          </router-link>
+        </ul>
+      </div>
+    </div>
+
+    <b-loading :active="isLoading"></b-loading>
 
     <div class="content" v-if="!isLoading">
       <h1 class="title">

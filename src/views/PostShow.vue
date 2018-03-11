@@ -1,22 +1,28 @@
 <template>
   <layout-basic>
-    <div class="tabs is-boxed is-right">
-      <ul>
-        <router-link tag="li" :to="'/posts/' + post.slug" class="is-active" exact>
-          <a>Article</a>
-        </router-link>
+    <div slot="hero-body" class="container has-text-centered">
+      <h1 class="title">
+        {{ post.title }}
+      </h1>
+    </div>
 
-        <router-link tag="li" :to="'/posts/' + post.slug + '/audits'" exact>
-          <a>History</a>
-        </router-link>
-      </ul>
+    <div slot="hero-foot" class="container">
+      <div class="tabs is-boxed is-centered">
+        <ul>
+          <router-link tag="li" :to="'/posts/' + post.slug" class="is-active" exact>
+            <a>Article</a>
+          </router-link>
+
+          <router-link tag="li" :to="'/posts/' + post.slug + '/audits'" exact>
+            <a>History</a>
+          </router-link>
+        </ul>
+      </div>
     </div>
 
     <b-loading :active="isLoading"></b-loading>
 
     <div class="content" v-if="!isLoading">
-      <h1 class="title">{{ post.title }}</h1>
-
       <p>
         <b-tag type="is-dark" v-if="post.updated_at">
           <timeago :since="post.updated_at"></timeago>

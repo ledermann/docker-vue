@@ -41,18 +41,14 @@
 
         <!-- Hero content: will be in the middle -->
         <div class="hero-body">
-          <div class="container has-text-centered">
-            <h1 class="title">
-              Frontend for DockerRails
-            </h1>
-            <h2 class="subtitle">
-              Built with Vue.js
-            </h2>
-          </div>
+          <slot name="hero-body">
+          </slot>
         </div>
 
         <!-- Hero footer: will stick at the bottom -->
         <div class="hero-foot">
+          <slot name="hero-foot">
+          </slot>
         </div>
       </section>
 

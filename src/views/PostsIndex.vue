@@ -1,5 +1,14 @@
 <template>
   <layout-basic>
+    <div slot="hero-body" class="container has-text-centered">
+      <h1 class="title">
+        Frontend for DockerRails
+      </h1>
+      <h2 class="subtitle">
+        Built with Vue.js
+      </h2>
+    </div>
+
     <b-table :hoverable="true" :data="posts">
       <template slot-scope="props">
         <b-table-column label="Content" @click.native="onClick(props.row)">
