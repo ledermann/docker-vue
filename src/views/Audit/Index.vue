@@ -1,7 +1,7 @@
 <template>
   <layout-basic>
     <div slot="hero-body" class="container has-text-centered">
-      <h1 class="title">
+      <h1 v-if="!isLoading" class="title">
         {{ post.title }}
       </h1>
     </div>
@@ -53,7 +53,7 @@
 import LayoutBasic from '@/layouts/basic'
 
 export default {
-  name: 'PostAudits',
+  name: 'AuditIndex',
 
   components: {
     LayoutBasic

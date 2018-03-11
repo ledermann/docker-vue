@@ -41,7 +41,7 @@ import LayoutBasic from '@/layouts/basic'
 import InfiniteLoading from 'vue-infinite-loading'
 
 export default {
-  name: 'PostsIndex',
+  name: 'PostIndex',
 
   components: {
     LayoutBasic,

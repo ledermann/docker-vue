@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import PostsIndex from './views/PostsIndex'
-import PostShow from './views/PostShow'
-import PostAudits from './views/PostAudits'
+import PostIndex from './views/Post/Index'
+import PostShow from './views/Post/Show'
+import AuditIndex from './views/Audit/Index'
 
 Vue.use(Router)
 
@@ -12,7 +12,7 @@ export default new Router({
     {
       path: '/',
       name: 'posts',
-      component: PostsIndex
+      component: PostIndex
     },
 
     {
@@ -26,7 +26,7 @@ export default new Router({
       path: '/posts/:slug/audits',
       name: 'audits',
       props: true,
-      component: PostAudits
+      component: AuditIndex
     }
 
   ],
