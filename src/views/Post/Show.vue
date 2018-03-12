@@ -56,11 +56,11 @@
         <h1 class="title">
           ERROR
         </h1>
-      </div>  
+      </div>
 
       <div class="content">
         <ul>
-          <li v-for="error of errors">
+          <li v-for="(error,index) in errors" :key="index">
             {{ error.message }}
           </li>
         </ul>
@@ -119,8 +119,8 @@ export default {
   },
 
   computed: {
-    isSuccess: function() {
-      return (this.errors.length == 0)
+    isSuccess: function () {
+      return (this.errors.length === 0)
     },
 
     clips: function () {

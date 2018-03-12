@@ -1,5 +1,14 @@
 import Vue from 'vue'
-import axios from './axios'
 import VueAxios from 'vue-axios'
+import axios from 'axios'
 
-Vue.use(VueAxios, axios)
+const API_URL = process.env.API_URL || 'https://docker-rails.georg-ledermann.de'
+
+const customAxios = axios.create({
+  baseURL: API_URL,
+  headers: {
+    'Accept': 'application/json'
+  }
+})
+
+Vue.use(VueAxios, customAxios)
