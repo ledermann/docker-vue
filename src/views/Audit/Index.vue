@@ -23,12 +23,7 @@
     <b-loading :active="isLoading"></b-loading>
 
     <div class="content" v-if="!isLoading">
-      <h1 class="title">
-        <small>Audits of</small>
-        {{ post.title }}
-      </h1>
-
-      <b-table :hoverable="true" :data="audits">
+      <b-table :data="audits">
         <template slot-scope="props">
           <b-table-column type="is-narrow" label="Date">
             <timeago :since="props.row.created_at"></timeago>

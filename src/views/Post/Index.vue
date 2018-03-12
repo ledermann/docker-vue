@@ -80,8 +80,8 @@ export default {
 }
 </script>
 
-<style>
-  td {
+<style scoped>
+  .table td {
     cursor: pointer;
   }
 </style>
