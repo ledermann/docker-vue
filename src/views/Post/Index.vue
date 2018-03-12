@@ -59,7 +59,7 @@ export default {
     },
 
     infiniteHandler ($state) {
-      // This method loads the first page, two
+      // This method loads the first page, too
       this.loadNextPage().then(response => {
         if (response.data.length > 0) {
           this.posts.push(...response.data)
