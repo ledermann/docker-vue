@@ -40,7 +40,7 @@ export default {
     getAsyncData: debounce(function () {
       this.data = []
       this.isFetching = true
-      this.$http.get(`/posts?q=${this.query}`, { headers: { Accept: 'application/json' } })
+      this.$http.get(`/posts?q=${this.query}`)
         .then(response => {
           this.data = response.data
           this.isFetching = false

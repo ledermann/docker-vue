@@ -76,12 +76,12 @@ export default {
   },
 
   mounted () {
-    this.$http.get('/posts/' + this.slug + '.json')
+    this.$http.get('/posts/' + this.slug)
       .then(response => {
         this.post = response.data
       })
 
-    this.$http.get('/posts/' + this.slug + '/audits.json')
+    this.$http.get('/posts/' + this.slug + '/audits')
       .then(response => {
         this.audits = response.data
       })

@@ -51,7 +51,7 @@ export default {
   methods: {
     loadNextPage () {
       this.currentPage++
-      return this.$http.get('/posts.json?page=' + this.currentPage)
+      return this.$http.get('/posts?page=' + this.currentPage)
     },
 
     onClick (row) {
