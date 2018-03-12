@@ -17,6 +17,7 @@
     "axios": "^0.18.0",
     "buefy": "^0.6.3",
     "es6-promise": "^4.2.4",
+    "lodash.debounce": "^4.0.8",
     "vue": "^2.5.13",
     "vue-axios": "^2.0.2",
     "vue-infinite-loading": "^2.2.3",

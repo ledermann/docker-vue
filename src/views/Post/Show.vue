@@ -58,24 +58,37 @@ export default {
 
   components: {
     LayoutBasic
-
   },
 
   props: ['slug'],
 
+  beforeRouteUpdate (to, from, next) {
+    this.loadData(to.params.slug)
+    next()
+  },
+
   data () {
     return {
       isLoading: true,
+      currentSlug: '',
       post: {}
     }
   },
 
   mounted () {
-    this.$http.get('/posts/' + this.slug + '.json')
-      .then(response => {
-        this.post = response.data
-        this.isLoading = false
-      })
+    this.loadData(this.slug)
+  },
+
+  methods: {
+    loadData: function (slug) {
+      this.isLoading = true
+      this.$http.get('/posts/' + slug + '.json')
+        .then(response => {
+          this.post = response.data
+          this.currentSlug = slug
+          this.isLoading = false
+        })
+    }
   },
 
   computed: {

@@ -15,6 +15,10 @@
 
         <div id="navbarExampleTransparentExample" class="navbar-menu" :class="{'is-active': navIsActive}">
           <div class="navbar-start">
+            <div class="navbar-item">
+              <autocomplete />
+            </div>
+
           </div>
 
           <div class="navbar-end">
@@ -71,9 +75,14 @@
 
 <script>
 import Vue from 'vue'
+import Autocomplete from '@/components/Autocomplete'
 
 export default {
   name: 'BasicLayout',
+
+  components: {
+    Autocomplete
+  },
 
   data () {
     return {
