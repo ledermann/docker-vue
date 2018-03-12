@@ -32,8 +32,10 @@ export default {
   },
   methods: {
     onEnter () {
-      this.query = null
-      this.$router.push({ path: `/posts/${this.selected.slug}` })
+      if (this.selected) {
+        this.query = null
+        this.$router.push({ path: `/posts/${this.selected.slug}` })
+      }
     },
     getAsyncData: debounce(function () {
       this.data = []
