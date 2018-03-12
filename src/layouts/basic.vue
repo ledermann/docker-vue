@@ -21,7 +21,7 @@
             <div class="navbar-item">
               <div class="field is-grouped">
                 <p class="control">
-                  <a class="button is-success" href="https://github.com/ledermann/docker-vue">
+                  <a class="button is-inverted" href="https://github.com/ledermann/docker-vue">
                     <b-icon pack="fab" icon="github"></b-icon>
                     <span>Source</span>
                   </a>
