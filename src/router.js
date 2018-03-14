@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+import LoginNew from './views/Login/New'
 import PostIndex from './views/Post/Index'
 import PostShow from './views/Post/Show'
 import AuditIndex from './views/Audit/Index'
@@ -13,6 +14,12 @@ export default new Router({
       path: '/',
       name: 'posts',
       component: PostIndex
+    },
+
+    {
+      path: '/login',
+      name: 'login',
+      component: LoginNew
     },
 
     {

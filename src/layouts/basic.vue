@@ -22,6 +22,10 @@
           </div>
 
           <div class="navbar-end">
+            <div class="navbar-item" v-if="loggedIn">
+              You are logged in!
+            </div>
+
             <div class="navbar-item">
               <div class="field is-grouped">
                 <p class="control">
@@ -99,6 +103,10 @@ export default {
   computed: {
     vueVersion () {
       return Vue.version
+    },
+
+    loggedIn () {
+      return !!localStorage.token
     }
   }
 }
