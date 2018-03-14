@@ -78,12 +78,12 @@ export default {
   mounted () {
     this.$http.get('/posts/' + this.slug)
       .then(response => {
-        this.post = response.data
+        this.post = response.data.post
       })
 
     this.$http.get('/posts/' + this.slug + '/audits')
       .then(response => {
-        this.audits = response.data
+        this.audits = response.data.audits
       })
   }
 }

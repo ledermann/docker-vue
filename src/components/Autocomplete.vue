@@ -42,7 +42,7 @@ export default {
       this.isFetching = true
       this.$http.get(`/posts?q=${this.query}`)
         .then(response => {
-          this.data = response.data
+          this.data = response.data.posts
           this.isFetching = false
         })
         .catch((error) => {

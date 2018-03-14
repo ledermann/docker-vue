@@ -7,6 +7,10 @@
       <h2 class="subtitle">
         Built with Vue.js
       </h2>
+
+      <b-tag type="is-dark">
+        {{ this.totalCount }} articles
+      </b-tag>
     </div>
 
     <b-table :hoverable="true" :data="posts">
@@ -61,10 +65,11 @@ export default {
     infiniteHandler ($state) {
       // This method loads the first page, too
       this.loadNextPage().then(response => {
-        if (response.data.length > 0) {
-          this.posts.push(...response.data)
-          $state.loaded()
-        } else {
+        this.posts.push(...response.data.posts)
+        this.totalCount = response.data.meta.total_count
+        $state.loaded()
+
+        if (response.data.meta.current_page === response.data.meta.total_pages) {
           $state.complete()
         };
       })
@@ -74,6 +79,7 @@ export default {
   data () {
     return {
       currentPage: 0,
+      totalCount: 0,
       posts: []
     }
   }

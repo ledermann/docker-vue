@@ -104,7 +104,7 @@ export default {
       this.isLoading = true
       this.$http.get('/posts/' + slug)
         .then(response => {
-          this.post = response.data
+          this.post = response.data.post
           this.currentSlug = slug
           this.isLoading = false
           this.errors = []
