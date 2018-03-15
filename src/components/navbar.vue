@@ -73,11 +73,11 @@ export default {
   },
 
   methods: {
-    toggleMenu: function () {
+    toggleMenu () {
       this.IsActive = !this.IsActive
     },
 
-    logout: function () {
+    logout () {
       this.$store.commit('LOGOUT_USER')
     }
   }

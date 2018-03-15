@@ -100,7 +100,7 @@ export default {
   },
 
   methods: {
-    loadData: function (slug) {
+    loadData (slug) {
       this.isLoading = true
       this.$http.get('/posts/' + slug)
         .then(response => {
@@ -119,11 +119,11 @@ export default {
   },
 
   computed: {
-    isSuccess: function () {
+    isSuccess () {
       return (this.errors.length === 0)
     },
 
-    clips: function () {
+    clips () {
       if (this.post.clips) {
         return this.post.clips.map(clip => {
           return { urlLarge: clip.large.url, urlThumb: clip.thumbnail.url }

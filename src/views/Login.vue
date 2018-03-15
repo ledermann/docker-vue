@@ -63,7 +63,7 @@ export default {
   },
 
   methods: {
-    submit: function () {
+    submit () {
       var formData = new FormData()
       formData.append('auth[email]', this.email)
       formData.append('auth[password]', this.password)
