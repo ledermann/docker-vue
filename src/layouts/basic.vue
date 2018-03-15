@@ -1,5 +1,5 @@
 <template>
-  <div class="basic-layout">
+  <div>
     <section class="hero is-info">
       <!-- Hero head: will stick at the top -->
       <div class="hero-head">
@@ -28,6 +28,6 @@
 
 <script>
 export default {
-  name: 'BasicLayout'
+  name: 'LayoutBasic'
 }
 </script>
