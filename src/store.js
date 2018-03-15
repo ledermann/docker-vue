@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import jwtDecode from 'jwt-decode'
 
 Vue.use(Vuex)
 
 const token = localStorage.getItem('token')
 const state = {
   isLoggedIn: !!token,
-  token: token
+  token: token,
+  currentUser: token && jwtDecode(token)
 }
 
 const mutations = {
@@ -17,6 +19,7 @@ const mutations = {
 
     state.isLoggedIn = true
     state.token = payload.token
+    state.currentUser = jwtDecode(payload.token)
   },
 
   LOGOUT_USER (state) {
@@ -24,6 +27,7 @@ const mutations = {
 
     state.isLoggedIn = false
     state.token = null
+    state.currentUser = null
   }
 }
 

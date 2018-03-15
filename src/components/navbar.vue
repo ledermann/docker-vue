@@ -27,7 +27,7 @@
             <div class="navbar-link">
               <b-icon pack="fas" icon="user-circle" />
               &nbsp;
-              {{ auth.email }}
+              {{ currentUser.email }}
             </div>
             <div class="navbar-dropdown is-boxed">
               <a class="navbar-item" href="#" @click.prevent="logout">
@@ -53,7 +53,6 @@
 
 <script>
 import Autocomplete from '@/components/Autocomplete'
-import jwtDecode from 'jwt-decode'
 
 export default {
   name: 'Navbar',
@@ -69,10 +68,8 @@ export default {
   },
 
   computed: {
-    auth () {
-      if (this.$store.state.isLoggedIn) {
-        return jwtDecode(this.$store.state.token)
-      }
+    currentUser () {
+      return this.$store.state.currentUser
     },
 
     isLoggedIn () {
