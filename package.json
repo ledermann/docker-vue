@@ -24,7 +24,8 @@
     "vue-infinite-loading": "^2.2.3",
     "vue-router": "^3.0.1",
     "vue-silentbox": "^0.1.1",
-    "vue-timeago": "^3.4.4"
+    "vue-timeago": "^3.4.4",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-beta.6",

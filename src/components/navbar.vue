@@ -23,7 +23,7 @@
         </div>
 
         <div class="navbar-end">
-          <div class="navbar-item has-dropdown is-hoverable" v-if="loggedIn">
+          <div class="navbar-item has-dropdown is-hoverable" v-if="isLoggedIn">
             <div class="navbar-link">
               <b-icon pack="fas" icon="user-circle" />
               &nbsp;
@@ -54,6 +54,7 @@
 <script>
 import Autocomplete from '@/components/Autocomplete'
 import jwtDecode from 'jwt-decode'
+import store from '@/store'
 
 export default {
   name: 'Navbar',
@@ -64,21 +65,18 @@ export default {
 
   data () {
     return {
-      IsActive: false,
-      loggedIn: false
+      IsActive: false
     }
   },
 
   computed: {
-    auth: function () {
-      if (localStorage.token) {
-        return jwtDecode(localStorage.token)
-      }
-    }
-  },
+    auth () {
+      return jwtDecode(localStorage.getItem('token'))
+    },
 
-  mounted () {
-    this.loggedIn = !!localStorage.token
+    isLoggedIn () {
+      return store.state.isLoggedIn
+    }
   },
 
   methods: {
@@ -88,7 +86,7 @@ export default {
 
     logout: function () {
       localStorage.removeItem('token')
-      this.loggedIn = false
+      store.commit('LOGOUT_USER')
     }
   }
 }
