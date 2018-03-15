@@ -4,7 +4,7 @@ import jwtDecode from 'jwt-decode'
 
 Vue.use(Vuex)
 
-const storedToken = localStorage.getItem('token')
+const storedToken = localStorage.getItem('user_token')
 const state = {
   isLoggedIn: !!storedToken,
   token: storedToken,
@@ -34,7 +34,7 @@ const actions = {
     return Vue.axios.post('/user_token', formData)
       .then(response => {
         if (auth.rememberMe) {
-          localStorage.setItem('token', response.data.jwt)
+          localStorage.setItem('user_token', response.data.jwt)
         }
 
         context.commit('LOGIN_USER', response.data.jwt)
@@ -42,7 +42,7 @@ const actions = {
   },
 
   logout (context) {
-    localStorage.removeItem('token')
+    localStorage.removeItem('user_token')
 
     context.commit('LOGOUT_USER')
   }
