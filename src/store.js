@@ -4,11 +4,11 @@ import jwtDecode from 'jwt-decode'
 
 Vue.use(Vuex)
 
-const token = localStorage.getItem('token')
+const storedToken = localStorage.getItem('token')
 const state = {
-  isLoggedIn: !!token,
-  token: token,
-  currentUser: token && jwtDecode(token)
+  isLoggedIn: !!storedToken,
+  token: storedToken,
+  currentUser: storedToken && jwtDecode(storedToken)
 }
 
 const mutations = {
