@@ -78,7 +78,7 @@ export default {
     },
 
     logout () {
-      this.$store.commit('LOGOUT_USER')
+      this.$store.dispatch('logout')
     }
   }
 }

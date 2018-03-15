@@ -70,7 +70,7 @@ export default {
 
       this.$http.post('/user_token', formData)
         .then(response => {
-          this.$store.commit('LOGIN_USER', {
+          this.$store.dispatch('login', {
             token: response.data.jwt,
             rememberMe: this.rememberMe
           })
