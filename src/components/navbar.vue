@@ -17,15 +17,26 @@
           <div class="navbar-item">
             <autocomplete />
           </div>
+            <a class="navbar-item" href="https://github.com/ledermann/docker-vue" title="Source">
+              <b-icon pack="fab" icon="github" />
+            </a>
         </div>
 
         <div class="navbar-end">
-          <div class="navbar-item" v-if="loggedIn">
-            <a class="button" @click="logout">
-              <b-icon pack="fas" icon="sign-out-alt" />
-              <span>Logout</span>
-            </a>
+          <div class="navbar-item has-dropdown is-hoverable" v-if="loggedIn">
+            <div class="navbar-link">
+              <b-icon pack="fas" icon="user-circle" />
+              &nbsp;
+              {{ auth.email }}
+            </div>
+            <div class="navbar-dropdown is-boxed">
+              <a class="navbar-item" href="#" @click.prevent="logout">
+                <b-icon pack="fas" icon="sign-out-alt" />
+                Logout
+              </a>
+            </div>
           </div>
+
           <div v-else>
             <div class="navbar-item">
               <router-link to="/login" exact class="button">
@@ -33,13 +44,6 @@
                 <span>Login</span>
               </router-link>
             </div>
-          </div>
-
-          <div class="navbar-item">
-            <a class="button" href="https://github.com/ledermann/docker-vue">
-              <b-icon pack="fab" icon="github" />
-              <span>Source</span>
-            </a>
           </div>
         </div>
       </div>
@@ -49,6 +53,7 @@
 
 <script>
 import Autocomplete from '@/components/Autocomplete'
+import jwtDecode from 'jwt-decode'
 
 export default {
   name: 'Navbar',
@@ -61,6 +66,14 @@ export default {
     return {
       IsActive: false,
       loggedIn: false
+    }
+  },
+
+  computed: {
+    auth: function () {
+      if (localStorage.token) {
+        return jwtDecode(localStorage.token)
+      }
     }
   },
 
