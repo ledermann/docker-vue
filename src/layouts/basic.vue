@@ -4,7 +4,7 @@
       <div class="container">
         <div class="navbar-brand">
           <router-link to="/" exact class="navbar-item">
-            <b-icon pack="fas" icon="home"></b-icon>
+            <b-icon pack="fas" icon="home" />
           </router-link>
           <div class="navbar-burger burger" @click="toggleMenu" :class="{'is-active': navIsActive}" data-target="navbarExampleTransparentExample">
             <span></span>
@@ -18,23 +18,29 @@
             <div class="navbar-item">
               <autocomplete />
             </div>
-
           </div>
 
           <div class="navbar-end">
             <div class="navbar-item" v-if="loggedIn">
-              You are logged in!
+              <a class="button" @click="logout">
+                <b-icon pack="fas" icon="sign-out-alt" />
+                <span>Logout</span>
+              </a>
+            </div>
+            <div v-else>
+              <div class="navbar-item">
+                <router-link to="/login" exact class="button">
+                  <b-icon pack="fas" icon="sign-in-alt" />
+                  <span>Login</span>
+                </router-link>
+              </div>
             </div>
 
             <div class="navbar-item">
-              <div class="field is-grouped">
-                <p class="control">
-                  <a class="button is-inverted" href="https://github.com/ledermann/docker-vue">
-                    <b-icon pack="fab" icon="github"></b-icon>
-                    <span>Source</span>
-                  </a>
-                </p>
-              </div>
+              <a class="button" href="https://github.com/ledermann/docker-vue">
+                <b-icon pack="fab" icon="github" />
+                <span>Source</span>
+              </a>
             </div>
           </div>
         </div>
@@ -90,23 +96,29 @@ export default {
 
   data () {
     return {
-      navIsActive: false
+      navIsActive: false,
+      loggedIn: false
     }
+  },
+
+  mounted () {
+    this.loggedIn = !!localStorage.token
   },
 
   methods: {
     toggleMenu: function () {
       this.navIsActive = !this.navIsActive
+    },
+
+    logout: function () {
+      localStorage.removeItem('token')
+      this.loggedIn = false
     }
   },
 
   computed: {
     vueVersion () {
       return Vue.version
-    },
-
-    loggedIn () {
-      return !!localStorage.token
     }
   }
 }

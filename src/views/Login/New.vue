@@ -6,24 +6,30 @@
       </h1>
     </div>
 
-    <form>
-      <section>
-        <b-field label="Email">
-          <b-input type="email"
-                   v-model="email">
-          </b-input>
-        </b-field>
+    <div class="content">
+      <div class="container">
+        <div class="column is-4 is-offset-4">
+          <div class="box">
+            <form>
+              <b-field label="Your Email">
+                <b-input type="email" size="is-large"
+                         v-model="email" autofocus>
+                </b-input>
+              </b-field>
 
-        <b-field label="Password">
-          <b-input type="password"
-                   v-model="password"
-                   password-reveal>
-          </b-input>
-        </b-field>
+              <b-field label="Your password">
+                <b-input type="password" size="is-large"
+                         v-model="password">
+                </b-input>
+              </b-field>
 
-        <button class="button is-primary" v-on:click.prevent="submit">Login</button>
-      </section>
-    </form>
+              <hr>
+              <button class="button is-info is-large is-fullwidth" v-on:click.prevent="submit">Login</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </layout-basic>
 </template>
 
@@ -56,9 +62,6 @@ export default {
           this.$router.push({ path: '/' })
         })
     }
-  },
-
-  computed: {
   }
 }
 </script>
