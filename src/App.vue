@@ -5,15 +5,19 @@
     <keep-alive include="PostIndex">
       <router-view></router-view>
     </keep-alive>
+
+    <foot />
   </div>
 </template>
 
 <script>
 import Navbar from '@/components/navbar'
+import Foot from '@/components/foot'
 
 export default {
   components: {
-    Navbar
+    Navbar,
+    Foot
   }
 }
 </script>
