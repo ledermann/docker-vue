@@ -23,7 +23,12 @@
                 </b-input>
               </b-field>
 
-              <hr>
+              <b-field>
+                <b-checkbox v-model="rememberMe">
+                Remember me
+                </b-checkbox>
+              </b-field>
+
               <button class="button is-info is-large is-fullwidth" v-on:click.prevent="submit">Login</button>
             </form>
           </div>
@@ -52,7 +57,8 @@ export default {
   data () {
     return {
       email: '',
-      password: ''
+      password: '',
+      rememberMe: true
     }
   },
 
@@ -64,7 +70,10 @@ export default {
 
       this.$http.post('/user_token', formData)
         .then(response => {
-          this.$store.commit('LOGIN_USER', response.data.jwt)
+          this.$store.commit('LOGIN_USER', {
+            token: response.data.jwt,
+            rememberMe: this.rememberMe
+          })
           this.$router.push({ path: '/' })
         })
     }

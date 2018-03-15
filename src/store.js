@@ -10,11 +10,13 @@ const state = {
 }
 
 const mutations = {
-  LOGIN_USER (state, token) {
-    localStorage.setItem('token', token)
+  LOGIN_USER (state, payload) {
+    if (payload.rememberMe) {
+      localStorage.setItem('token', payload.token)
+    }
 
     state.isLoggedIn = true
-    state.token = token
+    state.token = payload.token
   },
 
   LOGOUT_USER (state) {
