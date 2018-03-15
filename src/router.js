@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import LoginNew from './views/Login/New'
-import PostIndex from './views/Post/Index'
-import PostShow from './views/Post/Show'
-import AuditIndex from './views/Audit/Index'
+import Login from './views/Login'
+import Posts from './views/Posts'
+import Post from './views/Post'
+import Audits from './views/Audits'
 
 Vue.use(Router)
 
@@ -13,27 +13,27 @@ export default new Router({
     {
       path: '/',
       name: 'posts',
-      component: PostIndex
+      component: Posts
     },
 
     {
       path: '/login',
       name: 'login',
-      component: LoginNew
+      component: Login
     },
 
     {
       path: '/posts/:slug',
       name: 'post',
       props: true,
-      component: PostShow
+      component: Post
     },
 
     {
       path: '/posts/:slug/audits',
       name: 'audits',
       props: true,
-      component: AuditIndex
+      component: Audits
     }
 
   ],

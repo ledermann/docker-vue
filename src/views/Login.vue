@@ -37,7 +37,7 @@
 import LayoutBasic from '@/layouts/basic'
 
 export default {
-  name: 'LoginNew',
+  name: 'Login',
 
   components: {
     LayoutBasic

@@ -73,7 +73,7 @@
 import LayoutBasic from '@/layouts/basic'
 
 export default {
-  name: 'PostShow',
+  name: 'Post',
 
   components: {
     LayoutBasic

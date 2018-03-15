@@ -54,7 +54,7 @@
 import LayoutBasic from '@/layouts/basic'
 
 export default {
-  name: 'AuditIndex',
+  name: 'Audits',
 
   components: {
     LayoutBasic

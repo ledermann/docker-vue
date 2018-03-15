@@ -2,7 +2,7 @@
   <div id="app">
     <navbar />
 
-    <keep-alive include="PostIndex">
+    <keep-alive include="Posts">
       <router-view></router-view>
     </keep-alive>
 
