@@ -53,6 +53,7 @@
 
 <script>
 import Autocomplete from '@/components/Autocomplete'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Navbar',
@@ -68,13 +69,7 @@ export default {
   },
 
   computed: {
-    currentUser () {
-      return this.$store.state.currentUser
-    },
-
-    isLoggedIn () {
-      return this.$store.state.isLoggedIn
-    }
+    ...mapState(['isLoggedIn', 'currentUser'])
   },
 
   methods: {
