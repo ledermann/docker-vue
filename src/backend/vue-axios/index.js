@@ -8,8 +8,8 @@ axios.defaults.headers.post['Accept'] = 'application/json'
 
 axios.interceptors.request.use(function (config) {
   // Auth auth token before request is sent
-  if (store.state.isLoggedIn) {
-    config.headers.common['Authorization'] = 'Bearer ' + store.state.token
+  if (store.getters.isLoggedIn) {
+    config.headers.common['Authorization'] = 'Bearer ' + store.getters.token
   }
   return config
 }, function (error) {

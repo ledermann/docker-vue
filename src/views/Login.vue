@@ -49,7 +49,7 @@ export default {
   },
 
   beforeCreate () {
-    if (this.$store.state.isLoggedIn) {
+    if (this.$store.getters.isLoggedIn) {
       this.$router.push('/')
     }
   },
