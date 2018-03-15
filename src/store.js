@@ -3,17 +3,25 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+const token = localStorage.getItem('token')
 const state = {
-  isLoggedIn: !!localStorage.getItem('token')
+  isLoggedIn: !!token,
+  token: token
 }
 
 const mutations = {
-  LOGIN_USER (state) {
+  LOGIN_USER (state, token) {
+    localStorage.setItem('token', token)
+
     state.isLoggedIn = true
+    state.token = token
   },
 
   LOGOUT_USER (state) {
+    localStorage.removeItem('token')
+
     state.isLoggedIn = false
+    state.token = null
   }
 }
 

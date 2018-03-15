@@ -64,8 +64,7 @@ export default {
 
       this.$http.post('/user_token', formData)
         .then(response => {
-          localStorage.setItem('token', response.data.jwt)
-          this.$store.commit('LOGIN_USER')
+          this.$store.commit('LOGIN_USER', response.data.jwt)
           this.$router.push({ path: '/' })
         })
     }

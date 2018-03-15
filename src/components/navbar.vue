@@ -70,7 +70,9 @@ export default {
 
   computed: {
     auth () {
-      return jwtDecode(localStorage.getItem('token'))
+      if (this.$store.state.isLoggedIn) {
+        return jwtDecode(this.$store.state.token)
+      }
     },
 
     isLoggedIn () {
@@ -84,7 +86,6 @@ export default {
     },
 
     logout: function () {
-      localStorage.removeItem('token')
       this.$store.commit('LOGOUT_USER')
     }
   }
