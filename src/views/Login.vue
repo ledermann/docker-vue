@@ -35,7 +35,6 @@
 
 <script>
 import LayoutBasic from '@/layouts/basic'
-import store from '@/store'
 
 export default {
   name: 'Login',
@@ -45,7 +44,7 @@ export default {
   },
 
   beforeCreate () {
-    if (store.state.isLoggedIn) {
+    if (this.$store.state.isLoggedIn) {
       this.$router.push('/')
     }
   },
@@ -66,7 +65,7 @@ export default {
       this.$http.post('/user_token', formData)
         .then(response => {
           localStorage.setItem('token', response.data.jwt)
-          store.commit('LOGIN_USER')
+          this.$store.commit('LOGIN_USER')
           this.$router.push({ path: '/' })
         })
     }

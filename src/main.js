@@ -12,6 +12,7 @@ import router from './router'
 import VueSilentbox from 'vue-silentbox'
 import VueTimeago from 'vue-timeago'
 import './backend/vue-axios'
+import store from './store'
 
 Vue.use(Buefy, {
   defaultIconPack: 'fas'
@@ -30,5 +31,6 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')

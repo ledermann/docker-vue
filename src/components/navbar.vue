@@ -54,7 +54,6 @@
 <script>
 import Autocomplete from '@/components/Autocomplete'
 import jwtDecode from 'jwt-decode'
-import store from '@/store'
 
 export default {
   name: 'Navbar',
@@ -75,7 +74,7 @@ export default {
     },
 
     isLoggedIn () {
-      return store.state.isLoggedIn
+      return this.$store.state.isLoggedIn
     }
   },
 
@@ -86,7 +85,7 @@ export default {
 
     logout: function () {
       localStorage.removeItem('token')
-      store.commit('LOGOUT_USER')
+      this.$store.commit('LOGOUT_USER')
     }
   }
 }
