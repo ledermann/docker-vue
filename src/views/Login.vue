@@ -64,18 +64,12 @@ export default {
 
   methods: {
     submit () {
-      var formData = new FormData()
-      formData.append('auth[email]', this.email)
-      formData.append('auth[password]', this.password)
-
-      this.$http.post('/user_token', formData)
-        .then(response => {
-          this.$store.dispatch('login', {
-            token: response.data.jwt,
-            rememberMe: this.rememberMe
-          })
-          this.$router.push({ path: '/' })
-        })
+      this.$store.dispatch('login', {
+        email: this.email,
+        password: this.password,
+        rememberMe: this.rememberMe
+      })
+      this.$router.push({ path: '/' })
     }
   }
 }

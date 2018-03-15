@@ -12,10 +12,10 @@ const state = {
 }
 
 const mutations = {
-  LOGIN_USER (state, payload) {
+  LOGIN_USER (state, token) {
     state.isLoggedIn = true
-    state.token = payload.token
-    state.currentUser = jwtDecode(payload.token)
+    state.token = token
+    state.currentUser = jwtDecode(token)
   },
 
   LOGOUT_USER (state) {
@@ -26,12 +26,19 @@ const mutations = {
 }
 
 const actions = {
-  login (context, payload) {
-    if (payload.rememberMe) {
-      localStorage.setItem('token', payload.token)
-    }
+  login (context, auth) {
+    var formData = new FormData()
+    formData.append('auth[email]', auth.email)
+    formData.append('auth[password]', auth.password)
 
-    context.commit('LOGIN_USER', payload)
+    return Vue.axios.post('/user_token', formData)
+      .then(response => {
+        if (auth.rememberMe) {
+          localStorage.setItem('token', response.data.jwt)
+        }
+
+        context.commit('LOGIN_USER', response.data.jwt)
+      })
   },
 
   logout (context) {
