@@ -31,8 +31,8 @@
 </template>
 
 <script>
-import Navbar from '@/components/navbar'
-import Foot from '@/components/foot'
+import Navbar from '@/components/Navbar'
+import Foot from '@/components/Foot'
 
 export default {
   name: 'LayoutBasic',

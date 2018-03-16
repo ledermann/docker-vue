@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import LayoutBasic from '@/layouts/basic'
+import LayoutBasic from '@/layouts/LayoutBasic'
 
 export default {
   name: 'Audits',

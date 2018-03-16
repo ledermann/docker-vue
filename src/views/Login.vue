@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import LayoutBasic from '@/layouts/basic'
+import LayoutBasic from '@/layouts/LayoutBasic'
 import { mapGetters } from 'vuex'
 
 export default {
