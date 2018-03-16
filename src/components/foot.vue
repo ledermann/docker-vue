@@ -2,7 +2,18 @@
   <footer class="footer">
     <div class="container">
       <div class="content has-text-centered">
-        <p>Built with <strong>Vue.js</strong> v{{ vueVersion }}</p>
+        <p>
+          Built
+
+          <strong>
+            <b-tooltip :label="buildTime" position="is-top" type="is-dark">
+              <timeago :since="buildTime" :title="null" :autoUpdate="5"></timeago>
+            </b-tooltip>
+          </strong>
+
+          with
+          <strong>Vue.js</strong> v{{ vueVersion }}
+        </p>
       </div>
     </div>
   </footer>
@@ -10,6 +21,7 @@
 
 <script>
 import Vue from 'vue'
+import timestamp from '@/timestamp.json'
 
 export default {
   name: 'Foot',
@@ -17,6 +29,10 @@ export default {
   computed: {
     vueVersion () {
       return Vue.version
+    },
+
+    buildTime () {
+      return timestamp.date
     }
   }
 }
