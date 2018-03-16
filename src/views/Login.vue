@@ -10,6 +10,10 @@
       <div class="container">
         <div class="column is-4 is-offset-4">
           <div class="box">
+            <div v-if="loginError" class="notification is-danger" >
+              Invalid email or password!
+            </div>
+
             <form>
               <b-field label="Your Email">
                 <b-input type="email" size="is-large"
@@ -40,6 +44,7 @@
 
 <script>
 import LayoutBasic from '@/layouts/basic'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Login',
@@ -48,9 +53,14 @@ export default {
     LayoutBasic
   },
 
-  beforeCreate () {
-    if (this.$store.getters.isLoggedIn) {
+  beforeMount () {
+    if (this.isLoggedIn) {
       this.$router.push('/')
+
+      this.$toast.open({
+        message: 'You are already logged in...',
+        type: 'is-warning'
+      })
     }
   },
 
@@ -60,6 +70,10 @@ export default {
       password: '',
       rememberMe: true
     }
+  },
+
+  computed: {
+    ...mapGetters(['isLoggedIn', 'loginError'])
   },
 
   methods: {

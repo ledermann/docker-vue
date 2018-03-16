@@ -5,7 +5,8 @@ import jwtDecode from 'jwt-decode'
 Vue.use(Vuex)
 
 const state = {
-  token: localStorage.getItem('user_token')
+  token: localStorage.getItem('user_token'),
+  error: null
 }
 
 const getters = {
@@ -17,18 +18,29 @@ const getters = {
     return !!state.token
   },
 
+  loginError: state => {
+    return state.error
+  },
+
   currentUser: state => {
     return state.token && jwtDecode(state.token)
   }
 }
 
 const mutations = {
-  LOGIN_USER (state, token) {
+  LOGIN_SUCCESS (state, token) {
     state.token = token
+    state.error = null
   },
 
-  LOGOUT_USER (state) {
+  LOGIN_FAILURE (state, error) {
     state.token = null
+    state.error = error
+  },
+
+  LOGOUT (state) {
+    state.token = null
+    state.error = null
   }
 }
 
@@ -43,15 +55,16 @@ const actions = {
         if (auth.rememberMe) {
           localStorage.setItem('user_token', response.data.jwt)
         }
-
-        context.commit('LOGIN_USER', response.data.jwt)
+        context.commit('LOGIN_SUCCESS', response.data.jwt)
+      }).catch((error) => {
+        context.commit('LOGIN_FAILURE', error)
+        throw error
       })
   },
 
   logout (context) {
     localStorage.removeItem('user_token')
-
-    context.commit('LOGOUT_USER')
+    context.commit('LOGOUT')
   }
 }
 
