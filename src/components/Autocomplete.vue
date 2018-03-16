@@ -37,7 +37,7 @@ export default {
         this.$router.push({ path: `/posts/${this.selected.slug}` })
       }
     },
-    getAsyncData: debounce(function () {
+    getAsyncData: debounce(() => {
       this.data = []
       this.isFetching = true
       this.$http.get(`/posts?q=${this.query}`)

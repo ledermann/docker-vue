@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Login from './views/Login'
-import Posts from './views/Posts'
-import Post from './views/Post'
-import Audits from './views/Audits'
+import Login from '@/views/Login'
+import Posts from '@/views/Posts'
+import Post from '@/views/Post'
+import Audits from '@/views/Audits'
 
 Vue.use(Router)
 

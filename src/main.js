@@ -1,5 +1,4 @@
 import 'es6-promise/auto'
-
 import Vue from 'vue'
 import Buefy from 'buefy'
 import 'buefy/lib/buefy.css'
@@ -7,12 +6,13 @@ import '@fortawesome/fontawesome-free-webfonts/css/fontawesome.css'
 import '@fortawesome/fontawesome-free-webfonts/css/fa-regular.css'
 import '@fortawesome/fontawesome-free-webfonts/css/fa-solid.css'
 import '@fortawesome/fontawesome-free-webfonts/css/fa-brands.css'
-import App from './App.vue'
-import router from './router'
 import VueSilentbox from 'vue-silentbox'
 import VueTimeago from 'vue-timeago'
-import './backend/vue-axios'
-import store from './store'
+
+import App from '@/App.vue'
+import router from '@/router'
+import store from '@/store'
+import '@/api'
 
 Vue.use(Buefy, {
   defaultIconPack: 'fas'
@@ -20,7 +20,7 @@ Vue.use(Buefy, {
 Vue.use(VueSilentbox)
 
 Vue.use(VueTimeago, {
-  name: 'timeago', // component name, `timeago` by default
+  name: 'timeago',
   locale: 'en-US',
   locales: {
     'en-US': require('vue-timeago/locales/en-US.json')
