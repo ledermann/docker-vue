@@ -53,7 +53,7 @@
 
 <script>
 import Autocomplete from '@/components/Autocomplete'
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Navbar',
@@ -77,7 +77,13 @@ export default {
       this.IsActive = !this.IsActive
     },
 
-    ...mapActions(['logout'])
+    logout () {
+      this.$store.dispatch('logout')
+
+      this.$toast.open({
+        message: 'You are logged out now...'
+      })
+    }
   }
 }
 </script>

@@ -68,8 +68,19 @@ export default {
         email: this.email,
         password: this.password,
         rememberMe: this.rememberMe
+      }).then(() => {
+        this.$router.push({ path: '/' })
+
+        this.$toast.open({
+          message: 'Welcome, you have successfuly logged in!',
+          type: 'is-success'
+        })
+      }).catch(() => {
+        this.$toast.open({
+          message: 'Login failed!',
+          type: 'is-danger'
+        })
       })
-      this.$router.push({ path: '/' })
     }
   }
 }
