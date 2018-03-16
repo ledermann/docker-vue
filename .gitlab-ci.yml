@@ -3,7 +3,7 @@ test:
     - docker build -t vue-test .
 
   script:
-    - docker run -it --rm vue-test yarn test
+    - docker run --rm vue-test yarn test
 
   after_script:
     - docker rmi vue-test
