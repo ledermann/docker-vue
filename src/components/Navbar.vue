@@ -20,6 +20,10 @@
             <a class="navbar-item" href="https://github.com/ledermann/docker-vue" title="Source">
               <b-icon pack="fab" icon="github" />
             </a>
+
+            <a class="navbar-item" @click.prevent="openAbout">
+              About the backend
+            </a>
         </div>
 
         <div class="navbar-end">
@@ -53,6 +57,7 @@
 
 <script>
 import Search from '@/components/Search'
+import About from '@/components/About'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -75,6 +80,13 @@ export default {
   methods: {
     toggleMenu () {
       this.IsActive = !this.IsActive
+    },
+
+    openAbout () {
+      this.$modal.open({
+        parent: this,
+        component: About
+      })
     },
 
     logout () {
