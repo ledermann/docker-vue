@@ -1,5 +1,7 @@
 <template>
   <div>
+    <navbar />
+
     <section class="hero is-info">
       <!-- Hero head: will stick at the top -->
       <div class="hero-head">
@@ -23,11 +25,21 @@
         <slot/>
       </div>
     </section>
+
+    <foot />
   </div>
 </template>
 
 <script>
+import Navbar from '@/components/navbar'
+import Foot from '@/components/foot'
+
 export default {
-  name: 'LayoutBasic'
+  name: 'LayoutBasic',
+
+  components: {
+    Navbar,
+    Foot
+  }
 }
 </script>
