@@ -15,7 +15,7 @@
       <div id="navbarExampleTransparentExample" class="navbar-menu" :class="{'is-active': IsActive}">
         <div class="navbar-start">
           <div class="navbar-item">
-            <autocomplete />
+            <search />
           </div>
             <a class="navbar-item" href="https://github.com/ledermann/docker-vue" title="Source">
               <b-icon pack="fab" icon="github" />
@@ -52,14 +52,14 @@
 </template>
 
 <script>
-import Autocomplete from '@/components/Autocomplete'
+import Search from '@/components/Search'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'Navbar',
 
   components: {
-    Autocomplete
+    Search
   },
 
   data () {
