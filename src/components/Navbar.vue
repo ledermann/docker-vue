@@ -43,10 +43,10 @@
 
           <div v-else>
             <div class="navbar-item">
-              <router-link to="/login" exact class="button">
+              <a class="button" @click.prevent="login">
                 <b-icon pack="fas" icon="sign-in-alt" />
                 <span>Login</span>
-              </router-link>
+              </a>
             </div>
           </div>
         </div>
@@ -58,6 +58,7 @@
 <script>
 import Search from '@/components/Search'
 import About from '@/components/About'
+import Login from '@/components/Login'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -86,6 +87,13 @@ export default {
       this.$modal.open({
         parent: this,
         component: About
+      })
+    },
+
+    login () {
+      this.$modal.open({
+        parent: this,
+        component: Login
       })
     },
 
