@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import Posts from '@/views/Posts'
 import Post from '@/views/Post'
 import Audits from '@/views/Audits'
+import About from '@/views/About'
 
 Vue.use(Router)
 
@@ -13,6 +14,12 @@ export default new Router({
       path: '/',
       name: 'posts',
       component: Posts
+    },
+
+    {
+      path: '/about',
+      name: 'about',
+      component: About
     },
 
     {

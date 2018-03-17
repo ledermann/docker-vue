@@ -21,9 +21,9 @@
               <b-icon pack="fab" icon="github" />
             </a>
 
-            <a class="navbar-item" @click.prevent="openAbout">
-              About the backend
-            </a>
+            <router-link to="/about" exact class="navbar-item">
+              About
+            </router-link>
         </div>
 
         <div class="navbar-end">
@@ -57,7 +57,6 @@
 
 <script>
 import Search from '@/components/Search'
-import About from '@/components/About'
 import Login from '@/components/Login'
 import { mapGetters } from 'vuex'
 
@@ -81,13 +80,6 @@ export default {
   methods: {
     toggleMenu () {
       this.IsActive = !this.IsActive
-    },
-
-    openAbout () {
-      this.$modal.open({
-        parent: this,
-        component: About
-      })
     },
 
     login () {

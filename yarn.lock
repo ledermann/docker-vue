@@ -1319,6 +1319,10 @@ brorand@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/brorand/-/brorand-1.1.0.tgz#12c25efe40a45e3c323eb8675a0a0ce57b22371f"
 
+browser-or-node@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/browser-or-node/-/browser-or-node-1.0.2.tgz#d2053e61e7e774aa983fcab76b4ebc2cf6504a72"
+
 browser-process-hrtime@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/browser-process-hrtime/-/browser-process-hrtime-0.1.2.tgz#425d68a58d3447f02a04aa894187fce8af8b7b8e"
@@ -3285,6 +3289,12 @@ glob@^6.0.4:
     minimatch "2 || 3"
     once "^1.3.0"
     path-is-absolute "^1.0.0"
+
+global-package-version@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/global-package-version/-/global-package-version-1.1.0.tgz#330ad34072978739fdb0f07adefa3e83668ba287"
+  dependencies:
+    browser-or-node "^1.0.2"
 
 globals@^11.0.1, globals@^11.1.0:
   version "11.3.0"

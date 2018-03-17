@@ -10,9 +10,6 @@
               <timeago :since="buildTime" :title="null" :autoUpdate="5"></timeago>
             </b-tooltip>
           </strong>
-
-          with
-          <strong>Vue.js</strong> v{{ vueVersion }}
         </p>
       </div>
     </div>
@@ -20,17 +17,12 @@
 </template>
 
 <script>
-import Vue from 'vue'
 import timestamp from '@/timestamp.json'
 
 export default {
   name: 'Foot',
 
   computed: {
-    vueVersion () {
-      return Vue.version
-    },
-
     buildTime () {
       return timestamp.date
     }
