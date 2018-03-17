@@ -1,4 +1,4 @@
-FROM node:8.9-alpine
+FROM node:8-alpine
 
 # Install `serve` to run the application.
 RUN yarn global add serve
