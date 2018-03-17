@@ -4,8 +4,8 @@
       <p class="modal-card-title">Login</p>
     </header>
 
-    <section class="modal-card-body">
-      <form>
+    <form @submit.prevent="submit">
+      <section class="modal-card-body">
         <b-field label="Your Email">
           <b-input type="email" size="is-large" v-model="email" autofocus @keyup.native="onKey" />
         </b-field>
@@ -17,19 +17,19 @@
         <b-field>
           <b-checkbox v-model="rememberMe">Remember me</b-checkbox>
         </b-field>
-      </form>
-    </section>
+      </section>
 
-    <footer class="modal-card-foot">
-      <div>
-        <button class="button is-primary" @click="submit">Login</button>
-        <button class="button" @click="cancel">Cancel</button>
-      </div>
+      <footer class="modal-card-foot">
+        <div>
+          <input type="submit" value="Login" class="button is-primary" />
+          <button class="button" @click="cancel">Cancel</button>
+        </div>
 
-      <div v-if="failed" class="tag is-danger">
-        Invalid email or password!
-      </div>
-    </footer>
+        <div v-if="failed" class="tag is-danger">
+          Invalid email or password!
+        </div>
+      </footer>
+    </form>
   </div>
 </template>
 
