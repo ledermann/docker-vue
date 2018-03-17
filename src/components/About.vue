@@ -1,14 +1,10 @@
 <template>
-  <div class="card">
-    <header class="card-header">
-      <p class="card-header-title is-centered">
-        About the backend
-      </p>
-    </header>
-
-    <div class="card-content">
-      <div class="content">
-        <table>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">About the backend</p>
+      </header>
+      <section class="modal-card-body">
+        <table class="table is-fullwidth">
           <tr>
             <th>Version</th>
             <td>{{ versions.version }}</td>
@@ -53,12 +49,9 @@
             <th>Redis</th>
             <td>{{ versions.redis }}</td>
           </tr>
-
         </table>
-      </div>
+      </section>
     </div>
-  </div>
-
 </template>
 
 <script>
