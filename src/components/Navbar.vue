@@ -27,6 +27,11 @@
         </div>
 
         <div class="navbar-end">
+          <router-link to="/posts/new" exact class="navbar-item">
+            <b-icon pack="fas" icon="plus" />
+            &nbsp; Neu
+          </router-link>
+
           <div class="navbar-item has-dropdown is-hoverable" v-if="isLoggedIn">
             <div class="navbar-link">
               <b-icon pack="fas" icon="user-circle" />

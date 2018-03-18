@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 import Posts from '@/views/Posts'
 import Post from '@/views/Post'
+import NewPost from '@/views/NewPost'
 import Audits from '@/views/Audits'
 import About from '@/views/About'
 
@@ -20,6 +21,12 @@ export default new Router({
       path: '/about',
       name: 'about',
       component: About
+    },
+
+    {
+      path: '/posts/new',
+      name: 'new',
+      component: NewPost
     },
 
     {
