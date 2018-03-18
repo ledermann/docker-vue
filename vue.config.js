@@ -14,7 +14,9 @@ module.exports = {
       .tap(options =>
         merge(options, {
           // Important fix to allow Docker builds
-          path: '.postcssrc'
+          config: {
+            path: '.postcssrc'
+          }
         })
       )
   }
