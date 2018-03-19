@@ -1,11 +1,12 @@
-const merge = require('webpack-merge')
-
-// Save current time to a git-ignored file.
+// Save build time to a git-ignored file.
 // Will be used to diplay build time in application footer
 const fs = require('fs')
-const json = JSON.stringify({ date: new Date() })
-fs.writeFile('src/timestamp.json', json, () => {})
+const json = JSON.stringify({ timestamp: new Date() })
+fs.writeFile('src/build-time.json', json, () => {})
 
+// Add path for postcss-loader
+// Otherwise Docker build will fail
+const merge = require('webpack-merge')
 module.exports = {
   chainWebpack: config => {
     config.module
@@ -13,7 +14,6 @@ module.exports = {
       .use('postcss-loader')
       .tap(options =>
         merge(options, {
-          // Important fix to allow Docker builds
           config: {
             path: '.postcssrc'
           }
