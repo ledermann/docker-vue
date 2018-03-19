@@ -8,13 +8,13 @@
       </div>
 
       <form @submit.prevent="submit">
-        <b-field label="Title" :type="types.title" :message="messages.title">
+        <b-field label="Title" :type="fieldTypes.title" :message="fieldMessages.title">
           <b-input type="text" v-model="post.title" autofocus @keyup.native="keyup('title')"/>
         </b-field>
 
         <b-tabs :animated="false">
           <b-tab-item label="Content" active >
-            <b-field :type="types.content" :message="messages.content">
+            <b-field :type="fieldTypes.content" :message="fieldMessages.content">
               <b-input type="textarea" v-model="post.content" @keyup.native="keyup('content')" />
             </b-field>
           </b-tab-item>
@@ -24,7 +24,7 @@
           </b-tab-item>
 
           <b-tab-item label="Copyright">
-            <b-field :type="types.copyright" :message="messages.copyright">
+            <b-field :type="fieldTypes.copyright" :message="fieldMessages.copyright">
               <b-input type="textarea" v-model="post.copyright" @keyup.native="keyup('copyright')" />
             </b-field>
           </b-tab-item>
@@ -50,12 +50,16 @@ export default {
   data () {
     return {
       errors: {},
-      post: {}
+      post: {
+        title: '',
+        content: '',
+        copyright: ''
+      }
     }
   },
 
   computed: {
-    types () {
+    fieldTypes () {
       return {
         title: this.errors.title ? 'is-danger' : '',
         content: this.errors.content ? 'is-danger' : '',
@@ -63,7 +67,7 @@ export default {
       }
     },
 
-    messages () {
+    fieldMessages () {
       return {
         title: this.errors.title,
         content: this.errors.content,
@@ -78,16 +82,13 @@ export default {
     },
 
     submit () {
-      console.log(this.post)
       const formData = objectToFormData(this.post, null, 'post')
 
       this.$http.post('/posts', formData)
         .then(response => {
-          this.post = {}
-          this.errors = {}
           this.$router.push({ path: `/posts/${response.data.post.slug}` })
         }).catch(error => {
-          this.errors = error.response.data.errors || {}
+          this.errors = error.response.data.errors
         })
     }
   }
