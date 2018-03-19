@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import debounce from 'lodash/debounce'
+import debounce from 'debounce'
 
 export default {
   data () {
