@@ -3,7 +3,10 @@ import VueAxios from 'vue-axios'
 import axios from 'axios'
 import store from '@/store'
 
-axios.defaults.baseURL = process.env.API_URL || 'https://docker-rails.georg-ledermann.de/api/v1'
+axios.defaults.baseURL =
+  process.env.API_URL || process.env.NODE_ENV === 'production'
+    ? 'https://docker-rails.georg-ledermann.de/api/v1'
+    : 'https://docker-rails.dev/api/v1'
 
 axios.interceptors.request.use((config) => {
   if (store.getters.isLoggedIn) {
