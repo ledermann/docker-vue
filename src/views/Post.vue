@@ -25,11 +25,22 @@
       <b-loading :active="isLoading"></b-loading>
 
       <div class="content">
-        <p>
-          <b-tag type="is-dark" v-if="post.updated_at">
-            <timeago :since="post.updated_at"></timeago>
-          </b-tag>
-        </p>
+        <div class="columns">
+          <div class="column">
+             <b-tag type="is-dark" v-if="post.updated_at">
+                 <timeago :since="post.updated_at"></timeago>
+               </b-tag>
+          </div>
+
+          <div class="column has-text-right">
+            <router-link v-if="currentUser && currentUser.admin" :to="'/posts/' + this.slug + '/edit'" exact class="button">
+              <span class="icon">
+                <i class="fas fa-edit" />
+              </span>
+              <span>Edit</span>
+            </router-link>
+          </div>
+        </div>
 
         <silentbox-group>
             <silentbox-item v-for="(clip,index) in clips" :src="clip.urlLarge" v-bind:key="index">
@@ -41,13 +52,11 @@
 
         <hr />
 
-        <div v-html="post.content"></div>
+        <div v-html="post.content" />
 
-        <hr />
+        <hr v-if="post.copyright" />
 
-        <div class="has-text-grey" v-html="post.copyright"></div>
-
-        <hr />
+        <div class="has-text-grey" v-html="post.copyright" />
       </div>
     </template>
 
@@ -71,6 +80,7 @@
 
 <script>
 import LayoutBasic from '@/layouts/LayoutBasic'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Post',
@@ -129,7 +139,9 @@ export default {
           return { urlLarge: clip.large.url, urlThumb: clip.thumbnail.url }
         })
       }
-    }
+    },
+
+    ...mapGetters(['isLoggedIn', 'currentUser'])
   }
 }
 </script>
