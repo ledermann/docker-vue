@@ -8,6 +8,7 @@ import '@fortawesome/fontawesome-free-webfonts/css/fa-solid.css'
 import '@fortawesome/fontawesome-free-webfonts/css/fa-brands.css'
 import VueSilentbox from 'vue-silentbox'
 import VueTimeago from 'vue-timeago'
+import wysiwyg from 'vue-wysiwyg'
 
 import App from '@/App.vue'
 import router from '@/router'
@@ -25,6 +26,9 @@ Vue.use(VueTimeago, {
   locales: {
     'en-US': require('vue-timeago/locales/en-US.json')
   }
+})
+Vue.use(wysiwyg, {
+  hideModules: { image: true }
 })
 
 Vue.config.productionTip = false

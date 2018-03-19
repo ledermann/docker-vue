@@ -15,7 +15,7 @@
         <b-tabs :animated="false">
           <b-tab-item label="Content" active >
             <b-field :type="fieldTypes.content" :message="fieldMessages.content">
-              <b-input type="textarea" v-model="post.content" @keyup.native="keyup('content')" />
+              <wysiwyg v-model="post.content" @keyup.native="keyup('content')" />
             </b-field>
           </b-tab-item>
 
@@ -25,7 +25,7 @@
 
           <b-tab-item label="Copyright">
             <b-field :type="fieldTypes.copyright" :message="fieldMessages.copyright">
-              <b-input type="textarea" v-model="post.copyright" @keyup.native="keyup('copyright')" />
+              <wysiwyg v-model="post.copyright" @keyup.native="keyup('content')" />
             </b-field>
           </b-tab-item>
         </b-tabs>
@@ -132,6 +132,8 @@ export default {
 </script>
 
 <style lang="sass">
+  @import "~vue-wysiwyg/dist/vueWysiwyg.css"
+
   .b-tabs .tab-content
     padding: 1rem 0
 </style>
