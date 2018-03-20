@@ -3,7 +3,6 @@ import Router from 'vue-router'
 
 import Posts from '@/views/Posts'
 import Post from '@/views/Post'
-import Audits from '@/views/Audits'
 import About from '@/views/About'
 
 Vue.use(Router)
@@ -34,15 +33,7 @@ export default new Router({
       name: 'post',
       props: true,
       component: Post
-    },
-
-    {
-      path: '/posts/:slug/audits',
-      name: 'audits',
-      props: true,
-      component: Audits
     }
-
   ],
   mode: 'history',
   scrollBehavior (to, from, savedPosition) {

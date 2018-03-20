@@ -26,82 +26,91 @@
       <div v-if="persisted" slot="hero-foot" class="container">
         <div class="tabs is-boxed is-centered">
           <ul>
-            <router-link tag="li" :to="'/posts/' + post.slug" class="is-active" exact>
-              <a>Article</a>
-            </router-link>
+            <li :class="{ 'is-active': this.activeTab === 'Article' }">
+              <a @click="showArticle">Article</a>
+            </li>
 
-            <router-link tag="li" :to="'/posts/' + post.slug + '/audits'" exact>
-              <a>History</a>
-            </router-link>
+            <li :class="{ 'is-active': this.activeTab === 'Audits' }">
+              <a @click="showAudits">History</a>
+            </li>
           </ul>
         </div>
       </div>
 
       <b-loading :active="isLoading" />
 
-      <post-form v-if="isEditing" :post="post" @cancel="cancelEdit" @afterSave="afterSave" />
+      <template v-if="activeTab === 'Article'">
+        <post-form v-if="isEditing" :post="post" @cancel="cancelEdit" @afterSave="afterSave" />
 
-      <div v-if="!isEditing && !isLoading" class="content">
-        <div class="columns">
-          <div class="column">
-              <b-tag type="is-dark" v-if="post.updated_at">
-                <timeago :since="post.updated_at"></timeago>
-              </b-tag>
+        <div v-if="!isEditing && !isLoading" class="content">
+          <div class="columns">
+            <div class="column">
+                <b-tag type="is-dark" v-if="post.updated_at">
+                  <timeago :since="post.updated_at"></timeago>
+                </b-tag>
+            </div>
+
+            <div v-if="currentUser && currentUser.admin" class="column buttons has-text-right">
+              <a @click="startEdit" class="button">
+                <span class="icon">
+                  <i class="fas fa-edit" />
+                </span>
+                <span>Edit</span>
+              </a>
+
+              <a @click="deleteData" class="button">
+                <span class="icon">
+                  <i class="fas fa-trash" />
+                </span>
+                <span>Delete</span>
+              </a>
+            </div>
           </div>
 
-          <div v-if="currentUser && currentUser.admin" class="column buttons has-text-right">
-            <a @click="startEdit" class="button">
-              <span class="icon">
-                <i class="fas fa-edit" />
-              </span>
-              <span>Edit</span>
-            </a>
+          <silentbox-group>
+              <silentbox-item v-for="(clip,index) in clips" :src="clip.urlLarge" v-bind:key="index">
+                <figure class="image is-128x128">
+                  <img :src="clip.urlThumb">
+                </figure>
+              </silentbox-item>
+          </silentbox-group>
 
-            <a @click="deleteData" class="button">
-              <span class="icon">
-                <i class="fas fa-trash" />
-              </span>
-              <span>Delete</span>
-            </a>
-          </div>
+          <hr />
+
+          <div v-html="post.content" />
+
+          <hr v-if="post.copyright" />
+
+          <div class="has-text-grey" v-html="post.copyright" />
         </div>
+      </template>
 
-        <silentbox-group>
-            <silentbox-item v-for="(clip,index) in clips" :src="clip.urlLarge" v-bind:key="index">
-              <figure class="image is-128x128">
-                <img :src="clip.urlThumb">
-              </figure>
-            </silentbox-item>
-        </silentbox-group>
+      <template v-if="activeTab === 'Audits'">
+        <post-audits :post="post" />
+      </template>
 
-        <hr />
-
-        <div v-html="post.content" />
-
-        <hr v-if="post.copyright" />
-
-        <div class="has-text-grey" v-html="post.copyright" />
-      </div>
     </template>
   </layout-basic>
 </template>
 
 <script>
 import LayoutBasic from '@/layouts/LayoutBasic'
-import PostForm from '@/components/PostForm'
+import PostForm from '@/components/Post/Form'
+import PostAudits from '@/components/Post/Audits'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'Post',
 
   components: {
-    LayoutBasic, PostForm
+    LayoutBasic, PostForm, PostAudits
   },
 
   props: ['slug'],
 
   data () {
     return {
+      activeTab: 'Article',
       isLoading: false,
       isEditing: false,
       errors: [],
@@ -114,6 +123,14 @@ export default {
   },
 
   methods: {
+    showArticle () {
+      this.activeTab = 'Article'
+    },
+
+    showAudits () {
+      this.activeTab = 'Audits'
+    },
+
     loadData () {
       if (this.persisted) {
         this.isLoading = true
