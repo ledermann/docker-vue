@@ -1,14 +1,29 @@
 <template>
   <layout-basic>
-
-    <template v-if="isSuccess">
+    <template v-if="isLoadingError">
       <div slot="hero-body" class="container has-text-centered">
         <h1 class="title">
-          {{ post.title }}
+          ERROR
         </h1>
       </div>
 
-      <div slot="hero-foot" class="container">
+      <div class="content">
+        <ul>
+          <li v-for="(error,index) in errors" :key="index">
+            {{ error.message }}
+          </li>
+        </ul>
+      </div>
+    </template>
+
+    <template v-else>
+      <div slot="hero-body" class="container has-text-centered">
+        <h1 class="title">
+          {{ this.persisted ? post.title : 'New Post' }}
+        </h1>
+      </div>
+
+      <div v-if="persisted" slot="hero-foot" class="container">
         <div class="tabs is-boxed is-centered">
           <ul>
             <router-link tag="li" :to="'/posts/' + post.slug" class="is-active" exact>
@@ -24,21 +39,23 @@
 
       <b-loading :active="isLoading"></b-loading>
 
-      <div class="content">
+      <post-form v-if="isEditing" :post="post" @cancel="cancelEdit" @afterSave="afterSave" />
+
+      <div v-if="!isEditing && !isLoading" class="content">
         <div class="columns">
           <div class="column">
-             <b-tag type="is-dark" v-if="post.updated_at">
-                 <timeago :since="post.updated_at"></timeago>
-               </b-tag>
+              <b-tag type="is-dark" v-if="post.updated_at">
+                <timeago :since="post.updated_at"></timeago>
+              </b-tag>
           </div>
 
           <div class="column has-text-right">
-            <router-link v-if="currentUser && currentUser.admin" :to="'/posts/' + this.slug + '/edit'" exact class="button">
+            <a v-if="currentUser && currentUser.admin" @click="startEdit" class="button">
               <span class="icon">
                 <i class="fas fa-edit" />
               </span>
               <span>Edit</span>
-            </router-link>
+            </a>
           </div>
         </div>
 
@@ -59,78 +76,84 @@
         <div class="has-text-grey" v-html="post.copyright" />
       </div>
     </template>
-
-    <template v-else>
-      <div slot="hero-body" class="container has-text-centered">
-        <h1 class="title">
-          ERROR
-        </h1>
-      </div>
-
-      <div class="content">
-        <ul>
-          <li v-for="(error,index) in errors" :key="index">
-            {{ error.message }}
-          </li>
-        </ul>
-      </div>
-    </template>
   </layout-basic>
 </template>
 
 <script>
 import LayoutBasic from '@/layouts/LayoutBasic'
+import PostForm from '@/components/PostForm'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'Post',
 
   components: {
-    LayoutBasic
+    LayoutBasic, PostForm
   },
 
   props: ['slug'],
 
-  beforeRouteUpdate (to, from, next) {
-    this.loadData(to.params.slug)
-    next()
-  },
-
   data () {
     return {
       isLoading: true,
+      isEditing: false,
       errors: [],
-      currentSlug: '',
       post: {}
     }
   },
 
   mounted () {
-    this.loadData(this.slug)
+    this.loadData()
   },
 
   methods: {
-    loadData (slug) {
-      this.isLoading = true
-      this.$http.get('/posts/' + slug)
-        .then(response => {
-          this.post = response.data.post
-          this.currentSlug = slug
-          this.isLoading = false
-          this.errors = []
-        })
-        .catch(error => {
-          this.post = null
-          this.currentSlug = null
-          this.isLoading = false
-          this.errors.push(error)
-        })
+    loadData () {
+      if (this.persisted) {
+        this.isLoading = true
+        this.$http.get('/posts/' + this.slug)
+          .then(response => {
+            this.post = response.data.post
+            this.isLoading = false
+            this.errors = []
+          })
+          .catch(error => {
+            this.post = null
+            this.isLoading = false
+            this.errors.push(error)
+          })
+      } else {
+        this.isLoading = false
+        this.post = {
+          title: '',
+          content: '',
+          copyright: ''
+        }
+        this.startEdit()
+      }
+    },
+
+    startEdit () {
+      this.isEditing = true
+    },
+
+    cancelEdit () {
+      this.isEditing = false
+    },
+
+    afterSave (updatedPost) {
+      this.isEditing = false
+      this.post = updatedPost
+      this.$router.push({name: 'post', params: {slug: this.post.slug}})
     }
   },
 
   computed: {
-    isSuccess () {
-      return (this.errors.length === 0)
+    isLoadingError () {
+      return (this.errors.length > 0)
+    },
+
+    persisted () {
+      return !!this.slug
     },
 
     clips () {
@@ -141,7 +164,7 @@ export default {
       }
     },
 
-    ...mapGetters(['isLoggedIn', 'currentUser'])
+    ...mapGetters(['currentUser'])
   }
 }
 </script>

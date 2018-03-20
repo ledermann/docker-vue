@@ -24,10 +24,7 @@
 
     <div class="buttons">
         <input type="submit" value="Save" class="button is-primary is-large" />
-
-        <router-link :to="'/posts/' + this.post.slug" exact>
-          <button class="button is-large">Cancel</button>
-        </router-link>
+        <button @click="$emit('cancel')" class="button is-large">Cancel</button>
     </div>
   </form>
 </template>
@@ -82,9 +79,9 @@ export default {
 
       this.$http[this.apiMethod](this.url, formData)
         .then(response => {
-          this.$router.push({ path: `/posts/${response.data.post.slug}` })
+          this.$emit('afterSave', response.data.post)
         }).catch(error => {
-          this.errors = error.response.data.errors
+          this.errors = error.response.data
         })
     }
   }

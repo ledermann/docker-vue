@@ -3,8 +3,6 @@ import Router from 'vue-router'
 
 import Posts from '@/views/Posts'
 import Post from '@/views/Post'
-import NewPost from '@/views/NewPost'
-import EditPost from '@/views/EditPost'
 import Audits from '@/views/Audits'
 import About from '@/views/About'
 
@@ -27,7 +25,8 @@ export default new Router({
     {
       path: '/posts/new',
       name: 'newPost',
-      component: NewPost
+      props: { slug: null },
+      component: Post
     },
 
     {
@@ -35,13 +34,6 @@ export default new Router({
       name: 'post',
       props: true,
       component: Post
-    },
-
-    {
-      path: '/posts/:slug/edit',
-      name: 'editPost',
-      props: true,
-      component: EditPost
     },
 
     {
