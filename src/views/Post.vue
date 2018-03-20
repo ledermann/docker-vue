@@ -39,14 +39,14 @@
 
       <b-loading :active="isLoading" />
 
-      <template v-if="activeTab === 'Article'">
+      <template v-if="activeTab === 'Article' && !isLoading">
         <post-form v-if="isEditing" :post="post" @cancel="cancelEdit" @afterSave="afterSave" />
 
-        <div v-if="!isEditing && !isLoading" class="content">
+        <div v-else class="content">
           <div class="columns">
             <div class="column">
                 <b-tag type="is-dark" v-if="post.updated_at">
-                  <timeago :since="post.updated_at"></timeago>
+                  <timeago :since="post.updated_at" />
                 </b-tag>
             </div>
 
@@ -67,34 +67,20 @@
             </div>
           </div>
 
-          <silentbox-group>
-              <silentbox-item v-for="(clip,index) in clips" :src="clip.urlLarge" v-bind:key="index">
-                <figure class="image is-128x128">
-                  <img :src="clip.urlThumb">
-                </figure>
-              </silentbox-item>
-          </silentbox-group>
-
-          <hr />
-
-          <div v-html="post.content" />
-
-          <hr v-if="post.copyright" />
-
-          <div class="has-text-grey" v-html="post.copyright" />
+          <post-show :post="post" />
         </div>
       </template>
 
       <template v-if="activeTab === 'Audits'">
         <post-audits :post="post" />
       </template>
-
     </template>
   </layout-basic>
 </template>
 
 <script>
 import LayoutBasic from '@/layouts/LayoutBasic'
+import PostShow from '@/components/Post/Show'
 import PostForm from '@/components/Post/Form'
 import PostAudits from '@/components/Post/Audits'
 import { mapGetters } from 'vuex'
@@ -103,7 +89,7 @@ export default {
   name: 'Post',
 
   components: {
-    LayoutBasic, PostForm, PostAudits
+    LayoutBasic, PostShow, PostForm, PostAudits
   },
 
   props: ['slug'],
@@ -207,14 +193,6 @@ export default {
 
     persisted () {
       return !!this.slug
-    },
-
-    clips () {
-      if (this.post.clips) {
-        return this.post.clips.map(clip => {
-          return { urlLarge: clip.large.url, urlThumb: clip.thumbnail.url }
-        })
-      }
     },
 
     ...mapGetters(['currentUser'])
