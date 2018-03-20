@@ -171,6 +171,10 @@ export default {
 
     cancelEdit () {
       this.isEditing = false
+
+      if (!this.persisted) {
+        this.$router.push({name: 'posts'})
+      }
     },
 
     afterSave (updatedPost) {
