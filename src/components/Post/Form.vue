@@ -23,8 +23,8 @@
     </b-tabs>
 
     <div class="buttons">
-        <input type="submit" value="Save" class="button is-primary is-large" />
-        <button @click.prevent="$emit('cancel')" class="button is-large">Cancel</button>
+        <input type="submit" value="Save" class="button is-primary" />
+        <button @click.prevent="$emit('cancel')" class="button">Cancel</button>
     </div>
   </form>
 </template>
