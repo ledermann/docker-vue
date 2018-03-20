@@ -16,6 +16,8 @@
           </header>
 
           <div class="card-content">
+            <b-loading :active="isLoading" />
+
             <div class="content">
                 <table class="table is-fullwidth">
                   <tr>
@@ -149,7 +151,8 @@ export default {
   data () {
     return {
       backendVersions: {},
-      frontendVersions: {}
+      frontendVersions: {},
+      isLoading: false
     }
   },
 
@@ -174,9 +177,14 @@ export default {
       webpack: window.packageVersion.webpack
     }
 
+    this.isLoading = true
     this.$http.get('/about')
       .then(response => {
         this.backendVersions = response.data
+        this.isLoading = false
+      }).catch(error => {
+        console.log(error)
+        this.isLoading = false
       })
   }
 }

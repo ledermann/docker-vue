@@ -1,5 +1,7 @@
 <template>
   <form @submit.prevent="submit">
+    <b-loading :active="isSaving" />
+
     <b-field label="Title" :type="fieldTypes.title" :message="fieldMessages.title">
       <b-input type="text" v-model="post.title" autofocus @keyup.native="keyup('title')"/>
     </b-field>
@@ -39,7 +41,8 @@ export default {
 
   data () {
     return {
-      errors: {}
+      errors: {},
+      isSaving: false
     }
   },
 
@@ -77,10 +80,13 @@ export default {
     submit () {
       const formData = objectToFormData(this.post, null, 'post')
 
+      this.isSaving = true
       this.$http[this.apiMethod](this.url, formData)
         .then(response => {
+          this.isSaving = false
           this.$emit('afterSave', response.data.post)
         }).catch(error => {
+          this.isSaving = false
           this.errors = error.response.data
         })
     }
