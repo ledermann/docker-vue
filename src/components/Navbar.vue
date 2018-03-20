@@ -27,7 +27,7 @@
         </div>
 
         <div class="navbar-end">
-          <router-link v-if="currentUser && currentUser.admin" to="/posts/new" exact class="navbar-item">
+          <router-link v-if="currentUser && currentUser.admin" :to="{ name: 'newPost'}" exact class="navbar-item">
             <b-icon pack="fas" icon="plus" />
           </router-link>
 
