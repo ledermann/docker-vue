@@ -49,12 +49,19 @@
               </b-tag>
           </div>
 
-          <div class="column has-text-right">
-            <a v-if="currentUser && currentUser.admin" @click="startEdit" class="button">
+          <div v-if="currentUser && currentUser.admin" class="column buttons has-text-right">
+            <a @click="startEdit" class="button">
               <span class="icon">
                 <i class="fas fa-edit" />
               </span>
               <span>Edit</span>
+            </a>
+
+            <a @click="deleteData" class="button">
+              <span class="icon">
+                <i class="fas fa-trash" />
+              </span>
+              <span>Delete</span>
             </a>
           </div>
         </div>
@@ -130,6 +137,32 @@ export default {
         }
         this.startEdit()
       }
+    },
+
+    deleteData () {
+      this.$dialog.confirm({
+        title: 'Confirmation',
+        message: 'Are you sure you want to delete the post <b>' + this.post.title + '</b>? This action cannot be undone.',
+        confirmText: 'Delete this post',
+        type: 'is-danger',
+        onConfirm: () => {
+          this.$http.delete('/posts/' + this.slug)
+            .then(response => {
+              this.$router.push({name: 'posts'})
+              this.$toast.open({
+                message: 'The post <b>' + this.post.title + '</b> was deleted.',
+                type: 'is-warning'
+              })
+            })
+            .catch(error => {
+              console.log(error)
+              this.$toast.open({
+                message: 'Deleting of this post failed!',
+                type: 'is-danger'
+              })
+            })
+        }
+      })
     },
 
     startEdit () {
