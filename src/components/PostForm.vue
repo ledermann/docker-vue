@@ -82,8 +82,7 @@ export default {
 
       this.$http[this.apiMethod](this.url, formData)
         .then(response => {
-          const slug = response.data ? response.data.post.slug : this.post.slug
-          this.$router.push({ path: `/posts/${slug}` })
+          this.$router.push({ path: `/posts/${response.data.post.slug}` })
         }).catch(error => {
           this.errors = error.response.data.errors
         })
