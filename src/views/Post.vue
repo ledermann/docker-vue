@@ -37,7 +37,7 @@
         </div>
       </div>
 
-      <b-loading :active="isLoading"></b-loading>
+      <b-loading :active="isLoading" />
 
       <post-form v-if="isEditing" :post="post" @cancel="cancelEdit" @afterSave="afterSave" />
 
@@ -102,7 +102,7 @@ export default {
 
   data () {
     return {
-      isLoading: true,
+      isLoading: false,
       isEditing: false,
       errors: [],
       post: {}
@@ -129,7 +129,6 @@ export default {
             this.errors.push(error)
           })
       } else {
-        this.isLoading = false
         this.post = {
           title: '',
           content: '',

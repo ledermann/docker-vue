@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <b-loading :active="isLoading"></b-loading>
+    <b-loading :active="isLoading" />
 
     <div class="content" v-if="!isLoading">
       <div class="columns is-centered">
