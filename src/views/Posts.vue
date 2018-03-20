@@ -52,6 +52,18 @@ export default {
     InfiniteLoading
   },
 
+  activated () {
+    this.$http.get('/posts?page=1')
+      .then(response => {
+        if (this.lastEtag !== response.headers.etag) {
+          this.posts = response.data.posts
+          this.totalCount = response.data.meta.total_count
+          this.currentPage = 1
+        }
+        this.lastEtag = response.headers.etag
+      })
+  },
+
   methods: {
     loadNextPage () {
       this.currentPage++
@@ -80,6 +92,7 @@ export default {
     return {
       currentPage: 0,
       totalCount: 0,
+      lastEtag: null,
       posts: []
     }
   }
