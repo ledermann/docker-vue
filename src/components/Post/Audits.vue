@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-loading :active="isLoading" />
+    <b-loading :is-full-page="false" :active="isLoading" />
 
     <b-table :data="audits">
       <template slot-scope="props">
@@ -50,3 +50,8 @@ export default {
   }
 }
 </script>
+
+<style lang="sass">
+  .b-table
+    min-height: 100px
+</style>

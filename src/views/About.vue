@@ -16,7 +16,7 @@
           </header>
 
           <div class="card-content">
-            <b-loading :active="isLoading" />
+            <b-loading :is-full-page="false" :active="isLoading" />
 
             <div class="content">
                 <table class="table is-fullwidth">
