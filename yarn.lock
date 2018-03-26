@@ -7175,8 +7175,8 @@ vm-browserify@0.0.4:
     indexof "0.0.1"
 
 vue-axios@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/vue-axios/-/vue-axios-2.0.2.tgz#0fe5a69f1edb09a1cd6c4a7f88c74d2fb7fe1778"
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/vue-axios/-/vue-axios-2.1.0.tgz#87d966583ff77d4c441ef85840a39db356148ef3"
 
 vue-eslint-parser@^2.0.3:
   version "2.0.3"
