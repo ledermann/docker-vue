@@ -78,7 +78,7 @@ export default {
     },
 
     submit () {
-      const formData = objectToFormData(this.post, null, 'post')
+      const formData = objectToFormData(this.post, null, null, 'post')
 
       this.isSaving = true
       this.$http[this.apiMethod](this.url, formData)
