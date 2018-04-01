@@ -9,7 +9,7 @@ axios.defaults.baseURL =
     : 'https://docker-rails.dev/api/v1'
 
 axios.interceptors.request.use((config) => {
-  if (store.getters.isLoggedIn) {
+  if (store.getters.currentUser) {
     // Set JWT before request is sent
     config.headers.common['Authorization'] = 'Bearer ' + store.getters.token
   }

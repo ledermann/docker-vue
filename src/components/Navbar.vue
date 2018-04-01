@@ -31,7 +31,7 @@
             <b-icon pack="fas" icon="plus" />
           </router-link>
 
-          <div class="navbar-item has-dropdown is-hoverable" v-if="isLoggedIn">
+          <div class="navbar-item has-dropdown is-hoverable" v-if="currentUser">
             <div class="navbar-link">
               <b-icon pack="fas" icon="user-circle" />
               &nbsp;
@@ -78,7 +78,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters(['isLoggedIn', 'currentUser'])
+    ...mapGetters(['currentUser'])
   },
 
   methods: {

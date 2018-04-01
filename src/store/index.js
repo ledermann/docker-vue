@@ -14,16 +14,22 @@ const getters = {
     return state.token
   },
 
-  isLoggedIn: state => {
-    return !!state.token
-  },
-
   loginError: state => {
     return state.error
   },
 
   currentUser: state => {
-    return state.token && jwtDecode(state.token)
+    const decodedToken = state.token && jwtDecode(state.token)
+    if (decodedToken) {
+      const currentTime = new Date().getTime() / 1000
+      if (currentTime < decodedToken.exp) {
+        return decodedToken
+      } else {
+        return null
+      }
+    } else {
+      return null
+    }
   }
 }
 
