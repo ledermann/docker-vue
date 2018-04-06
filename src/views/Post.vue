@@ -45,9 +45,15 @@
         <div v-else class="content">
           <div class="columns">
             <div class="column">
-                <b-tag type="is-dark" v-if="post.updated_at">
-                  <timeago :since="post.updated_at" />
-                </b-tag>
+              <b-taglist attached>
+                  <b-tag type="is-dark" size="is-medium">
+                    Last update
+                  </b-tag>
+
+                  <b-tag type="is-info" size="is-medium">
+                    <timeago :since="post.updated_at" :autoUpdate=5 />
+                  </b-tag>
+              </b-taglist>
             </div>
 
             <div v-if="currentUser && currentUser.admin" class="column buttons has-text-right">

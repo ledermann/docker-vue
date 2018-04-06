@@ -29,8 +29,8 @@
 
         <!-- eslint-disable-next-line -->
         <b-table-column type="is-narrow" label="Last update" @click.native="onClick(props.row)">
-          <b-tag type="is-dark">
-            <timeago :since="props.row.updated_at"></timeago>
+          <b-tag type="is-info">
+            <timeago :since="props.row.updated_at" :autoUpdate="5"></timeago>
           </b-tag>
         </b-table-column>
       </template>
