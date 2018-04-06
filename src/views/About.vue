@@ -27,7 +27,9 @@
 
                   <tr>
                     <th>Build time</th>
-                    <td>{{ backendVersions.build_time }}</td>
+                    <td>
+                      <timeago :since="backendVersions.build_time" autoUpdate="5" />
+                    </td>
                   </tr>
 
                   <tr>
@@ -88,8 +90,10 @@
                 </tr>
 
                 <tr>
-                  <th>Buildt time</th>
-                  <td>{{ frontendVersions.buildTime }}</td>
+                  <th>Build time</th>
+                  <td>
+                    <timeago :since="frontendVersions.buildTime" autoUpdate="5" />
+                  </td>
                 </tr>
 
                 <tr>
