@@ -31,28 +31,26 @@
             <b-icon pack="fas" icon="plus" />
           </router-link>
 
-          <div class="navbar-item has-dropdown is-hoverable" v-if="currentUser">
-            <div class="navbar-link">
+          <template v-if="currentUser">
+            <span class="navbar-item">
               <b-icon pack="fas" icon="user-circle" />
               &nbsp;
               {{ currentUser.email }}
-            </div>
-            <div class="navbar-dropdown is-boxed">
-              <a class="navbar-item" href="#" @click.prevent="logout">
-                <b-icon pack="fas" icon="sign-out-alt" />
-                Logout
-              </a>
-            </div>
-          </div>
+            </span>
 
-          <div v-else>
-            <div class="navbar-item">
+            <a class="navbar-item" href="#" @click.prevent="logout" title="Logout" >
+              <b-icon pack="fas" icon="sign-out-alt" />
+            </a>
+          </template>
+
+          <template v-else>
+            <span class="navbar-item">
               <a class="button" @click.prevent="login">
                 <b-icon pack="fas" icon="sign-in-alt" />
                 <span>Login</span>
               </a>
-            </div>
-          </div>
+            </span>
+          </template>
         </div>
       </div>
     </div>
