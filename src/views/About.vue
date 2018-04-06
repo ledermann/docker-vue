@@ -28,7 +28,7 @@
                   <tr>
                     <th>Build time</th>
                     <td>
-                      <timeago :since="backendVersions.build_time" autoUpdate="5" />
+                      <timeago :since="backendVersions.build_time" :autoUpdate=5 />
                     </td>
                   </tr>
 
@@ -92,7 +92,7 @@
                 <tr>
                   <th>Build time</th>
                   <td>
-                    <timeago :since="frontendVersions.buildTime" autoUpdate="5" />
+                    <timeago :since="frontendVersions.buildTime" :autoUpdate=5 />
                   </td>
                 </tr>
 

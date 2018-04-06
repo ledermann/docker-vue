@@ -7,7 +7,7 @@
 
           <strong>
             <b-tooltip :label="buildTime" position="is-top" type="is-dark">
-              <timeago :since="buildTime" :title="null" :autoUpdate="5"></timeago>
+              <timeago :since="buildTime" :title="null" :autoUpdate=5></timeago>
             </b-tooltip>
           </strong>
         </p>
