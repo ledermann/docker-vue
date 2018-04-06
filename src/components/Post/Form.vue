@@ -9,7 +9,7 @@
     <b-tabs :animated="false">
         <b-tab-item label="Content" active >
         <b-field :type="fieldTypes.content" :message="fieldMessages.content">
-            <wysiwyg v-model="post.content" @keyup.native="keyup('content')" />
+          <vue-editor id="editorContent" v-model="post.content" :editorToolbar="customEditorToolbar" @keyup.native="keyup('content')" />
         </b-field>
         </b-tab-item>
 
@@ -19,7 +19,7 @@
 
         <b-tab-item label="Copyright">
         <b-field :type="fieldTypes.copyright" :message="fieldMessages.copyright">
-            <wysiwyg v-model="post.copyright" @keyup.native="keyup('content')" />
+          <vue-editor id="editorCopyright" v-model="post.copyright" :editorToolbar="customEditorToolbar" @keyup.native="keyup('copyright')" />
         </b-field>
         </b-tab-item>
     </b-tabs>
@@ -33,16 +33,32 @@
 
 <script>
 import objectToFormData from 'object-to-formdata'
+import { VueEditor } from 'vue2-editor'
 
 export default {
   name: 'PostForm',
+
+  components: {
+    VueEditor
+  },
 
   props: ['post'],
 
   data () {
     return {
       errors: {},
-      isSaving: false
+      isSaving: false,
+      customEditorToolbar: [
+        [ { header: [ false, 1, 2, 3, 4, 5, 6 ] } ],
+        [ 'bold', 'italic', 'underline', 'strike' ],
+        [ { align: '' }, { align: 'center' }, { align: 'right' }, { align: 'justify' } ],
+        [ 'blockquote', 'code-block' ],
+        [ { list: 'ordered' }, { list: 'bullet' }, { list: 'check' } ],
+        [ { indent: '-1' }, { indent: '+1' } ],
+        [ { color: [] }, { background: [] } ],
+        [ 'link' ],
+        [ 'clean' ]
+      ]
     }
   },
 
@@ -95,8 +111,6 @@ export default {
 </script>
 
 <style lang="sass">
-  @import "~vue-wysiwyg/dist/vueWysiwyg.css"
-
   .b-tabs .tab-content
     padding: 1rem 0
 </style>
