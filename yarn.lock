@@ -7200,8 +7200,8 @@ uglify-es@^3.3.4:
     source-map "~0.6.1"
 
 uglify-js@3.3.x:
-  version "3.3.18"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.3.18.tgz#e16df66d71638df3c9bc61cce827e46f24bdac02"
+  version "3.3.19"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.3.19.tgz#997d59916dae94f3855b99d184b1f7013adce424"
   dependencies:
     commander "~2.15.0"
     source-map "~0.6.1"
