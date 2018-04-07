@@ -25,10 +25,10 @@
     "vue": "^2.5.13",
     "vue-axios": "^2.0.2",
     "vue-infinite-loading": "^2.2.3",
+    "vue-pell-editor": "^0.1.4",
     "vue-router": "^3.0.1",
     "vue-silentbox": "^0.1.1",
     "vue-timeago": "^3.4.4",
-    "vue2-editor": "^2.4.2",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
