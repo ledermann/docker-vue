@@ -1,11 +1,17 @@
 <template>
   <div>
     <silentbox-group>
-        <silentbox-item v-for="(clip,index) in clips" :src="clip.urlLarge" v-bind:key="index">
+      <template v-for="clip in post.clips">
+        <silentbox-item v-if="clip.thumbnail" :src="clip.large.url" :key="clip.id">
           <figure class="image is-128x128">
-            <img :src="clip.urlThumb">
+            <img :src="clip.thumbnail.url">
           </figure>
         </silentbox-item>
+
+        <figure v-else class="image is-128x128" :key="clip.id">
+          <b-icon icon="sync-alt" size="is-large" custom-class="fa-spin" />
+        </figure>
+      </template>
     </silentbox-group>
 
     <hr />
@@ -22,16 +28,6 @@
 export default {
   name: 'PostShow',
 
-  props: ['post'],
-
-  computed: {
-    clips () {
-      if (this.post.clips) {
-        return this.post.clips.map(clip => {
-          return { urlLarge: clip.large.url, urlThumb: clip.thumbnail.url }
-        })
-      }
-    }
-  }
+  props: ['post']
 }
 </script>

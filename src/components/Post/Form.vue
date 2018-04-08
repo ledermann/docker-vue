@@ -1,32 +1,30 @@
 <template>
   <form @submit.prevent="submit">
-    <b-loading :active="isSaving" />
+    <b-loading :is-full-page="false" :active="isSaving" />
 
     <b-field label="Title" :type="fieldTypes.title" :message="fieldMessages.title">
       <b-input type="text" v-model="post.title" autofocus @keyup.native="keyup('title')"/>
     </b-field>
 
+    <ImageUploader :post="post" />
+
     <b-tabs :animated="false">
-        <b-tab-item label="Content" active >
-        <b-field class="content" :type="fieldTypes.content" :message="fieldMessages.content">
+      <b-tab-item label="Content" active >
+        <b-field :type="fieldTypes.content" :message="fieldMessages.content">
           <VuePellEditor id="editorContent" v-model="post.content" @keyup.native="keyup('content')" />
         </b-field>
-        </b-tab-item>
+      </b-tab-item>
 
-        <b-tab-item label="Images">
-        <p>Not implemented yet...</p>
-        </b-tab-item>
-
-        <b-tab-item label="Copyright">
-        <b-field class="content" :type="fieldTypes.copyright" :message="fieldMessages.copyright">
+      <b-tab-item label="Copyright">
+        <b-field :type="fieldTypes.copyright" :message="fieldMessages.copyright">
           <VuePellEditor id="editorCopyright" v-model="post.copyright" @keyup.native="keyup('copyright')" />
         </b-field>
-        </b-tab-item>
+      </b-tab-item>
     </b-tabs>
 
     <div class="buttons">
-        <input type="submit" value="Save" class="button is-primary" />
-        <button @click.prevent="$emit('cancel')" class="button">Cancel</button>
+      <input type="submit" value="Save" class="button is-primary" />
+      <button @click.prevent="$emit('cancel')" class="button">Cancel</button>
     </div>
   </form>
 </template>
@@ -34,12 +32,14 @@
 <script>
 import objectToFormData from 'object-to-formdata'
 import VuePellEditor from 'vue-pell-editor'
+import ImageUploader from '@/components/Post/ImageUploader'
 
 export default {
   name: 'PostForm',
 
   components: {
-    VuePellEditor
+    VuePellEditor,
+    ImageUploader
   },
 
   props: ['post'],
