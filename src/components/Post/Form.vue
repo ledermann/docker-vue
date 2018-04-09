@@ -1,9 +1,30 @@
 <template>
   <form @submit.prevent="submit">
+    <div class="columns">
+      <div class="column">
+      </div>
+
+      <div class="column buttons has-text-right">
+        <a @click="submit" class="button is-success">
+          <span class="icon">
+            <i class="fas fa-check-circle" />
+          </span>
+          <span>Save</span>
+        </a>
+
+        <a @click="$emit('cancel')" class="button">
+          <span class="icon">
+            <i class="fas fa-times-circle" />
+          </span>
+          <span>Cancel</span>
+        </a>
+      </div>
+    </div>
+
     <b-loading :is-full-page="false" :active="isSaving" />
 
-    <b-field label="Title" :type="fieldTypes.title" :message="fieldMessages.title">
-      <b-input type="text" v-model="post.title" autofocus @keyup.native="keyup('title')"/>
+    <b-field :type="fieldTypes.title" :message="fieldMessages.title">
+      <b-input type="text" placeholder="Title" v-model="post.title" autofocus @keyup.native="keyup('title')"/>
     </b-field>
 
     <ImageUploader :post="post" />
@@ -21,11 +42,6 @@
         </b-field>
       </b-tab-item>
     </b-tabs>
-
-    <div class="buttons">
-      <input type="submit" value="Save" class="button is-primary" />
-      <button @click.prevent="$emit('cancel')" class="button">Cancel</button>
-    </div>
   </form>
 </template>
 

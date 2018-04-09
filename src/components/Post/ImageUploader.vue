@@ -74,6 +74,9 @@ export default {
       }
       that.post.clips_attributes.push({image: uploadedFileData})
 
+      if (!that.post.clips) {
+        that.post.clips = []
+      }
       that.post.clips.push({
         thumbnail: {
           url: file.preview
