@@ -1,9 +1,8 @@
 test:
   before_script:
-    - docker build -t vue-test .
+    - echo $CI_JOB_TOKEN | docker login -u gitlab-ci-token --password-stdin $CI_REGISTRY
 
   script:
-    - docker run --rm vue-test yarn test
-
-  after_script:
-    - docker rmi vue-test
+    - docker build -t $CI_REGISTRY_IMAGE:latest .
+    - docker run --rm $CI_REGISTRY_IMAGE:latest yarn test
+    - docker push $CI_REGISTRY_IMAGE:latest
