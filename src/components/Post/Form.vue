@@ -99,7 +99,14 @@ export default {
     },
 
     submit () {
-      const formData = objectToFormData(this.post, null, null, 'post')
+      const formData = objectToFormData({
+        post: {
+          title: this.post.title,
+          content: this.post.content,
+          copyright: this.post.copyright,
+          clips_attributes: this.post.clips_attributes
+        }
+      })
 
       this.isSaving = true
       this.$http[this.apiMethod](this.url, formData)

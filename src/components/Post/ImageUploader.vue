@@ -66,6 +66,9 @@ export default {
 
       that.post.clips = that.post.clips || []
       that.post.clips.push({image: uploadedFileData})
+
+      that.post.clips_attributes = that.post.clips_attributes || []
+      that.post.clips_attributes.push({image: uploadedFileData})
     }).run()
   }
 }
