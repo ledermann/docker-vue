@@ -48,6 +48,7 @@
 <script>
 import VuePellEditor from 'vue-pell-editor'
 import ImageUploader from '@/components/Post/ImageUploader'
+import jsonToFormData from '@/api/object-to-formdata'
 
 export default {
   name: 'PostForm',
@@ -114,25 +115,8 @@ export default {
       this.errors[field] = null
     },
 
-    buildFormData (formData, data, parentKey) {
-      if (data && typeof data === 'object' && !(data instanceof Date) && !(data instanceof File)) {
-        Object.keys(data).forEach(key => {
-          this.buildFormData(formData, data[key], parentKey ? `${parentKey}[${key}]` : key)
-        })
-      } else {
-        const value = data == null ? '' : data
-        formData.append(parentKey, value)
-      }
-    },
-
-    jsonToFormData (data) {
-      const formData = new FormData()
-      this.buildFormData(formData, data)
-      return formData
-    },
-
     submit () {
-      const formData = this.jsonToFormData({
+      const formData = jsonToFormData({
         post: this.post
       })
 
