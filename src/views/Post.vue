@@ -40,7 +40,7 @@
       <b-loading :active="isLoading" />
 
       <template v-if="activeTab === 'Article' && !isLoading">
-        <post-form v-if="isEditing" :post="post" @cancel="cancelEdit" @afterSave="afterSave" />
+        <post-form v-if="isEditing" :original-post="post" @cancel="cancelEdit" @afterSave="afterSave" />
 
         <div v-else class="content">
           <div class="columns">

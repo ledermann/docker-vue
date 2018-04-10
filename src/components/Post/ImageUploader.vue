@@ -1,7 +1,7 @@
 <template>
   <div class="content">
-    <silentbox-group v-if="post.clips.length">
-      <template v-for="(clip, index) in post.clips">
+    <silentbox-group v-if="post.clips_attributes.length">
+      <template v-for="(clip, index) in post.clips_attributes">
         <div class="clip" :key="clip.id">
           <silentbox-item v-if="clip.large" :src="clip.large.url">
             <figure class="image is-128x128">
@@ -13,8 +13,11 @@
             <b-icon icon="circle-notch" size="is-large" custom-class="fa-spin" />
           </figure>
 
-          <a class="button is-small" @click="removeClip(index)">
+          <a v-if="!post.clips_attributes[index]._destroy" class="button is-small" @click="removeClip(index)">
             <b-icon icon="trash" size="is-small"/>
+          </a>
+          <a v-else class="button is-small" @click="restoreClip(index)">
+            <b-icon icon="circle" size="is-small"/>
           </a>
         </div>
       </template>
@@ -37,27 +40,17 @@ export default {
   props: ['post'],
 
   methods: {
-    prepareClipsAttributes () {
-      if (!this.post.clips_attributes) {
-        this.post.clips_attributes = this.post.clips.map((clip) => {
-          return {
-            _destroy: 0,
-            id: clip.id
-          }
-        })
-      }
-    },
-
     removeClip (index) {
-      this.prepareClipsAttributes()
-
       const clip = this.post.clips_attributes[index]
       if (clip.id == null) {
         this.post.clips_attributes.splice(index, 1)
       } else {
         this.post.clips_attributes[index]._destroy = true
       }
-      this.post.clips.splice(index, 1)
+    },
+
+    restoreClip (index) {
+      this.post.clips_attributes[index]._destroy = 0
     }
   },
 
@@ -95,10 +88,6 @@ export default {
         }
       })
 
-      that.post.clips = that.post.clips || []
-      that.post.clips.push({image: uploadedFileData})
-
-      this.prepareClipsAttributes()
       that.post.clips_attributes.push({image: uploadedFileData})
     }).run()
   }

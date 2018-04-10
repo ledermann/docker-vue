@@ -27,7 +27,7 @@
       <b-input type="text" placeholder="Title" v-model="post.title" autofocus @keyup.native="keyup('title')"/>
     </b-field>
 
-    <ImageUploader :post="post" />
+    <ImageUploader :post.sync="post" />
 
     <b-tabs :animated="false">
       <b-tab-item label="Content" active >
@@ -46,7 +46,6 @@
 </template>
 
 <script>
-import objectToFormData from 'object-to-formdata'
 import VuePellEditor from 'vue-pell-editor'
 import ImageUploader from '@/components/Post/ImageUploader'
 
@@ -58,12 +57,29 @@ export default {
     ImageUploader
   },
 
-  props: ['post'],
+  props: ['original-post'],
 
   data () {
     return {
       errors: {},
-      isSaving: false
+      isSaving: false,
+      post: {
+        title: this.originalPost.title,
+        content: this.originalPost.content,
+        copyright: this.originalPost.copyright,
+        clips_attributes: this.originalPost.clips.map((clip) => {
+          return {
+            _destroy: 0,
+            id: clip.id,
+            large: {
+              url: clip.large.url
+            },
+            thumbnail: {
+              url: clip.thumbnail.url
+            }
+          }
+        })
+      }
     }
   },
 
@@ -85,11 +101,11 @@ export default {
     },
 
     url () {
-      return this.post.slug ? `/posts/${this.post.slug}` : `/posts`
+      return this.originalPost.slug ? `/posts/${this.originalPost.slug}` : `/posts`
     },
 
     apiMethod () {
-      return this.post.slug ? 'patch' : 'post'
+      return this.originalPost.slug ? 'patch' : 'post'
     }
   },
 
@@ -98,14 +114,26 @@ export default {
       this.errors[field] = null
     },
 
+    buildFormData (formData, data, parentKey) {
+      if (data && typeof data === 'object' && !(data instanceof Date) && !(data instanceof File)) {
+        Object.keys(data).forEach(key => {
+          this.buildFormData(formData, data[key], parentKey ? `${parentKey}[${key}]` : key)
+        })
+      } else {
+        const value = data == null ? '' : data
+        formData.append(parentKey, value)
+      }
+    },
+
+    jsonToFormData (data) {
+      const formData = new FormData()
+      this.buildFormData(formData, data)
+      return formData
+    },
+
     submit () {
-      const formData = objectToFormData({
-        post: {
-          title: this.post.title,
-          content: this.post.content,
-          copyright: this.post.copyright,
-          clips_attributes: this.post.clips_attributes
-        }
+      const formData = this.jsonToFormData({
+        post: this.post
       })
 
       this.isSaving = true
