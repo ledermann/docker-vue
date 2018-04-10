@@ -1,6 +1,6 @@
 <template>
   <div>
-    <silentbox-group>
+    <silentbox-group v-if="post.clips.length">
       <template v-for="clip in post.clips">
         <silentbox-item v-if="clip.thumbnail" :src="clip.large.url" :key="clip.id">
           <figure class="image is-128x128">

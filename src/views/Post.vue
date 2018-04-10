@@ -106,7 +106,9 @@ export default {
       isLoading: false,
       isEditing: false,
       errors: [],
-      post: {}
+      post: {
+        clips: []
+      }
     }
   },
 

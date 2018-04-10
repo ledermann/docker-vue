@@ -1,7 +1,6 @@
 <template>
   <div class="content">
-    <silentbox-group>
-
+    <silentbox-group v-if="post.clips.length">
       <template v-for="clip in post.clips">
         <silentbox-item v-if="clip.large" :src="clip.large.url" :key="clip.id">
           <figure class="image is-128x128">
@@ -13,7 +12,6 @@
           <b-icon icon="circle-notch" size="is-large" custom-class="fa-spin" />
         </figure>
       </template>
-
     </silentbox-group>
 
     <div class="UppyForm" />
