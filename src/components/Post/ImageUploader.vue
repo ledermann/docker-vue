@@ -13,7 +13,7 @@
             <b-icon icon="circle-notch" size="is-large" custom-class="fa-spin" />
           </figure>
 
-          <a class="button btnRemove is-small" @click="removeClip(index)">
+          <a class="button is-small" @click="removeClip(index)">
             <b-icon icon="trash" size="is-small"/>
           </a>
         </div>
@@ -110,13 +110,13 @@ export default {
     display: inline-block
     position: relative
 
-    .btnRemove
+    .button
       position: absolute
       top: 10px
       left: 10px
       display: none
 
     &:hover
-      .btnRemove
+      .button
         display: block
 </style>
