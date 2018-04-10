@@ -1,9 +1,9 @@
 <template>
   <div class="content">
     <silentbox-group>
-      <silentbox-item v-for="clip in post.clips" :src="clip.large.url" :key="clip.id">
+      <silentbox-item v-for="clip in post.clips" :src="('large' in clip) ? clip.large.url : clip.preview" :key="clip.id">
         <figure class="image is-128x128">
-          <img :src="clip.thumbnail.url">
+          <img :src="('thumbnail' in clip) ? clip.thumbnail.url : clip.preview">
         </figure>
       </silentbox-item>
     </silentbox-group>
@@ -69,21 +69,12 @@ export default {
         }
       })
 
-      if (!that.post.clips_attributes) {
-        that.post.clips_attributes = []
-      }
-      that.post.clips_attributes.push({image: uploadedFileData})
-
       if (!that.post.clips) {
         that.post.clips = []
       }
       that.post.clips.push({
-        thumbnail: {
-          url: file.preview
-        },
-        large: {
-          url: file.preview
-        }
+        image: uploadedFileData,
+        preview: file.preview
       })
     })
   }
