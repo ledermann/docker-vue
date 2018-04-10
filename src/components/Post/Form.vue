@@ -31,13 +31,13 @@
 
     <b-tabs :animated="false">
       <b-tab-item label="Content" active >
-        <b-field :type="fieldTypes.content" :message="fieldMessages.content">
+        <b-field :type="fieldTypes.content" :message="fieldMessages.content" class="content">
           <VuePellEditor id="editorContent" v-model="post.content" @keyup.native="keyup('content')" />
         </b-field>
       </b-tab-item>
 
       <b-tab-item label="Copyright">
-        <b-field :type="fieldTypes.copyright" :message="fieldMessages.copyright">
+        <b-field :type="fieldTypes.copyright" :message="fieldMessages.copyright" class="content">
           <VuePellEditor id="editorCopyright" v-model="post.copyright" @keyup.native="keyup('copyright')" />
         </b-field>
       </b-tab-item>
