@@ -1,11 +1,19 @@
 <template>
   <div class="content">
     <silentbox-group>
-      <silentbox-item v-for="clip in post.clips" :src="('large' in clip) ? clip.large.url : clip.preview" :key="clip.id">
-        <figure class="image is-128x128">
-          <img :src="('thumbnail' in clip) ? clip.thumbnail.url : clip.preview">
+
+      <template v-for="clip in post.clips">
+        <silentbox-item v-if="clip.large" :src="clip.large.url" :key="clip.id">
+          <figure class="image is-128x128">
+            <img :src="clip.thumbnail.url">
+          </figure>
+        </silentbox-item>
+
+        <figure v-else class="image is-128x128" :key="clip.id">
+          <b-icon icon="circle-notch" size="is-large" custom-class="fa-spin" />
         </figure>
-      </silentbox-item>
+      </template>
+
     </silentbox-group>
 
     <div class="UppyForm" />
@@ -27,16 +35,14 @@ export default {
   mounted () {
     var that = this
 
-    var uppy = Uppy({
+    Uppy({
       thumbnailGeneration: true,
       autoProceed: true,
       restrictions: {
         maxFileSize: false,
         allowedFileTypes: ['image/*']
       }
-    })
-
-    uppy.use(FileInput, {
+    }).use(FileInput, {
       target: '.UppyForm',
       allowMultipleFiles: true,
       locale: {
@@ -44,21 +50,12 @@ export default {
           chooseFiles: '+ Upload image'
         }
       }
-    })
-
-    uppy.use(AwsS3, {
+    }).use(AwsS3, {
       getUploadParameters: function (file) {
         return fetch('https://docker-rails.dev/api/v1/presign?filename=' + file.name)
           .then(function (response) { return response.json() })
       }
-    })
-
-    uppy.run()
-
-    uppy.on('upload-success', function (fileId, data) {
-      // retrieve uppy's file object (`file.data` contains the actual JavaScript File object)
-      var file = uppy.getFile(fileId)
-
+    }).on('upload-success', (file, resp, uploadURL) => {
       var uploadedFileData = JSON.stringify({
         id: file.meta['key'].match(/cache\/(.+)/)[1], // remove the Shrine storage prefix
         storage: 'cache',
@@ -69,14 +66,9 @@ export default {
         }
       })
 
-      if (!that.post.clips) {
-        that.post.clips = []
-      }
-      that.post.clips.push({
-        image: uploadedFileData,
-        preview: file.preview
-      })
-    })
+      that.post.clips = that.post.clips || []
+      that.post.clips.push({image: uploadedFileData})
+    }).run()
   }
 }
 </script>
