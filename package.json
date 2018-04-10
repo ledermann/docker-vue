@@ -25,7 +25,7 @@
     "uppy": "0.22.0",
     "vue": "^2.5.13",
     "vue-axios": "^2.0.2",
-    "vue-infinite-loading": "^2.2.3",
+    "vue-infinite-loading": "^2.3.1",
     "vue-pell-editor": "^0.1.4",
     "vue-router": "^3.0.1",
     "vue-silentbox": "^0.1.1",
