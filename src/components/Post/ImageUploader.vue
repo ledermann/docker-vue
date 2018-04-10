@@ -1,16 +1,22 @@
 <template>
   <div class="content">
     <silentbox-group v-if="post.clips.length">
-      <template v-for="clip in post.clips">
-        <silentbox-item v-if="clip.large" :src="clip.large.url" :key="clip.id">
-          <figure class="image is-128x128">
-            <img :src="clip.thumbnail.url">
-          </figure>
-        </silentbox-item>
+      <template v-for="(clip, index) in post.clips">
+        <div class="clip" :key="clip.id">
+          <silentbox-item v-if="clip.large" :src="clip.large.url">
+            <figure class="image is-128x128">
+              <img :src="clip.thumbnail.url">
+            </figure>
+          </silentbox-item>
 
-        <figure v-else class="image is-128x128" :key="clip.id">
-          <b-icon icon="circle-notch" size="is-large" custom-class="fa-spin" />
-        </figure>
+          <figure v-else class="image is-128x128" >
+            <b-icon icon="circle-notch" size="is-large" custom-class="fa-spin" />
+          </figure>
+
+          <a class="button btnRemove is-small" @click="removeClip(index)">
+            <b-icon icon="trash" size="is-small"/>
+          </a>
+        </div>
       </template>
     </silentbox-group>
 
@@ -29,6 +35,31 @@ export default {
   name: 'ImageUploader',
 
   props: ['post'],
+
+  methods: {
+    prepareClipsAttributes () {
+      if (!this.post.clips_attributes) {
+        this.post.clips_attributes = this.post.clips.map((clip) => {
+          return {
+            _destroy: 0,
+            id: clip.id
+          }
+        })
+      }
+    },
+
+    removeClip (index) {
+      this.prepareClipsAttributes()
+
+      const clip = this.post.clips_attributes[index]
+      if (clip.id == null) {
+        this.post.clips_attributes.splice(index, 1)
+      } else {
+        this.post.clips_attributes[index]._destroy = true
+      }
+      this.post.clips.splice(index, 1)
+    }
+  },
 
   mounted () {
     var that = this
@@ -67,9 +98,25 @@ export default {
       that.post.clips = that.post.clips || []
       that.post.clips.push({image: uploadedFileData})
 
-      that.post.clips_attributes = that.post.clips_attributes || []
+      this.prepareClipsAttributes()
       that.post.clips_attributes.push({image: uploadedFileData})
     }).run()
   }
 }
 </script>
+
+<style lang="sass">
+  .clip
+    display: inline-block
+    position: relative
+
+    .btnRemove
+      position: absolute
+      top: 10px
+      left: 10px
+      display: none
+
+    &:hover
+      .btnRemove
+        display: block
+</style>
