@@ -141,7 +141,8 @@ export default {
         this.post = {
           title: '',
           content: '',
-          copyright: ''
+          copyright: '',
+          clips: []
         }
         this.startEdit()
       }
