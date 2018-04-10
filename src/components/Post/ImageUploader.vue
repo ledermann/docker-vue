@@ -74,8 +74,10 @@ export default {
       }
     }).use(AwsS3, {
       getUploadParameters: function (file) {
-        return fetch('https://docker-rails.dev/api/v1/presign?filename=' + file.name)
-          .then(function (response) { return response.json() })
+        return that.$http.get('/presign?filename=' + file.name)
+          .then(response => {
+            return response.data
+          })
       }
     }).on('upload-success', (file, resp, uploadURL) => {
       var uploadedFileData = JSON.stringify({
