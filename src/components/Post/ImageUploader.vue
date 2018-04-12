@@ -9,11 +9,12 @@
             </figure>
           </silentbox-item>
 
-          <span v-else>
+          <template v-else>
             <figure class="image is-128x128" >
-              <img :src="clip.preview">
+              <img :src="clip.preview" :class="{ inProgress: clip.progress < 100 }" >
+              <progress v-if="clip.progress < 100" class="progress is-success is-small" :value="clip.progress" max="100" />
             </figure>
-          </span>
+          </template>
 
           <a v-if="!post.clips_attributes[index]._destroy" class="button is-small" @click="removeClip(index)">
             <b-icon icon="trash" size="is-small"/>
@@ -83,9 +84,16 @@ export default {
       var vm = this
 
       reader.onload = (e) => {
+        var clipIndex = vm.post.clips_attributes.length
+        vm.post.clips_attributes.push({
+          preview: e.target.result,
+          image: null,
+          progress: 0
+        })
+
         this.presign(file)
           .then((data) => {
-            this.s3Upload(data.url, data.fields, file)
+            this.s3Upload(data.url, data.fields, file, clipIndex)
               .then(() => {
                 var uploadedFileData = JSON.stringify({
                   id: data.fields['key'].match(/cache\/(.+)/)[1], // remove the Shrine storage prefix
@@ -97,10 +105,7 @@ export default {
                   }
                 })
 
-                vm.post.clips_attributes.push({
-                  image: uploadedFileData,
-                  preview: e.target.result
-                })
+                vm.post.clips_attributes[clipIndex].image = uploadedFileData
               })
               .catch((error) => {
                 console.log('Upload failed', error)
@@ -121,21 +126,22 @@ export default {
         })
     },
 
-    s3Upload (url, fields, file) {
+    s3Upload (url, fields, file, clipIndex) {
+      var vm = this
+
       var formData = jsonToFormData(fields)
       formData.append('file', file)
 
       const axiosS3 = axios.create({
-        baseURL: url,
-        timeout: 1000
+        baseURL: url
       })
 
       const axiosOptions = {
         method: 'POST',
         data: formData,
         onUploadProgress: (progressEvent) => {
-          // var percentCompleted = Math.round(progressEvent.loaded * 100 / progressEvent.total)
-          // show progress
+          var percentCompleted = Math.round(progressEvent.loaded * 100 / progressEvent.total)
+          vm.post.clips_attributes[clipIndex].progress = percentCompleted
         }
       }
 
@@ -149,6 +155,22 @@ export default {
   .clip
     display: inline-block
     position: relative
+
+    img
+      object-fit: cover
+      width: 128px
+      height: 128px
+
+      &.inProgress
+        opacity: 0.3
+
+    progress
+      position: absolute
+      bottom: 10px
+      left: 0
+      right: 0
+      width: 90%
+      margin: 0 auto
 
     .button
       position: absolute
