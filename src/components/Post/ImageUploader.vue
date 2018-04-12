@@ -9,9 +9,11 @@
             </figure>
           </silentbox-item>
 
-          <figure v-else class="image is-128x128" >
-            <b-icon icon="circle-notch" size="is-large" custom-class="fa-spin" />
-          </figure>
+          <span v-else>
+            <figure class="image is-128x128" >
+              <img :src="clip.preview">
+            </figure>
+          </span>
 
           <a v-if="!post.clips_attributes[index]._destroy" class="button is-small" @click="removeClip(index)">
             <b-icon icon="trash" size="is-small"/>
@@ -23,21 +25,35 @@
       </template>
     </silentbox-group>
 
-    <div class="UppyForm" />
+    <div class="file">
+      <label class="file-label">
+        <input class="file-input" type="file" @change="onFileChange" multiple>
+        <span class="file-cta">
+          <span class="file-icon">
+            <i class="fas fa-upload"></i>
+          </span>
+          <span class="file-label">
+            Upload images
+          </span>
+        </span>
+      </label>
+    </div>
   </div>
 </template>
 
 <script>
-import 'uppy/dist/uppy.css'
-
-const Uppy = require('uppy/lib/core')
-const FileInput = require('uppy/lib/plugins/FileInput')
-const AwsS3 = require('uppy/lib/plugins/AwsS3')
+import axios from 'axios'
+import jsonToFormData from '@/api/object-to-formdata'
 
 export default {
   name: 'ImageUploader',
 
   props: ['post'],
+
+  data: () => {
+    return {
+    }
+  },
 
   methods: {
     removeClip (index) {
@@ -51,47 +67,80 @@ export default {
 
     restoreClip (index) {
       this.post.clips_attributes[index]._destroy = 0
-    }
-  },
+    },
 
-  mounted () {
-    var that = this
+    onFileChange (e) {
+      var files = e.target.files || e.dataTransfer.files
+      if (!files.length) { return }
 
-    Uppy({
-      thumbnailGeneration: true,
-      autoProceed: true,
-      restrictions: {
-        maxFileSize: false,
-        allowedFileTypes: ['image/*']
+      for (var file of files) {
+        this.uploadImage(file)
       }
-    }).use(FileInput, {
-      target: '.UppyForm',
-      allowMultipleFiles: true,
-      locale: {
-        strings: {
-          chooseFiles: '+ Upload image'
-        }
-      }
-    }).use(AwsS3, {
-      getUploadParameters: function (file) {
-        return that.$http.get('/presign?filename=' + file.name)
-          .then(response => {
-            return response.data
+    },
+
+    uploadImage (file) {
+      var reader = new FileReader()
+      var vm = this
+
+      reader.onload = (e) => {
+        this.presign(file)
+          .then((data) => {
+            this.s3Upload(data.url, data.fields, file)
+              .then(() => {
+                var uploadedFileData = JSON.stringify({
+                  id: data.fields['key'].match(/cache\/(.+)/)[1], // remove the Shrine storage prefix
+                  storage: 'cache',
+                  metadata: {
+                    size: file.size,
+                    filename: file.name,
+                    mime_type: file.type
+                  }
+                })
+
+                vm.post.clips_attributes.push({
+                  image: uploadedFileData,
+                  preview: e.target.result
+                })
+              })
+              .catch((error) => {
+                console.log('Upload failed', error)
+              })
+          })
+          .catch((error) => {
+            console.log('Presign failed', error)
           })
       }
-    }).on('upload-success', (file, resp, uploadURL) => {
-      var uploadedFileData = JSON.stringify({
-        id: file.meta['key'].match(/cache\/(.+)/)[1], // remove the Shrine storage prefix
-        storage: 'cache',
-        metadata: {
-          size: file.size,
-          filename: file.name,
-          mime_type: file.type
-        }
+
+      reader.readAsDataURL(file)
+    },
+
+    presign (file) {
+      return this.$http.get('/presign?filename=' + file.name)
+        .then(response => {
+          return response.data
+        })
+    },
+
+    s3Upload (url, fields, file) {
+      var formData = jsonToFormData(fields)
+      formData.append('file', file)
+
+      const axiosS3 = axios.create({
+        baseURL: url,
+        timeout: 1000
       })
 
-      that.post.clips_attributes.push({image: uploadedFileData})
-    }).run()
+      const axiosOptions = {
+        method: 'POST',
+        data: formData,
+        onUploadProgress: (progressEvent) => {
+          // var percentCompleted = Math.round(progressEvent.loaded * 100 / progressEvent.total)
+          // show progress
+        }
+      }
+
+      return axiosS3(axiosOptions)
+    }
   }
 }
 </script>

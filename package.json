@@ -21,7 +21,6 @@
     "es6-promise": "^4.2.4",
     "global-package-version": "^1.1.0",
     "jwt-decode": "^2.2.0",
-    "uppy": "0.23.3",
     "vue": "^2.5.13",
     "vue-axios": "^2.0.2",
     "vue-infinite-loading": "^2.3.1",
