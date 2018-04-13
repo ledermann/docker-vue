@@ -41,40 +41,7 @@
 
       <template v-if="activeTab === 'Article' && !isLoading">
         <post-form v-if="isEditing" :original-post="post" @cancel="cancelEdit" @afterSave="afterSave" />
-
-        <div v-else class="content">
-          <div class="columns">
-            <div class="column">
-              <b-taglist attached>
-                  <b-tag type="is-dark" size="is-medium">
-                    Last update
-                  </b-tag>
-
-                  <b-tag type="is-info" size="is-medium">
-                    <timeago :since="post.updated_at" :autoUpdate=5 />
-                  </b-tag>
-              </b-taglist>
-            </div>
-
-            <div v-if="currentUser && currentUser.admin" class="column buttons has-text-right">
-              <a @click="startEdit" class="button">
-                <span class="icon">
-                  <i class="fas fa-edit" />
-                </span>
-                <span>Edit</span>
-              </a>
-
-              <a @click="deleteData" class="button">
-                <span class="icon">
-                  <i class="fas fa-trash" />
-                </span>
-                <span>Delete</span>
-              </a>
-            </div>
-          </div>
-
-          <post-show :post="post" />
-        </div>
+        <post-show v-else :post="post" @edit="startEdit" @delete="deleteData" />
       </template>
 
       <template v-if="activeTab === 'Audits'">
@@ -89,7 +56,6 @@ import LayoutBasic from '@/layouts/LayoutBasic'
 import PostShow from '@/components/Post/Show'
 import PostForm from '@/components/Post/Form'
 import PostAudits from '@/components/Post/Audits'
-import { mapGetters } from 'vuex'
 
 export default {
   name: 'Post',
@@ -202,9 +168,7 @@ export default {
 
     persisted () {
       return !!this.slug
-    },
-
-    ...mapGetters(['currentUser'])
+    }
   }
 }
 </script>
