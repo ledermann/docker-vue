@@ -1,3 +1,9 @@
+export default function jsonToFormData (data) {
+  const formData = new FormData()
+  buildFormData(formData, data)
+  return formData
+}
+
 function buildFormData (formData, data, parentKey) {
   if (
     data &&
@@ -16,10 +22,4 @@ function buildFormData (formData, data, parentKey) {
     const value = data == null ? '' : data
     formData.append(parentKey, value)
   }
-}
-
-export default function jsonToFormData (data) {
-  const formData = new FormData()
-  buildFormData(formData, data)
-  return formData
 }

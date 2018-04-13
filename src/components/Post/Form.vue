@@ -48,7 +48,7 @@
 <script>
 import VuePellEditor from 'vue-pell-editor'
 import ImageUploader from '@/components/Post/ImageUploader'
-import jsonToFormData from '@/api/object-to-formdata'
+import jsonToFormData from '@/utils/object-to-formdata'
 
 export default {
   name: 'PostForm',

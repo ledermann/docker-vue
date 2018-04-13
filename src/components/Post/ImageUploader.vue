@@ -38,8 +38,8 @@
 
 <script>
 import axios from 'axios'
-import jsonToFormData from '@/api/object-to-formdata'
-import thumbnailify from '@/api/thumbnailify'
+import jsonToFormData from '@/utils/object-to-formdata'
+import thumbnailify from '@/utils/thumbnailify'
 
 export default {
   name: 'ImageUploader',
