@@ -155,6 +155,10 @@ export default {
     },
 
     afterSave (updatedPost) {
+      this.$toast.open({
+        message: 'The post <b>' + updatedPost.title + '</b> was ' + (this.persisted ? 'updated.' : 'created.'),
+        type: 'is-success'
+      })
       this.isEditing = false
       this.post = updatedPost
       this.$router.push({name: 'post', params: {slug: this.post.slug}})
