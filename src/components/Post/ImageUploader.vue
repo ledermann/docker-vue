@@ -3,9 +3,9 @@
     <silentbox-group v-if="clips.length">
       <template v-for="(clip, index) in clips">
         <div class="clip" :key="index">
-          <silentbox-item v-if="clip.urlLarge" :src="clip.urlLarge">
-            <figure class="image is-128x128">
-              <img v-if="clip.urlThumbnail" :src="clip.urlThumbnail" :class="{ inProgress: clip.progress < 100 }">
+          <silentbox-item :src="clip.urlLarge">
+            <figure class="image">
+              <img :src="clip.urlThumbnail" :class="{ inProgress: clip.progress < 100 }">
               <progress v-if="clip.progress < 100" class="progress is-success is-small" :value="clip.progress" max="100" />
             </figure>
           </silentbox-item>
@@ -64,18 +64,20 @@ export default {
     uploadImage (file) {
       var vm = this
 
+      var clipIndex = vm.post.clips_attributes.length
+      vm.post.clips_attributes.push({
+        image: null
+      })
+
+      const blankImage = 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs='
+      vm.clips.push({
+        progress: 0,
+        urlLarge: blankImage,
+        urlThumbnail: blankImage
+      })
+
       var reader = new FileReader()
       reader.onload = (e) => {
-        var clipIndex = vm.post.clips_attributes.length
-        vm.post.clips_attributes.push({
-          image: null
-        })
-
-        vm.clips.push({
-          progress: 0,
-          urlLarge: '',
-          urlThumbnail: ''
-        })
         thumbnailify(e.target.result, 128, function (base64Thumbnail) {
           vm.clips[clipIndex].urlThumbnail = base64Thumbnail
         })
@@ -164,8 +166,9 @@ export default {
 
     img
       object-fit: cover
-      width: 128px
-      height: 128px
+      border: 1px solid #ccc
+      width: 128px + 2px
+      height: 128px + 2px
 
       &.inProgress
         opacity: 0.3
