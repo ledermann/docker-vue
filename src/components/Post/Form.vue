@@ -77,12 +77,8 @@ export default {
       },
       clips: this.originalPost.clips.map((clip) => {
         return {
-          large: {
-            url: clip.large.url
-          },
-          thumbnail: {
-            url: clip.thumbnail.url
-          }
+          urlLarge: clip.large.url,
+          urlThumbnail: clip.thumbnail.url
         }
       })
     }

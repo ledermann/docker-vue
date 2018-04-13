@@ -3,18 +3,12 @@
     <silentbox-group v-if="clips.length">
       <template v-for="(clip, index) in clips">
         <div class="clip" :key="index">
-          <silentbox-item v-if="clip.large" :src="clip.large.url">
+          <silentbox-item v-if="clip.urlLarge" :src="clip.urlLarge">
             <figure class="image is-128x128">
-              <img :src="clip.thumbnail.url">
-            </figure>
-          </silentbox-item>
-
-          <template v-else>
-            <figure class="image is-128x128" >
-              <img :src="clip.preview" :class="{ inProgress: clip.progress < 100 }" >
+              <img v-if="clip.urlThumbnail" :src="clip.urlThumbnail" :class="{ inProgress: clip.progress < 100 }">
               <progress v-if="clip.progress < 100" class="progress is-success is-small" :value="clip.progress" max="100" />
             </figure>
-          </template>
+          </silentbox-item>
 
           <a v-if="!post.clips_attributes[index]._destroy" class="button is-small" @click="removeClip(index)">
             <b-icon icon="trash" size="is-small"/>
@@ -45,6 +39,7 @@
 <script>
 import axios from 'axios'
 import jsonToFormData from '@/api/object-to-formdata'
+import thumbnailify from '@/api/thumbnailify'
 
 export default {
   name: 'ImageUploader',
@@ -75,9 +70,17 @@ export default {
         vm.post.clips_attributes.push({
           image: null
         })
+
         vm.clips.push({
-          preview: e.target.result,
-          progress: 0
+          progress: 0,
+          urlLarge: '',
+          urlThumbnail: ''
+        })
+        thumbnailify(e.target.result, 128, function (base64Thumbnail) {
+          vm.clips[clipIndex].urlThumbnail = base64Thumbnail
+        })
+        thumbnailify(e.target.result, 1200, function (base64Thumbnail) {
+          vm.clips[clipIndex].urlLarge = base64Thumbnail
         })
 
         this.presign(file)
