@@ -91,14 +91,20 @@ export default {
       this.activeTab = 'Audits'
     },
 
-    loadData () {
+    loadData (withLoadingIndicator = true) {
       if (this.persisted) {
-        this.isLoading = true
+        this.isLoading = withLoadingIndicator
         this.$http.get('/posts/' + this.slug)
           .then(response => {
             this.post = response.data.post
             this.isLoading = false
             this.errors = []
+
+            if (!this.clipsPresent) {
+              setTimeout(() => {
+                this.loadData(false)
+              }, 2000)
+            }
           })
           .catch(error => {
             this.post = null
@@ -168,6 +174,12 @@ export default {
   computed: {
     isLoadingError () {
       return (this.errors.length > 0)
+    },
+
+    clipsPresent () {
+      return this.post.clips.every((clip) => {
+        return clip.thumbnail && clip.large
+      })
     },
 
     persisted () {
