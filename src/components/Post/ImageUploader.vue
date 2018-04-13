@@ -39,7 +39,7 @@
 <script>
 import axios from 'axios'
 import jsonToFormData from '@/utils/object-to-formdata'
-import thumbnailify from '@/utils/thumbnailify'
+import ThumbnailGenerator from '@/utils/ThumbnailGenerator'
 
 export default {
   name: 'ImageUploader',
@@ -78,10 +78,11 @@ export default {
 
       var reader = new FileReader()
       reader.onload = (e) => {
-        thumbnailify(e.target.result, 128, function (base64Thumbnail) {
+        var generator = new ThumbnailGenerator()
+        generator.createThumbnail(e.target.result, 256).then(function (base64Thumbnail) {
           vm.clips[clipIndex].urlThumbnail = base64Thumbnail
         })
-        thumbnailify(e.target.result, 1200, function (base64Thumbnail) {
+        generator.createThumbnail(e.target.result, 1200).then(function (base64Thumbnail) {
           vm.clips[clipIndex].urlLarge = base64Thumbnail
         })
 
