@@ -1,4 +1,4 @@
-// Code taken from Uppy
+// Extracted code from Uppy
 // https://github.com/transloadit/uppy/blob/master/src/plugins/ThumbnailGenerator/index.js
 
 // The MIT License (MIT)
@@ -20,21 +20,10 @@
 // SOFTWARE.
 
 export default class ThumbnailGenerator {
-  constructor (opts) {
-    this.queue = []
-    this.queueProcessing = false
-    const defaultOptions = {
-      thumbnailWidth: 128
-    }
-    this.opts = Object.assign({}, defaultOptions, opts)
-    this.addToQueue = this.addToQueue.bind(this)
-    this.onRestored = this.onRestored.bind(this)
-  }
-
   /**
-   * Create a thumbnail for the given Uppy file object.
+   * Create a thumbnail for the given Blob.
    *
-   * @param {{data: Blob}} file
+   * @param {Blob} image
    * @param {number} width
    * @return {Promise}
    */
@@ -142,64 +131,6 @@ export default class ThumbnailGenerator {
   getProportionalHeight (img, width) {
     const aspect = img.width / img.height
     return Math.round(width / aspect)
-  }
-
-  /**
-   * Set the preview URL for a file.
-   */
-  setPreviewURL (fileID, preview) {
-    const { files } = this.uppy.state
-    this.uppy.setState({
-      files: Object.assign({}, files, {
-        [fileID]: Object.assign({}, files[fileID], {
-          preview: preview
-        })
-      })
-    })
-  }
-
-  addToQueue (item) {
-    this.queue.push(item)
-    if (this.queueProcessing === false) {
-      this.processQueue()
-    }
-  }
-
-  processQueue () {
-    this.queueProcessing = true
-    if (this.queue.length > 0) {
-      const current = this.queue.shift()
-      return this.requestThumbnail(current)
-        .catch(err => { }) // eslint-disable-line handle-callback-err
-        .then(() => this.processQueue())
-    } else {
-      this.queueProcessing = false
-    }
-  }
-
-  requestThumbnail (file) {
-    if (this.isPreviewSupported(file.type) && !file.isRemote) {
-      return this.createThumbnail(file, this.opts.thumbnailWidth)
-        .then(preview => {
-          this.setPreviewURL(file.id, preview)
-        })
-        .catch(err => {
-          console.warn(err.stack || err.message)
-        })
-    }
-    return Promise.resolve()
-  }
-
-  onRestored () {
-    const fileIDs = Object.keys(this.uppy.getState().files)
-    fileIDs.forEach(fileID => {
-      const file = this.uppy.getFile(fileID)
-      if (!file.isRestored) { return }
-      // Only add blob URLs; they are likely invalid after being restored.
-      if (!file.preview || /^blob:/.test(file.preview)) {
-        this.addToQueue(file)
-      }
-    })
   }
 
   dataURItoBlob (dataURI, opts, toFile) {
