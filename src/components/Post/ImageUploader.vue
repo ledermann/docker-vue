@@ -6,7 +6,7 @@
           <silentbox-item :src="clip.urlLarge">
             <figure class="image">
               <img :src="clip.urlThumbnail" :class="{ inProgress: clip.progress < 100 }">
-              <progress v-if="clip.progress < 100" class="progress is-success is-small" :value="clip.progress" max="100" />
+              <progress v-if="clip.progress < 100" class="progress is-success" :value="clip.progress" max="100" />
             </figure>
           </silentbox-item>
 
@@ -175,11 +175,13 @@ export default {
 
     progress
       position: absolute
-      bottom: 10px
+      top: 0
+      bottom: 0
+      height: 5px
       left: 0
       right: 0
       width: 90%
-      margin: 0 auto
+      margin: auto
 
     .button
       position: absolute
