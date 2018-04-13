@@ -30,17 +30,19 @@
       </div>
     </div>
 
-    <silentbox-group v-if="post.clips.length">
-      <template v-for="clip in post.clips">
-        <silentbox-item v-if="clip.thumbnail" :src="clip.large.url" :key="clip.id">
-          <figure class="image is-128x128">
-            <img :src="clip.thumbnail.url">
-          </figure>
-        </silentbox-item>
+    <silentbox-group v-if="clips.length">
+      <template v-for="clip in clips">
+        <div class="clip" :key="clip.id">
+          <silentbox-item v-if="clip.urlThumbnail" :src="clip.urlLarge">
+            <figure class="image is-128x128">
+              <img :src="clip.urlThumbnail">
+            </figure>
+          </silentbox-item>
 
-        <figure v-else class="image is-128x128" :key="clip.id">
-          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=" />
-        </figure>
+          <figure v-else class="image is-128x128" :key="clip.id">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=" />
+          </figure>
+        </div>
       </template>
     </silentbox-group>
 
@@ -60,7 +62,7 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'PostShow',
 
-  props: ['post'],
+  props: ['post', 'clips'],
 
   computed: {
     ...mapGetters(['currentUser'])
@@ -69,8 +71,12 @@ export default {
 </script>
 
 <style lang="sass">
-img
-  border: 1px solid #ccc
-  width: 128px + 2px
-  height: 128px + 2px
+.clip
+  display: inline-block
+
+  img
+    object-fit: cover
+    border: 1px solid #ccc
+    width: 128px + 2px
+    height: 128px + 2px
 </style>

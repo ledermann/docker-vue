@@ -27,7 +27,7 @@
       <b-input type="text" placeholder="Title" v-model="post.title" autofocus @keyup.native="keyup('title')"/>
     </b-field>
 
-    <ImageUploader :post.sync="post" :clips="clips" />
+    <ImageUploader :post.sync="post" :clips.sync="clips" />
 
     <b-tabs :animated="false">
       <b-tab-item label="Content" active >
@@ -58,7 +58,7 @@ export default {
     ImageUploader
   },
 
-  props: ['original-post'],
+  props: ['original-post', 'original-clips'],
 
   data () {
     return {
@@ -75,12 +75,7 @@ export default {
           }
         })
       },
-      clips: this.originalPost.clips.map((clip) => {
-        return {
-          urlLarge: clip.large.url,
-          urlThumbnail: clip.thumbnail.url
-        }
-      })
+      clips: this.originalClips
     }
   },
 
@@ -107,6 +102,10 @@ export default {
 
     apiMethod () {
       return this.originalPost.slug ? 'patch' : 'post'
+    },
+
+    clipsWithoutDestroyed () {
+      return this.clips.filter((clip, index) => !this.post.clips_attributes[index]._destroy)
     }
   },
 
@@ -124,7 +123,7 @@ export default {
       this.$http[this.apiMethod](this.url, formData)
         .then(response => {
           this.isSaving = false
-          this.$emit('afterSave', response.data.post)
+          this.$emit('afterSave', response.data.post, this.clipsWithoutDestroyed)
         }).catch(error => {
           this.isSaving = false
           this.errors = error.response.data

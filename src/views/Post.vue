@@ -40,8 +40,8 @@
       <b-loading :active="isLoading" />
 
       <template v-if="activeTab === 'Article' && !isLoading">
-        <post-form v-if="isEditing" :original-post="post" @cancel="cancelEdit" @afterSave="afterSave" />
-        <post-show v-else :post="post" @edit="startEdit" @delete="deleteData" />
+        <post-form v-if="isEditing" :original-post="post" :original-clips="clips" @cancel="cancelEdit" @afterSave="afterSave" />
+        <post-show v-else :post="post" :clips="clips" @edit="startEdit" @delete="deleteData" />
       </template>
 
       <template v-if="activeTab === 'Audits'">
@@ -72,9 +72,8 @@ export default {
       isLoading: false,
       isEditing: false,
       errors: [],
-      post: {
-        clips: []
-      }
+      post: {},
+      clips: []
     }
   },
 
@@ -97,6 +96,12 @@ export default {
         this.$http.get('/posts/' + this.slug)
           .then(response => {
             this.post = response.data.post
+            this.clips = response.data.post.clips.map((clip) => {
+              return {
+                urlLarge: clip.large.url,
+                urlThumbnail: clip.thumbnail.url
+              }
+            })
             this.isLoading = false
             this.errors = []
           })
@@ -109,9 +114,9 @@ export default {
         this.post = {
           title: '',
           content: '',
-          copyright: '',
-          clips: []
+          copyright: ''
         }
+        this.clips = []
         this.startEdit()
       }
     },
@@ -154,13 +159,14 @@ export default {
       }
     },
 
-    afterSave (updatedPost) {
+    afterSave (updatedPost, updatedClips) {
       this.$toast.open({
         message: 'The post <b>' + updatedPost.title + '</b> was ' + (this.persisted ? 'updated.' : 'created.'),
         type: 'is-success'
       })
       this.isEditing = false
       this.post = updatedPost
+      this.clips = updatedClips
       this.$router.push({name: 'post', params: {slug: this.post.slug}})
     }
   },
