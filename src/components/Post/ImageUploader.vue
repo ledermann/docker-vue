@@ -1,7 +1,7 @@
 <template>
   <div class="content">
-    <silentbox-group v-if="post.clips_attributes.length">
-      <template v-for="(clip, index) in post.clips_attributes">
+    <silentbox-group v-if="clips.length">
+      <template v-for="(clip, index) in clips">
         <div class="clip" :key="index">
           <silentbox-item v-if="clip.large" :src="clip.large.url">
             <figure class="image is-128x128">
@@ -49,7 +49,7 @@ import jsonToFormData from '@/api/object-to-formdata'
 export default {
   name: 'ImageUploader',
 
-  props: ['post'],
+  props: ['post', 'clips'],
 
   data: () => {
     return {
@@ -73,8 +73,10 @@ export default {
       reader.onload = (e) => {
         var clipIndex = vm.post.clips_attributes.length
         vm.post.clips_attributes.push({
+          image: null
+        })
+        vm.clips.push({
           preview: e.target.result,
-          image: null,
           progress: 0
         })
 
@@ -128,7 +130,7 @@ export default {
         data: formData,
         onUploadProgress: (progressEvent) => {
           var percentCompleted = Math.round(progressEvent.loaded * 100 / progressEvent.total)
-          vm.post.clips_attributes[clipIndex].progress = percentCompleted
+          vm.clips[clipIndex].progress = percentCompleted
         }
       }
 
@@ -139,6 +141,7 @@ export default {
       const clip = this.post.clips_attributes[index]
       if (clip.id == null) {
         this.post.clips_attributes.splice(index, 1)
+        this.clips.splice(index, 1)
       } else {
         this.post.clips_attributes[index]._destroy = true
       }

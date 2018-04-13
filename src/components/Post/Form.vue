@@ -27,7 +27,7 @@
       <b-input type="text" placeholder="Title" v-model="post.title" autofocus @keyup.native="keyup('title')"/>
     </b-field>
 
-    <ImageUploader :post.sync="post" />
+    <ImageUploader :post.sync="post" :clips="clips" />
 
     <b-tabs :animated="false">
       <b-tab-item label="Content" active >
@@ -71,16 +71,20 @@ export default {
         clips_attributes: this.originalPost.clips.map((clip) => {
           return {
             _destroy: 0,
-            id: clip.id,
-            large: {
-              url: clip.large.url
-            },
-            thumbnail: {
-              url: clip.thumbnail.url
-            }
+            id: clip.id
           }
         })
-      }
+      },
+      clips: this.originalPost.clips.map((clip) => {
+        return {
+          large: {
+            url: clip.large.url
+          },
+          thumbnail: {
+            url: clip.thumbnail.url
+          }
+        }
+      })
     }
   },
 
