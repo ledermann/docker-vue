@@ -4,7 +4,7 @@
       <template v-for="(clip, index) in clips">
         <div class="clip" :key="index">
           <silentbox-item :src="clip.urlLarge">
-            <figure class="image">
+            <figure v-show="!clip.canceled" class="image">
               <img :src="clip.urlThumbnail" :class="{ inProgress: clip.progress < 100 }">
               <progress v-if="clip.progress < 100" class="progress is-info" :value="clip.progress" max="100" />
             </figure>
@@ -72,6 +72,8 @@ export default {
       const blankImage = 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs='
       vm.clips.push({
         progress: 0,
+        canceled: false,
+        cancelSource: axios.CancelToken.source(),
         urlLarge: blankImage,
         urlThumbnail: blankImage
       })
@@ -103,7 +105,11 @@ export default {
                 vm.post.clips_attributes[clipIndex].image = uploadedFileData
               })
               .catch((error) => {
-                console.log('Upload failed', error)
+                if (axios.isCancel(error)) {
+                  console.log('Upload canceled', file.name)
+                } else {
+                  console.log('Upload failed', error)
+                }
               })
           })
           .catch((error) => {
@@ -134,6 +140,7 @@ export default {
       const axiosOptions = {
         method: 'POST',
         data: formData,
+        cancelToken: vm.clips[clipIndex].cancelSource.token,
         onUploadProgress: (progressEvent) => {
           var percentCompleted = Math.round(progressEvent.loaded * 100 / progressEvent.total)
           vm.clips[clipIndex].progress = percentCompleted
@@ -146,11 +153,10 @@ export default {
     removeClip (index) {
       const clip = this.post.clips_attributes[index]
       if (clip.id == null) {
-        this.post.clips_attributes.splice(index, 1)
-        this.clips.splice(index, 1)
-      } else {
-        this.post.clips_attributes[index]._destroy = true
+        this.clips[index].canceled = true
+        this.clips[index].cancelSource.cancel()
       }
+      this.post.clips_attributes[index]._destroy = true
     },
 
     restoreClip (index) {
