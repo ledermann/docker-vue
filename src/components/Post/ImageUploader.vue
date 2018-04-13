@@ -6,7 +6,7 @@
           <silentbox-item :src="clip.urlLarge">
             <figure class="image">
               <img :src="clip.urlThumbnail" :class="{ inProgress: clip.progress < 100 }">
-              <progress v-if="clip.progress < 100" class="progress is-success" :value="clip.progress" max="100" />
+              <progress v-if="clip.progress < 100" class="progress is-info" :value="clip.progress" max="100" />
             </figure>
           </silentbox-item>
 
