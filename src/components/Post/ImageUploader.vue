@@ -2,7 +2,7 @@
   <div class="content">
     <silentbox-group v-if="post.clips_attributes.length">
       <template v-for="(clip, index) in post.clips_attributes">
-        <div class="clip" :key="clip.id">
+        <div class="clip" :key="index">
           <silentbox-item v-if="clip.large" :src="clip.large.url">
             <figure class="image is-128x128">
               <img :src="clip.thumbnail.url">
@@ -57,19 +57,6 @@ export default {
   },
 
   methods: {
-    removeClip (index) {
-      const clip = this.post.clips_attributes[index]
-      if (clip.id == null) {
-        this.post.clips_attributes.splice(index, 1)
-      } else {
-        this.post.clips_attributes[index]._destroy = true
-      }
-    },
-
-    restoreClip (index) {
-      this.post.clips_attributes[index]._destroy = 0
-    },
-
     onFileChange (e) {
       var files = e.target.files || e.dataTransfer.files
       if (!files.length) { return }
@@ -80,9 +67,9 @@ export default {
     },
 
     uploadImage (file) {
-      var reader = new FileReader()
       var vm = this
 
+      var reader = new FileReader()
       reader.onload = (e) => {
         var clipIndex = vm.post.clips_attributes.length
         vm.post.clips_attributes.push({
@@ -146,6 +133,19 @@ export default {
       }
 
       return axiosS3(axiosOptions)
+    },
+
+    removeClip (index) {
+      const clip = this.post.clips_attributes[index]
+      if (clip.id == null) {
+        this.post.clips_attributes.splice(index, 1)
+      } else {
+        this.post.clips_attributes[index]._destroy = true
+      }
+    },
+
+    restoreClip (index) {
+      this.post.clips_attributes[index]._destroy = 0
     }
   }
 }
