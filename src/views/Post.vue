@@ -107,7 +107,6 @@ export default {
           })
           .catch(error => {
             this.post = null
-            this.clips = null
             this.isLoading = false
             this.errors.push(error)
           })
@@ -115,8 +114,7 @@ export default {
         this.post = {
           title: '',
           content: '',
-          copyright: '',
-          clips: []
+          copyright: ''
         }
         this.clips = []
         this.startEdit()
