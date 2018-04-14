@@ -27,7 +27,7 @@
       <b-input type="text" placeholder="Title" v-model="post.title" autofocus @keyup.native="keyup('title')"/>
     </b-field>
 
-    <ImageUploader :post.sync="post" :clips="clips" />
+    <ImageUploader :post="post" :clips="clips" />
 
     <b-tabs :animated="false">
       <b-tab-item label="Content" active >
