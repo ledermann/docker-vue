@@ -4,7 +4,6 @@
       placeholder="Search..."
       v-model="query"
       :data="data"
-      :loading="isFetching"
       @select="option => selected = option"
       @input="getAsyncData"
       @keyup.enter.native="onEnter">
@@ -26,8 +25,7 @@ export default {
     return {
       data: [],
       query: '',
-      selected: null,
-      isFetching: false
+      selected: null
     }
   },
   methods: {
@@ -40,14 +38,11 @@ export default {
 
     getAsyncData: debounce(function () {
       this.data = []
-      this.isFetching = true
       this.$http.get(`/posts?q=${this.query}`)
         .then(response => {
           this.data = response.data.posts
-          this.isFetching = false
         })
         .catch((error) => {
-          this.isFetching = false
           throw error
         })
     }, 300)
