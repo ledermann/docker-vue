@@ -203,9 +203,14 @@ export default {
 </script>
 
 <style lang="sass">
-  .image
-    display: inline-block
-  .content figure
-    margin-left: 0
-    margin-right: 0.5rem
+.clip
+  display: inline-block
+  border: 1px solid #ddd
+  line-height: 0
+
+  img
+    object-fit: cover
+    width: 128px
+    height: 128px
+
 </style>

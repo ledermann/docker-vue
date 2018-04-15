@@ -4,10 +4,10 @@
       <template v-for="(clip, index) in clips">
         <div class="clip" :key="index">
           <silentbox-item :src="clip.urlLarge">
-            <figure v-show="!clip.canceled" class="image">
+            <template v-show="!clip.canceled">
               <img :src="clip.urlThumbnail" :class="{ inProgress: clip.progress < 100 }">
               <progress v-if="clip.progress < 100" class="progress is-info" :value="clip.progress" max="100" />
-            </figure>
+            </template>
           </silentbox-item>
 
           <a v-if="!post.clips_attributes[index]._destroy" class="button is-small" @click="removeClip(index)">
@@ -167,36 +167,30 @@ export default {
 </script>
 
 <style lang="sass">
-  .clip
-    display: inline-block
-    position: relative
+.clip
+  position: relative
 
-    img
-      object-fit: cover
-      border: 1px solid #ccc
-      width: 128px + 2px
-      height: 128px + 2px
+  img
+    &.inProgress
+      opacity: 0.3
 
-      &.inProgress
-        opacity: 0.3
+  progress
+    position: absolute
+    top: 0
+    bottom: 0
+    height: 5px
+    left: 0
+    right: 0
+    width: 90%
+    margin: auto
 
-    progress
-      position: absolute
-      top: 0
-      bottom: 0
-      height: 5px
-      left: 0
-      right: 0
-      width: 90%
-      margin: auto
+  .button
+    position: absolute
+    top: 10px
+    left: 10px
+    display: none
 
+  &:hover
     .button
-      position: absolute
-      top: 10px
-      left: 10px
-      display: none
-
-    &:hover
-      .button
-        display: block
+      display: block
 </style>

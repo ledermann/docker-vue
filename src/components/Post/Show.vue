@@ -32,15 +32,11 @@
 
     <silentbox-group v-if="post.clips.length">
       <template v-for="clip in post.clips">
-        <silentbox-item v-if="clip.thumbnail" :src="clip.large.url" :key="clip.id">
-          <figure class="image is-128x128">
-            <img :src="clip.thumbnail.url">
-          </figure>
+        <silentbox-item v-if="clip.thumbnail" :src="clip.large.url" :key="clip.id" class="clip">
+          <img :src="clip.thumbnail.url">
         </silentbox-item>
 
-        <figure v-else class="image is-128x128" :key="clip.id">
-          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=" />
-        </figure>
+        <img v-else src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=" :key="clip.id" />
       </template>
     </silentbox-group>
 
@@ -67,10 +63,3 @@ export default {
   }
 }
 </script>
-
-<style lang="sass">
-img
-  border: 1px solid #ccc
-  width: 128px + 2px
-  height: 128px + 2px
-</style>
