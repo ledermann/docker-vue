@@ -1,10 +1,10 @@
 {
   "name": "docker-vue",
   "version": "0.1.0",
-  "description": "A Vue.js project",
+  "description": "Single page application built with Vue.js",
   "author": "Georg Ledermann <mail@georg-ledermann.de>",
+  "homepage": "https://github.com/ledermann/docker-vue",
   "license": "MIT",
-  "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
