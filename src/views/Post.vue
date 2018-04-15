@@ -74,12 +74,20 @@ export default {
       errors: [],
       post: {
         clips: []
-      }
+      },
+      channel: null
     }
   },
 
   mounted () {
     this.loadData()
+  },
+
+  destroyed () {
+    if (this.channel) {
+      this.channel.unsubscribe()
+      this.channel = null
+    }
   },
 
   methods: {
@@ -99,6 +107,7 @@ export default {
             this.post = response.data.post
             this.isLoading = false
             this.errors = []
+            this.subscribeToUpdateChannel()
           })
           .catch(error => {
             this.post = null
@@ -114,6 +123,21 @@ export default {
         }
         this.startEdit()
       }
+    },
+
+    subscribeToUpdateChannel () {
+      if (this.channel) return
+
+      const vm = this
+      this.channel = this.$cable.subscriptions.create({ channel: 'PostUpdateChannel', post_id: this.post.id }, {
+        received (data) {
+          if (data.slug === vm.post.slug) {
+            vm.post = data
+          } else {
+            vm.$router.replace({name: 'post', params: {slug: data.slug}})
+          }
+        }
+      })
     },
 
     deleteData () {
@@ -162,6 +186,7 @@ export default {
       this.isEditing = false
       this.post = updatedPost
       this.$router.push({name: 'post', params: {slug: this.post.slug}})
+      this.subscribeToUpdateChannel()
     }
   },
 

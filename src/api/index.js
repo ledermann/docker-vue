@@ -2,11 +2,13 @@ import Vue from 'vue'
 import VueAxios from 'vue-axios'
 import axios from 'axios'
 import store from '@/store'
+import ActionCable from 'actioncable'
 
-axios.defaults.baseURL =
-  process.env.API_URL || process.env.NODE_ENV === 'production'
-    ? 'https://docker-rails.georg-ledermann.de/api/v1'
-    : 'https://docker-rails.dev/api/v1'
+const backendHost = process.env.API_URL || process.env.NODE_ENV === 'production'
+  ? 'https://docker-rails.georg-ledermann.de'
+  : 'https://docker-rails.dev'
+
+axios.defaults.baseURL = backendHost + '/api/v1'
 
 axios.interceptors.request.use((config) => {
   if (store.getters.currentUser) {
@@ -20,3 +22,7 @@ axios.interceptors.request.use((config) => {
 })
 
 Vue.use(VueAxios, axios)
+
+Vue.prototype.$cable = ActionCable.createConsumer(
+  'wss://' + backendHost.replace(/.*?:\/\//g, '') + '/cable'
+)
