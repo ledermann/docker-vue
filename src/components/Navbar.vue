@@ -2,9 +2,14 @@
   <nav class="navbar is-dark is-fixed-top">
     <div class="container">
       <div class="navbar-brand">
-        <router-link to="/" exact class="navbar-item">
+        <router-link to="/" exact class="navbar-item" title="Home">
           <b-icon pack="fas" icon="home" />
         </router-link>
+
+        <router-link v-if="currentUser && currentUser.admin" :to="{ name: 'newPost'}" exact class="navbar-item" title="Add post">
+          <b-icon pack="fas" icon="plus" />
+        </router-link>
+
         <div class="navbar-burger burger" @click="toggleMenu" :class="{'is-active': IsActive}" data-target="navbarExampleTransparentExample">
           <span></span>
           <span></span>
@@ -17,18 +22,15 @@
           <div class="navbar-item">
             <search />
           </div>
-            <a class="navbar-item" href="https://github.com/ledermann/docker-vue" title="Source">
-              <b-icon pack="fab" icon="github" />
-            </a>
-
-            <router-link to="/about" exact class="navbar-item">
-              About
-            </router-link>
         </div>
 
         <div class="navbar-end">
-          <router-link v-if="currentUser && currentUser.admin" :to="{ name: 'newPost'}" exact class="navbar-item">
-            <b-icon pack="fas" icon="plus" />
+          <a class="navbar-item" href="https://github.com/ledermann/docker-vue" title="Sourcecode">
+            <b-icon pack="fab" icon="github" />
+          </a>
+
+          <router-link to="/about" exact class="navbar-item" title="About" >
+            <b-icon pack="fas" icon="info-circle" />
           </router-link>
 
           <template v-if="currentUser">

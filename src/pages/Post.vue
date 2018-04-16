@@ -19,7 +19,7 @@
     <template v-else>
       <div slot="hero-body" class="container has-text-centered">
         <h1 class="title">
-          {{ this.persisted ? post.title : 'New Post' }}
+          {{ this.persisted ? post.title : 'Add post' }}
         </h1>
       </div>
 
