@@ -4,7 +4,7 @@ import axios from 'axios'
 import store from '@/store'
 import ActionCable from 'actioncable'
 
-const backendHost = process.env.API_URL || process.env.NODE_ENV === 'production'
+const backendHost = process.env.VUE_APP_API_URL || process.env.NODE_ENV === 'production'
   ? 'https://docker-rails.georg-ledermann.de'
   : 'https://docker-rails.dev'
 

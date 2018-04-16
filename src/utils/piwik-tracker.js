@@ -1,6 +1,6 @@
 export default class PiwikTracker {
   constructor () {
-    if (!this.piwikHost() || !this.piwikId()) return
+    if (!this.enabled) return
 
     window._paq = []
     window._paq.push(['enableLinkTracking'])
@@ -15,25 +15,29 @@ export default class PiwikTracker {
     pa.src = this.piwikUrl()
     var firstScript = document.getElementsByTagName('script')[0]
     firstScript.parentNode.insertBefore(pa, firstScript)
-
-    this.trackPageView()
   }
 
   trackPageView () {
+    if (!this.enabled) return
+
     window._paq.push(['setCustomUrl', document.location])
     window._paq.push(['setDocumentTitle', document.title])
     window._paq.push(['trackPageView'])
   }
 
   piwikHost () {
-    return process.env.PIWIK_HOST
+    return process.env.VUE_APP_PIWIK_HOST
   }
 
   piwikId () {
-    return process.env.PIWIK_ID
+    return process.env.VUE_APP_PIWIK_ID
   }
 
   piwikUrl () {
     return '//' + this.piwikHost() + '/js/'
+  }
+
+  enabled () {
+    return this.piwikHost() && !this.piwikId()
   }
 }
