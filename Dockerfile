@@ -1,20 +1,12 @@
-FROM node:8-alpine
-
-# Install `serve` to run the application.
-RUN yarn global add serve
-
-# Set the command to start the node server.
-CMD serve -s dist
-
-# Tell Docker about the port we'll run on.
-EXPOSE 5000
-
-# Install dependencies
-COPY package.json package.json
+# Build with Node.JS
+FROM node:alpine as build-stage
+WORKDIR /app
+COPY package*.json ./
 RUN yarn install
-
-# Copy all local files into the image.
 COPY . .
-
-# Build for production.
 RUN yarn build
+RUN yarn test
+
+# Production with Nginx
+FROM nginx:stable-alpine
+COPY --from=build-stage /app/dist /usr/share/nginx/html

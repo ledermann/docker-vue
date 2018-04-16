@@ -4,5 +4,4 @@ test:
 
   script:
     - docker build -t $CI_REGISTRY_IMAGE:latest .
-    - docker run --rm $CI_REGISTRY_IMAGE:latest yarn test
     - docker push $CI_REGISTRY_IMAGE:latest
