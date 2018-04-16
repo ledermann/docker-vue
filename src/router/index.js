@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Posts from '@/views/Posts'
-import Post from '@/views/Post'
-import About from '@/views/About'
+import Posts from '@/pages/Posts'
+import Post from '@/pages/Post'
+import About from '@/pages/About'
 
 Vue.use(Router)
 
