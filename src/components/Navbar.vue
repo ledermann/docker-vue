@@ -48,7 +48,7 @@
           <template v-else>
             <span class="navbar-item">
               <a class="button" @click.prevent="login">
-                <b-icon pack="fas" icon="sign-in-alt" />
+                <b-icon pack="fas" icon="user-circle" />
                 <span>Login</span>
               </a>
             </span>
