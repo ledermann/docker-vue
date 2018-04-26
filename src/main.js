@@ -1,5 +1,5 @@
 import 'es6-promise/auto'
-import '@/utils/settings'
+import '@/utils/configuration'
 import Vue from 'vue'
 import Buefy from 'buefy'
 import 'buefy/lib/buefy.css'

@@ -1,3 +1,5 @@
+import Configuration from '@/utils/configuration'
+
 export default class PiwikTracker {
   constructor () {
     if (!this.enabled) return
@@ -26,11 +28,11 @@ export default class PiwikTracker {
   }
 
   piwikHost () {
-    return process.env.VUE_APP_PIWIK_HOST
+    return Configuration.piwikHost()
   }
 
   piwikId () {
-    return process.env.VUE_APP_PIWIK_ID
+    return Configuration.piwikId()
   }
 
   piwikUrl () {
