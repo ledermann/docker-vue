@@ -18,10 +18,11 @@ export default class Configuration {
 
   static getValue (name) {
     if (name.startsWith('$')) {
-      // In development env. Remove $ and look in process.env
+      // name was not replaced, it seems we are in development.
+      // Remove $ and look in process.env
       return process.env[name.substr(1)]
     } else {
-      // In production env. variable was already replaced
+      // name was already replaced, it seems we are in production.
       return name
     }
   }
