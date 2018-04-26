@@ -28,11 +28,11 @@ export default class MatomoTracker {
   }
 
   matomoHost () {
-    return Configuration.matomoHost()
+    return Configuration.value('matomoHost')
   }
 
   matomoId () {
-    return Configuration.matomoId()
+    return Configuration.value('matomoId')
   }
 
   matomoUrl () {

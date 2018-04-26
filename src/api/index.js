@@ -5,7 +5,7 @@ import store from '@/store'
 import ActionCable from 'actioncable'
 import Configuration from '@/utils/configuration'
 
-axios.defaults.baseURL = Configuration.backendHost() + '/api/v1'
+axios.defaults.baseURL = '//' + Configuration.value('backendHost') + '/api/v1'
 
 axios.interceptors.request.use((config) => {
   if (store.getters.currentUser) {
@@ -21,5 +21,5 @@ axios.interceptors.request.use((config) => {
 Vue.use(VueAxios, axios)
 
 Vue.prototype.$cable = ActionCable.createConsumer(
-  'wss://' + Configuration.backendHost().replace(/.*?:\/\//g, '') + '/cable'
+  'wss://' + Configuration.value('backendHost').replace(/.*?:\/\//g, '') + '/cable'
 )

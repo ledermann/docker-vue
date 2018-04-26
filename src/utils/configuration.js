@@ -2,28 +2,32 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 export default class Configuration {
-  static backendHost () {
-    return this.getValue('$VUE_APP_BACKEND_HOST')
+  static CONFIG = {
+    backendHost: '$VUE_APP_BACKEND_HOST',
+    matomoHost: '$VUE_APP_MATOMO_HOST',
+    matomoId: '$VUE_APP_MATOMO_ID'
   }
 
-  static matomoHost () {
-    return this.getValue('$VUE_APP_MATOMO_HOST')
-  }
+  static value (name) {
+    if (!(name in this.CONFIG)) {
+      console.log(`Configuration: There is no key named "${name}"`)
+      return
+    }
 
-  static matomoId () {
-    return this.getValue('$VUE_APP_MATOMO_ID')
-  }
+    const value = this.CONFIG[name]
 
-  // ################
+    if (!value) {
+      console.log(`Configuration: Value for "${name}" is not defined`)
+      return
+    }
 
-  static getValue (name) {
-    if (name.startsWith('$')) {
-      // name was not replaced, it seems we are in development.
+    if (value.startsWith('$')) {
+      // value was not replaced, it seems we are in development.
       // Remove $ and look in process.env
-      return process.env[name.substr(1)]
+      return process.env[value.substr(1)]
     } else {
-      // name was already replaced, it seems we are in production.
-      return name
+      // value was already replaced, it seems we are in production.
+      return value
     }
   }
 }
