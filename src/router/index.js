@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import PiwikTracker from '@/utils/piwik-tracker'
+import MatomoTracker from '@/utils/matomo-tracker'
 
 import Posts from '@/pages/Posts'
 import Post from '@/pages/Post'
@@ -43,10 +43,10 @@ const router = new Router({
   linkActiveClass: 'is-active'
 })
 
-const piwik = new PiwikTracker()
+const matomo = new MatomoTracker()
 
 router.beforeEach((to, from, next) => {
-  piwik.trackPageView()
+  matomo.trackPageView()
   next()
 })
 

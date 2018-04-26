@@ -6,12 +6,12 @@ export default class Configuration {
     return this.getValue('$VUE_APP_BACKEND_HOST')
   }
 
-  static piwikHost () {
-    return this.getValue('$VUE_APP_PIWIK_HOST')
+  static matomoHost () {
+    return this.getValue('$VUE_APP_MATOMO_HOST')
   }
 
-  static piwikId () {
-    return this.getValue('$VUE_APP_PIWIK_ID')
+  static matomoId () {
+    return this.getValue('$VUE_APP_MATOMO_ID')
   }
 
   // ################
