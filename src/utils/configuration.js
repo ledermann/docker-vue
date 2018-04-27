@@ -21,7 +21,7 @@ export default class Configuration {
       return
     }
 
-    if (value.startsWith('$')) {
+    if (value.startsWith('$VUE_APP_')) {
       // value was not replaced, it seems we are in development.
       // Remove $ and get current value from process.env
       const envName = value.substr(1)
