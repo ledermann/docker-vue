@@ -1,8 +1,8 @@
 # DockerVue
 
-Single page application (SPA) built with [Vue.js](https://vuejs.org/). It's is a very simple kind of CMS (content management system) allowing to manage posts (articles) with images.
+Single-page application (SPA) built with [Vue.js](https://vuejs.org/). It's is a very simple kind of CMS (content management system) allowing to manage posts (articles) with images.
 
-This is the frontend only. The backend is a separate project called [DockerRails](https://github.com/ledermann/docker-rails), created with Ruby on Rails and responding as an API with JSON.
+This is the frontend only. The backend is a separate project called [DockerRails](https://github.com/ledermann/docker-rails), created with Ruby on Rails and responding as an JSON API.
 
 
 ## Tools used
@@ -10,10 +10,10 @@ This is the frontend only. The backend is a separate project called [DockerRails
 - Project scaffolding with [Vue Cli](https://github.com/vuejs/vue-cli)
 - Routing with [Vue Router](https://router.vuejs.org/en/)
 - State management for authentication with [Vuex](https://vuex.vuejs.org/en/)
-- Package building with [Webpack](https://webpack.js.org/) and
+- Package building with [Webpack](https://webpack.js.org/) and [Yarn](https://yarnpkg.com/lang/en/)
 - Styling with [Bulma](https://bulma.io/), [Buefy](https://buefy.github.io/) and [FontAwesome](https://fontawesome.com/how-to-use/js-component-packages)
 - API calls with [Axios](https://github.com/axios/axios)
-- Deployment with [Node.js](https://nodejs.org/en/) and [Docker](https://www.docker.com/)
+- Deployment with [Nginx](https://nginx.org/en/) and [Docker](https://www.docker.com/)
 
 
 ## Features
