@@ -1,17 +1,17 @@
-# Build with Node.JS
-FROM node:alpine as build-stage
+# First step: Build with Node.js
+FROM node:alpine AS Builder
 WORKDIR /app
-COPY package*.json ./
+COPY package.json /app
 RUN yarn install
-COPY . .
-RUN yarn build
-RUN yarn test
+COPY . /app
+RUN yarn build \
+ && yarn test
 
-# Production with Nginx
+# Deliver the dist folder with Nginx
 FROM nginx:stable-alpine
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=build-stage /app/dist /usr/share/nginx/html
+COPY --from=Builder /app/dist /usr/share/nginx/html
 COPY entrypoint.sh /
 
 CMD ["/entrypoint.sh"]
