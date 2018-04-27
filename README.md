@@ -37,11 +37,12 @@ There is a live demo at https://docker-vue.georg-ledermann.de/
 First, make sure to get the backend up and running:
 https://github.com/ledermann/docker-rails
 
-Make sure the backend is available locally at https://docker-rails.dev. Then:
+Make sure the backend is available locally, for example at https://docker-rails.dev. Then:
 
 ```bash
 git clone git@github.com:ledermann/docker-vue.git
 cd docker-vue
+cp .env.local.example .env.local
 yarn install
 yarn serve
 ```
