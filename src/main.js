@@ -20,13 +20,7 @@ Vue.use(Buefy, {
 })
 Vue.use(VueSilentbox)
 
-Vue.use(VueTimeago, {
-  name: 'timeago',
-  locale: 'en-US',
-  locales: {
-    'en-US': require('vue-timeago/locales/en-US.json')
-  }
-})
+Vue.use(VueTimeago)
 
 Vue.config.productionTip = false
 

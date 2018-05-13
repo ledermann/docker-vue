@@ -2325,6 +2325,10 @@ data-urls@^1.0.0:
     whatwg-mimetype "^2.0.0"
     whatwg-url "^6.4.0"
 
+date-fns@^1.29.0:
+  version "1.29.0"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.29.0.tgz#12e609cdcb935127311d04d33334e2960a2a54e6"
+
 date-now@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
@@ -7412,9 +7416,9 @@ vue-template-es2015-compiler@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
 
-vue-timeago@^3.4.4:
-  version "3.4.4"
-  resolved "https://registry.yarnpkg.com/vue-timeago/-/vue-timeago-3.4.4.tgz#a878c9ba5840816939a89659451902f84ebdf23f"
+vue-timeago@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/vue-timeago/-/vue-timeago-4.0.1.tgz#c0ac4a10ed3c091713f6e2a64571b26f1d94a3e7"
 
 vue-touch@^2.0.0-beta.4:
   version "2.0.0-beta.4"
