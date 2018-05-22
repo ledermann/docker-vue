@@ -5,7 +5,7 @@ import store from '@/store'
 import ActionCable from 'actioncable'
 import Configuration from '@/utils/configuration'
 
-axios.defaults.baseURL = '//' + Configuration.value('backendHost') + '/api/v1'
+axios.defaults.baseURL = 'https://' + Configuration.value('backendHost') + '/api/v1'
 
 axios.interceptors.request.use((config) => {
   if (store.getters.currentUser) {
