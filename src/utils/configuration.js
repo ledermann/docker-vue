@@ -2,10 +2,12 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 export default class Configuration {
-  static CONFIG = {
-    backendHost: '$VUE_APP_BACKEND_HOST',
-    matomoHost: '$VUE_APP_MATOMO_HOST',
-    matomoId: '$VUE_APP_MATOMO_ID'
+  static get CONFIG () {
+    return {
+      backendHost: '$VUE_APP_BACKEND_HOST',
+      matomoHost: '$VUE_APP_MATOMO_HOST',
+      matomoId: '$VUE_APP_MATOMO_ID'
+    }
   }
 
   static value (name) {
