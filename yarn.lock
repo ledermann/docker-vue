@@ -5422,9 +5422,9 @@ pbkdf2@^3.0.3:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-pell@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/pell/-/pell-0.5.0.tgz#6e07ab3c72230d54c2ddfd8628252c1a15e02cbf"
+pell@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/pell/-/pell-1.0.4.tgz#fe13873d83cdb6f1e95a7021cf3228f1ac3b3c5a"
 
 performance-now@^2.1.0:
   version "2.1.0"
@@ -7315,11 +7315,11 @@ vue-loader@^15.1.0:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-pell-editor@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/vue-pell-editor/-/vue-pell-editor-0.1.4.tgz#4c4e35547a476e63111982850f4d6ed14414a5ed"
+vue-pell-editor@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/vue-pell-editor/-/vue-pell-editor-1.0.1.tgz#0b643882dd87f7a4ffe8e5cf64c85652152253f9"
   dependencies:
-    pell "^0.5.0"
+    pell "^1.0.4"
     vue "^2.4.0"
 
 vue-router@^3.0.1:
