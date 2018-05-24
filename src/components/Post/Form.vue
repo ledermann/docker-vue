@@ -134,11 +134,14 @@ export default {
 }
 </script>
 
-<style lang="sass">
-  .b-tabs .tab-content
+<style lang="scss">
+  .b-tabs .tab-content {
     padding: 1rem 0
+  }
 
   @import '~vue-pell-editor/dist/vue-pell-editor.css';
-  .vp-editor
+
+  .vp-editor {
     border: 1px solid #ccc
+  }
 </style>
