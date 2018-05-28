@@ -4,8 +4,7 @@ WORKDIR /app
 COPY package.json /app
 RUN yarn install
 COPY . /app
-RUN yarn build \
- && yarn test
+RUN yarn build
 
 # Deliver the dist folder with Nginx
 FROM nginx:stable-alpine
