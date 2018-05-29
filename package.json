@@ -6,9 +6,9 @@
   "homepage": "https://github.com/ledermann/docker-vue",
   "license": "MIT",
   "scripts": {
-    "serve": "vue-cli-service serve --open",
-    "build": "vue-cli-service build",
-    "test": "vue-cli-service test",
+    "serve": "vue-cli-service serve --mode development --open",
+    "build": "vue-cli-service build --mode production",
+    "test": "vue-cli-service test:unit --mode development",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
