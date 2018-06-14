@@ -749,9 +749,9 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.0.tgz#50c1e2260ac0ed9439a181de3725a0168d59c48a"
 
-"@vue/babel-preset-app@^3.0.0-beta.16":
-  version "3.0.0-beta.16"
-  resolved "https://registry.yarnpkg.com/@vue/babel-preset-app/-/babel-preset-app-3.0.0-beta.16.tgz#e5b4eaedfdcb842b2d3a4da9e23c1f8f81e4db01"
+"@vue/babel-preset-app@^3.0.0-rc.1":
+  version "3.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@vue/babel-preset-app/-/babel-preset-app-3.0.0-rc.1.tgz#e6a7ab96eebd0ab11c9358eb215ac77e8ca5d8a5"
   dependencies:
     "@babel/plugin-syntax-jsx" "7.0.0-beta.47"
     "@babel/plugin-transform-runtime" "7.0.0-beta.47"
@@ -766,12 +766,12 @@
   version "3.0.0-beta.16"
   resolved "https://registry.yarnpkg.com/@vue/cli-overlay/-/cli-overlay-3.0.0-beta.16.tgz#e5f57e46b40e952f9cc6780b42caeba8a7174a57"
 
-"@vue/cli-plugin-babel@^3.0.0-beta.6":
-  version "3.0.0-beta.16"
-  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-babel/-/cli-plugin-babel-3.0.0-beta.16.tgz#ccf9d11425947c446f3c6f31e7a3b1e8a789696f"
+"@vue/cli-plugin-babel@^3.0.0-rc.1":
+  version "3.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-babel/-/cli-plugin-babel-3.0.0-rc.1.tgz#805e06a91a2222b98c5e8e2d21a4e1f8e6873137"
   dependencies:
     "@babel/core" "7.0.0-beta.47"
-    "@vue/babel-preset-app" "^3.0.0-beta.16"
+    "@vue/babel-preset-app" "^3.0.0-rc.1"
     babel-loader "^8.0.0-0"
 
 "@vue/cli-plugin-eslint@^3.0.0-beta.6":
