@@ -2664,8 +2664,8 @@ ejs@^2.5.7:
   resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.6.1.tgz#498ec0d495655abc6f23cd61868d926464071aa0"
 
 electron-to-chromium@^1.2.7, electron-to-chromium@^1.3.47:
-  version "1.3.48"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.48.tgz#d3b0d8593814044e092ece2108fc3ac9aea4b900"
+  version "1.3.49"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.49.tgz#651384b0d81f078a96639b2b36975141b7915004"
 
 elliptic@^6.0.0:
   version "6.4.0"
@@ -3528,8 +3528,8 @@ global-package-version@^1.1.0:
     browser-or-node "^1.0.2"
 
 globals@^11.0.1, globals@^11.1.0:
-  version "11.6.0"
-  resolved "https://registry.yarnpkg.com/globals/-/globals-11.6.0.tgz#7e4d12ffd6b8d174851ff5a246bfb2b8b002a6c7"
+  version "11.7.0"
+  resolved "https://registry.yarnpkg.com/globals/-/globals-11.7.0.tgz#a583faa43055b1aca771914bf68258e2fc125673"
 
 globby@^5.0.0:
   version "5.0.0"
@@ -3897,8 +3897,8 @@ ignore-walk@^3.0.1:
     minimatch "^3.0.4"
 
 ignore@^3.3.3, ignore@^3.3.5, ignore@^3.3.6:
-  version "3.3.8"
-  resolved "https://registry.yarnpkg.com/ignore/-/ignore-3.3.8.tgz#3f8e9c35d38708a3a7e0e9abb6c73e7ee7707b2b"
+  version "3.3.10"
+  resolved "https://registry.yarnpkg.com/ignore/-/ignore-3.3.10.tgz#0a97fb876986e8081c631160f8f9f389157f0043"
 
 import-local@^1.0.0:
   version "1.0.0"
@@ -7281,8 +7281,8 @@ uglify-js@3.3.x:
     source-map "~0.6.1"
 
 uglifyjs-webpack-plugin@^1.2.4, uglifyjs-webpack-plugin@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/uglifyjs-webpack-plugin/-/uglifyjs-webpack-plugin-1.2.5.tgz#2ef8387c8f1a903ec5e44fa36f9f3cbdcea67641"
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/uglifyjs-webpack-plugin/-/uglifyjs-webpack-plugin-1.2.6.tgz#f4bb44f02431e82b301d8d4624330a6a35729381"
   dependencies:
     cacache "^10.0.4"
     find-cache-dir "^1.0.0"
@@ -7342,8 +7342,8 @@ unique-slug@^2.0.0:
     imurmurhash "^0.1.4"
 
 universalify@^0.1.0:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/universalify/-/universalify-0.1.1.tgz#fa71badd4437af4c148841e3b3b165f9e9e590b7"
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/universalify/-/universalify-0.1.2.tgz#b646f69be3942dabcecc9d6639c80dc105efaa66"
 
 unpipe@1.0.0, unpipe@~1.0.0:
   version "1.0.0"
