@@ -18,7 +18,6 @@
     "actioncable": "^5.2.0",
     "axios": "^0.18.0",
     "buefy": "^0.6.3",
-    "date-fns": "^1.29.0",
     "debounce": "^1.1.0",
     "dotenv": "^6.0.0",
     "es6-promise": "^4.2.4",
@@ -30,7 +29,7 @@
     "vue-pell-editor": "^1.0.1",
     "vue-router": "^3.0.1",
     "vue-silentbox": "^0.1.1",
-    "vue-timeago": "^4.0.1",
+    "vue-timeago": "^5.0.0",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

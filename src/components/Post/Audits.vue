@@ -6,7 +6,7 @@
       <template slot-scope="props">
         <b-table-column label="Date">
           <b-tooltip :label="props.row.created_at" position="is-left" type="is-dark">
-            <timeago :since="props.row.created_at" :autoUpdate=5 ></timeago>
+            <timeago :datetime="props.row.created_at" :autoUpdate=5 ></timeago>
           </b-tooltip>
         </b-table-column>
 

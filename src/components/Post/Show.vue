@@ -8,7 +8,7 @@
           </b-tag>
 
           <b-tag type="is-info" size="is-medium">
-            <timeago :since="post.updated_at" :autoUpdate=5 />
+            <timeago :datetime="post.updated_at" :autoUpdate=5 />
           </b-tag>
         </b-taglist>
       </div>
