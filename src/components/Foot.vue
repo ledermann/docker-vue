@@ -17,14 +17,12 @@
 </template>
 
 <script>
-import buildTime from '@/build-time.json'
-
 export default {
   name: 'Foot',
 
   computed: {
     buildTime () {
-      return buildTime.timestamp
+      return BUILDTIME
     }
   }
 }

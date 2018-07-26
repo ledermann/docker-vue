@@ -142,7 +142,6 @@
 <script>
 import Vue from 'vue'
 import LayoutBasic from '@/layouts/LayoutBasic'
-import buildTime from '@/build-time.json'
 import globalPackageVersion from 'global-package-version'
 
 export default {
@@ -171,7 +170,7 @@ export default {
 
     this.frontendVersions = {
       version: window.packageVersion.dockerVue,
-      buildTime: buildTime.timestamp,
+      buildTime: BUILDTIME,
       vue: Vue.version,
       vueRouter: window.packageVersion.vueRouter,
       vuex: window.packageVersion.vuex,
