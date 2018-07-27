@@ -28,7 +28,7 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
   .footer
     position: fixed
     bottom: 0
