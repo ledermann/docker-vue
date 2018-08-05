@@ -3,11 +3,11 @@
     <div class="container">
       <div class="navbar-brand">
         <router-link to="/" exact class="navbar-item" title="Home">
-          <b-icon pack="fas" icon="home" />
+          <font-awesome-icon icon="home" size="lg" />
         </router-link>
 
         <router-link v-if="currentUser && currentUser.admin" :to="{ name: 'newPost'}" exact class="navbar-item" title="Add post">
-          <b-icon pack="fas" icon="plus" />
+          <font-awesome-icon icon="plus" size="lg"/>
         </router-link>
 
         <div class="navbar-burger burger" @click="toggleMenu" :class="{'is-active': IsActive}" data-target="navbarExampleTransparentExample">
@@ -26,29 +26,29 @@
 
         <div class="navbar-end">
           <a class="navbar-item" href="https://github.com/ledermann/docker-vue" title="Sourcecode">
-            <b-icon pack="fab" icon="github" />
+            <font-awesome-icon :icon="['fab', 'github']" size="lg" />
           </a>
 
           <router-link to="/about" exact class="navbar-item" title="About" >
-            <b-icon pack="fas" icon="info-circle" />
+            <font-awesome-icon icon="info-circle" size="lg" />
           </router-link>
 
           <template v-if="currentUser">
             <span class="navbar-item">
-              <b-icon pack="fas" icon="user-circle" />
+              <font-awesome-icon icon="user-circle" size="lg" />
               &nbsp;
               {{ currentUser.email }}
             </span>
 
             <a class="navbar-item" href="#" @click.prevent="logout" title="Logout" >
-              <b-icon pack="fas" icon="sign-out-alt" />
+              <font-awesome-icon icon="sign-out-alt" size="lg"/>
             </a>
           </template>
 
           <template v-else>
             <span class="navbar-item">
               <a class="button" @click.prevent="login">
-                <b-icon pack="fas" icon="user-circle" />
+                <font-awesome-icon icon="user-circle" size="lg"/>
                 <span>Login</span>
               </a>
             </span>

@@ -11,10 +11,10 @@
           </silentbox-item>
 
           <a v-if="!post.clips_attributes[index]._destroy" class="button is-small" @click="removeClip(index)">
-            <b-icon icon="trash" size="is-small"/>
+            <font-awesome-icon icon="trash" />
           </a>
           <a v-else class="button is-small" @click="restoreClip(index)">
-            <b-icon icon="circle" size="is-small"/>
+            <font-awesome-icon icon="circle" />
           </a>
         </div>
       </template>

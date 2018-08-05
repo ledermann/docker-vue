@@ -3,10 +3,12 @@ import '@/utils/configuration'
 import Vue from 'vue'
 import Buefy from 'buefy'
 import 'buefy/lib/buefy.css'
-import '@fortawesome/fontawesome-free-webfonts/css/fontawesome.css'
-import '@fortawesome/fontawesome-free-webfonts/css/fa-regular.css'
-import '@fortawesome/fontawesome-free-webfonts/css/fa-solid.css'
-import '@fortawesome/fontawesome-free-webfonts/css/fa-brands.css'
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faHome, faPlus, faInfoCircle, faUserCircle, faSignOutAlt, faImage, faTrash, faCircle } from '@fortawesome/free-solid-svg-icons'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
 import VueSilentbox from 'vue-silentbox'
 import VueTimeago from 'vue-timeago'
 
@@ -21,6 +23,9 @@ Vue.use(Buefy, {
 Vue.use(VueSilentbox)
 
 Vue.use(VueTimeago)
+
+library.add(faHome, faPlus, faInfoCircle, faUserCircle, faGithub, faSignOutAlt, faImage, faTrash, faCircle)
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
 

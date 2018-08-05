@@ -16,11 +16,10 @@
     <b-table :hoverable="true" :data="posts">
       <template slot-scope="props">
         <b-table-column label="Content" @click.native="onClick(props.row)">
-          <b-icon v-if="props.row.clips_count > 0"
-              pack="fas"
-              icon="image"
-              size="is-small">
-          </b-icon>
+          <font-awesome-icon
+            v-if="props.row.clips_count > 0"
+            icon="image"
+          ></font-awesome-icon>
           <strong>
             {{ props.row.title }}
           </strong>
