@@ -9,6 +9,7 @@ import { faHome, faPlus, faInfoCircle, faUserCircle, faSignOutAlt, faImage, faTr
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+import VuePellEditor from 'vue-pell-editor'
 import VueSilentbox from 'vue-silentbox'
 import VueTimeago from 'vue-timeago'
 
@@ -23,6 +24,8 @@ Vue.use(Buefy, {
 Vue.use(VueSilentbox)
 
 Vue.use(VueTimeago)
+
+Vue.use(VuePellEditor)
 
 library.add(faHome, faPlus, faInfoCircle, faUserCircle, faGithub, faSignOutAlt, faImage, faTrash, faCircle)
 Vue.component('font-awesome-icon', FontAwesomeIcon)

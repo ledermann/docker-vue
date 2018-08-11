@@ -5456,10 +5456,6 @@ pbkdf2@^3.0.3:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-pell@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/pell/-/pell-1.0.4.tgz#fe13873d83cdb6f1e95a7021cf3228f1ac3b3c5a"
-
 performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
@@ -7374,12 +7370,9 @@ vue-loader@^15.3.0:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-pell-editor@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/vue-pell-editor/-/vue-pell-editor-1.0.1.tgz#0b643882dd87f7a4ffe8e5cf64c85652152253f9"
-  dependencies:
-    pell "^1.0.4"
-    vue "^2.4.0"
+vue-pell-editor@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/vue-pell-editor/-/vue-pell-editor-2.0.1.tgz#1410e1529ef5e86b17d9e21d2d4e8db3fcb54880"
 
 vue-router@^3.0.1:
   version "3.0.1"
@@ -7424,7 +7417,7 @@ vue-touch@^2.0.0-beta.4:
     rollup-plugin-commonjs "^7.0.0"
     rollup-plugin-node-resolve "^2.0.0"
 
-vue@^2.4.0, vue@^2.5.13:
+vue@^2.5.13:
   version "2.5.17"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.17.tgz#0f8789ad718be68ca1872629832ed533589c6ada"
 

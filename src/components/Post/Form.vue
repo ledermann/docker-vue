@@ -46,7 +46,6 @@
 </template>
 
 <script>
-import VuePellEditor from 'vue-pell-editor'
 import ImageUploader from '@/components/Post/ImageUploader'
 import jsonToFormData from '@/utils/object-to-formdata'
 
@@ -54,7 +53,6 @@ export default {
   name: 'PostForm',
 
   components: {
-    VuePellEditor,
     ImageUploader
   },
 
@@ -138,8 +136,6 @@ export default {
   .b-tabs .tab-content {
     padding: 1rem 0
   }
-
-  @import '~vue-pell-editor/dist/vue-pell-editor.css';
 
   .vp-editor {
     border: 1px solid #ccc
