@@ -38,7 +38,7 @@ const router = new Router({
   ],
   mode: 'history',
   scrollBehavior (to, from, savedPosition) {
-    return savedPosition || {x: 0, y: 0}
+    return savedPosition || { x: 0, y: 0 }
   },
   linkActiveClass: 'is-active'
 })

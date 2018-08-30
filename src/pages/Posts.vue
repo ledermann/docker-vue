@@ -70,7 +70,7 @@ export default {
     },
 
     onClick (row) {
-      this.$router.push({name: 'post', params: {slug: row.slug}})
+      this.$router.push({ name: 'post', params: { slug: row.slug } })
     },
 
     infiniteHandler ($state) {

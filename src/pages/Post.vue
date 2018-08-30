@@ -134,7 +134,7 @@ export default {
           if (data.slug === vm.post.slug) {
             vm.post = data
           } else {
-            vm.$router.replace({name: 'post', params: {slug: data.slug}})
+            vm.$router.replace({ name: 'post', params: { slug: data.slug } })
           }
         }
       })
@@ -149,7 +149,7 @@ export default {
         onConfirm: () => {
           this.$http.delete('/posts/' + this.slug)
             .then(response => {
-              this.$router.push({name: 'posts'})
+              this.$router.push({ name: 'posts' })
               this.$toast.open({
                 message: 'The post <b>' + this.post.title + '</b> was deleted.',
                 type: 'is-warning'
@@ -174,7 +174,7 @@ export default {
       this.isEditing = false
 
       if (!this.persisted) {
-        this.$router.push({name: 'posts'})
+        this.$router.push({ name: 'posts' })
       }
     },
 
@@ -185,7 +185,7 @@ export default {
       })
       this.isEditing = false
       this.post = updatedPost
-      this.$router.push({name: 'post', params: {slug: this.post.slug}})
+      this.$router.push({ name: 'post', params: { slug: this.post.slug } })
       this.subscribeToUpdateChannel()
     }
   },

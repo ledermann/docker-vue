@@ -32,7 +32,7 @@ export default {
     onEnter () {
       if (this.selected) {
         this.query = null
-        this.$router.push({name: 'post', params: {slug: this.selected.slug}})
+        this.$router.push({ name: 'post', params: { slug: this.selected.slug } })
       }
     },
 
