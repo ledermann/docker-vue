@@ -2,12 +2,12 @@ import 'es6-promise/auto'
 import '@/utils/configuration'
 import Vue from 'vue'
 import Buefy from 'buefy'
-import 'buefy/lib/buefy.css'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faHome, faPlus, faInfoCircle, faUserCircle, faSignOutAlt, faImage, faTrash, faCircle } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import 'buefy/dist/buefy.css'
 
 import VuePellEditor from 'vue-pell-editor'
 import VueSilentbox from 'vue-silentbox'
