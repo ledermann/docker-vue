@@ -5,3 +5,4 @@ test:
   script:
     - docker build --pull -t $CI_REGISTRY_IMAGE:latest .
     - docker push $CI_REGISTRY_IMAGE:latest
+    - curl -X POST $PORTAINER_HOOK
