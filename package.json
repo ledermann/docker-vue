@@ -12,9 +12,9 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.6",
-    "@fortawesome/free-brands-svg-icons": "^5.4.1",
-    "@fortawesome/free-solid-svg-icons": "^5.4.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.7",
+    "@fortawesome/free-brands-svg-icons": "^5.4.2",
+    "@fortawesome/free-solid-svg-icons": "^5.4.2",
     "@fortawesome/vue-fontawesome": "^0.1.1",
     "actioncable": "^5.2.0",
     "axios": "^0.18.0",
