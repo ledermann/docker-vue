@@ -1,7 +1,7 @@
 # First step: Build with Node.js
 FROM node:alpine AS Builder
 WORKDIR /app
-COPY package.json /app
+COPY package.json yarn.lock /app/
 RUN yarn install
 COPY . /app
 RUN yarn build
