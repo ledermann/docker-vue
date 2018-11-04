@@ -1,5 +1,5 @@
 # First step: Build with Node.js
-FROM node:10-alpine AS Builder
+FROM node:alpine AS Builder
 WORKDIR /app
 COPY package.json yarn.lock /app/
 RUN yarn install
