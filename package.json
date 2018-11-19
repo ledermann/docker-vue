@@ -18,7 +18,7 @@
     "@fortawesome/vue-fontawesome": "^0.1.2",
     "actioncable": "^5.2.0",
     "axios": "^0.18.0",
-    "buefy": "^0.7.0",
+    "buefy": "^0.7.1",
     "debounce": "^1.1.0",
     "dotenv": "^6.0.0",
     "es6-promise": "^4.2.4",
