@@ -4189,9 +4189,9 @@ hoek@5.x.x:
   integrity sha512-Alr4ZQgoMlnere5FZJsIyfIjORBqZll5POhDsF4q64dPuJR6rNxXdDxtHSQq8OXRurhmx+PWYEE8bXRROY8h0w==
 
 hoek@6.x.x:
-  version "6.0.3"
-  resolved "https://registry.yarnpkg.com/hoek/-/hoek-6.0.3.tgz#7884360426d927865a0a1251fc9c59313af5b798"
-  integrity sha512-TU6RyZ/XaQCTWRLrdqZZtZqwxUVr6PDMfi6MlWNURZ7A6czanQqX4pFE1mdOUQR9FdPCsZ0UzL8jI/izZ+eBSQ==
+  version "6.0.4"
+  resolved "https://registry.yarnpkg.com/hoek/-/hoek-6.0.4.tgz#8db638130825534575e8e4e80f97ca66108e6382"
+  integrity sha512-9D47elppcwrTx2x9B6TrovxnUtlTBYFcHGgo0+LRA1+YfUkCecT//41ovdh6zbl7whB9Hc2whRO1c6lzPoTgww==
 
 hoopy@^0.1.2:
   version "0.1.4"
