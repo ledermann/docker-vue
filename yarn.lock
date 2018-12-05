@@ -64,10 +64,10 @@
     "@babel/traverse" "^7.1.0"
     "@babel/types" "^7.0.0"
 
-"@babel/helper-create-class-features-plugin@^7.2.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@babel/helper-create-class-features-plugin/-/helper-create-class-features-plugin-7.2.0.tgz#8d52930558897042444e670f26ae6581ec9a4a4a"
-  integrity sha512-INigeagreiKKZ4Ouo8Wun2y+XT4KxAdNztesU3C/AynDsdtIu00qjgw6QXSM3hVzQ7FvAL4sFmoEpFPuXkeHiw==
+"@babel/helper-create-class-features-plugin@^7.2.1":
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/@babel/helper-create-class-features-plugin/-/helper-create-class-features-plugin-7.2.1.tgz#f6e8027291669ef64433220dc8327531233f1161"
+  integrity sha512-EsEP7XLFmcJHjcuFYBxYD1FkP0irC8C9fsrt2tX/jrAi/eTnFI6DOPgVFb+WREeg1GboF+Ib+nCHbGBodyAXSg==
   dependencies:
     "@babel/helper-function-name" "^7.1.0"
     "@babel/helper-member-expression-to-functions" "^7.0.0"
@@ -239,11 +239,11 @@
     "@babel/plugin-syntax-async-generators" "^7.2.0"
 
 "@babel/plugin-proposal-class-properties@^7.0.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-class-properties/-/plugin-proposal-class-properties-7.2.0.tgz#12ade6dc7b92ea4fa4c84b4d7b87e9d0f446b4f8"
-  integrity sha512-pdBj4Hvyt/L1LA0Vvm/Tkp9gNDGLIkSbX8IrYfWcoA5xUZIg8qjSOTChUSaCjYdvoMcB9y2bXVGNVZ5DH62CZg==
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-class-properties/-/plugin-proposal-class-properties-7.2.1.tgz#c734a53e0a1ec40fe5c22ee5069d26da3b187d05"
+  integrity sha512-/4FKFChkQ2Jgb8lBDsvFX496YTi7UWTetVgS8oJUpX1e/DlaoeEK57At27ug8Hu2zI2g8bzkJ+8k9qrHZRPGPA==
   dependencies:
-    "@babel/helper-create-class-features-plugin" "^7.2.0"
+    "@babel/helper-create-class-features-plugin" "^7.2.1"
     "@babel/helper-plugin-utils" "^7.0.0"
 
 "@babel/plugin-proposal-decorators@^7.1.0":
@@ -676,10 +676,10 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.8"
 
-"@fortawesome/vue-fontawesome@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-0.1.2.tgz#f993d7788bd6f031a1a20ff8f608ed0f36c83185"
-  integrity sha512-K/3awMf8AZmTyiYfNVuTHAtjToro6tE/yNV8dsmFk/2v6CXj+6wGltMzX8VBF9vC9rz3iv1zTwMdwtYaQYrAmQ==
+"@fortawesome/vue-fontawesome@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-0.1.3.tgz#d15003f2084d2ca320837b223bb0f4d06a27ae35"
+  integrity sha512-wUYkGfJDPqzzfo5FE3rQic0jy/8FLCWFcCaZr0iTqN8BshI0bPk358uCMXU6Y5rWS3uwBTbkmJ+FjPuy72rV4w==
 
 "@intervolga/optimize-cssnano-plugin@^1.0.5":
   version "1.0.6"
@@ -1093,10 +1093,10 @@ acorn@^6.0.1, acorn@^6.0.2, acorn@^6.0.4:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.0.4.tgz#77377e7353b72ec5104550aa2d2097a2fd40b754"
   integrity sha512-VY4i5EKSKkofY2I+6QLTbTTN/UvEQPCo6eiwzzSaSWfpaDhOmStMCMod6wmuPciNq+XS0faCglFu2lHZpdHUtg==
 
-actioncable@^5.2.0:
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/actioncable/-/actioncable-5.2.1.tgz#615428a8a302cec55117d9049f0fd7952011c962"
-  integrity sha512-z/YnsgKYUC0E28Pr8YGaq8sZXNQLTZNa8PAJGmqj5qODiGHTyaCVy/DkP1+xpJtAX/UaHSGHobIemoDY/x5SbQ==
+actioncable@^5.2.2:
+  version "5.2.2"
+  resolved "https://registry.yarnpkg.com/actioncable/-/actioncable-5.2.2.tgz#0ec83195fd363c4d91a2fc19f78e77350aa5caac"
+  integrity sha512-uZveOQ0OL1z8VwYqA84gMMfLMPHpS/GsnodS8oVh1xTUYeMf1L80gAbTVVVVVj84zUf7lOiIZMaiY0IlXNsgiw==
 
 address@^1.0.3:
   version "1.0.3"
@@ -8803,9 +8803,9 @@ webpack-sources@^1.1.0, webpack-sources@^1.3.0:
     source-map "~0.6.1"
 
 webpack@^4.26.1:
-  version "4.26.1"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.26.1.tgz#ff3a9283d363c07b3494dfa702d08f4f2ef6cb39"
-  integrity sha512-i2oOvEvuvLLSuSCkdVrknaxAhtUZ9g+nLSoHCWV0gDzqGX2DXaCrMmMUpbRsTSSLrUqAI56PoEiyMUZIZ1msug==
+  version "4.27.0"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.27.0.tgz#1db66f03f0239bf797827f0580f53a41abd4067c"
+  integrity sha512-y77EQNIlsB9fUGgpLv/ZzmH+Yd9DgyIF9omX9RFavR5ZFM6HxFm6sqkbBXYxpjbKej9K6hD+Y8qEVg2rWdI2gg==
   dependencies:
     "@webassemblyjs/ast" "1.7.11"
     "@webassemblyjs/helper-module-context" "1.7.11"
