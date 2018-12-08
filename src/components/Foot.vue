@@ -29,9 +29,9 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  .footer
-    position: fixed
-    bottom: 0
-    width: 100%
-    padding: 0.5rem
+.footer
+  position: fixed
+  bottom: 0
+  width: 100%
+  padding: 0.5rem
 </style>

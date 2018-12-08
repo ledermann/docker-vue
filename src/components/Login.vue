@@ -76,6 +76,6 @@ export default {
 </script>
 
 <style lang="sass">
-  .modal-card-foot
-    justify-content: space-between
+.modal-card-foot
+  justify-content: space-between
 </style>

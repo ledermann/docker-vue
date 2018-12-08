@@ -52,6 +52,6 @@ export default {
 </script>
 
 <style lang="sass">
-  .b-table
-    min-height: 100px
+.b-table
+  min-height: 100px
 </style>
