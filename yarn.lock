@@ -650,31 +650,31 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@fortawesome/fontawesome-common-types@^0.2.8":
-  version "0.2.8"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.8.tgz#8cacd1efd1aa956e1ef173f0abcf2ce1b7a0c66f"
-  integrity sha512-0sU7JDLdEeGQlWBSr5uEE6PZOM15YM1s9rFlpZV+WhNdX2V6Co3Sj0OW5el4F54X1Tw+nfxf4Cc3dUedudaDWg==
+"@fortawesome/fontawesome-common-types@^0.2.9":
+  version "0.2.9"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.9.tgz#f307509ec8ac542965ae1ef96a9be0ebea837949"
+  integrity sha512-tLNNifyheh8mmgzOgxl2XSe03usa1UMTZNLDre6gxvqgIwCDi8Wya2D1MMMry/nc7vsqWf33KEF6L+ULtXZk2A==
 
-"@fortawesome/fontawesome-svg-core@^1.2.8":
-  version "1.2.8"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.8.tgz#b802b7f3d5b9d9d92ae92c18e865df468dcdf561"
-  integrity sha512-cvcMQZ5F8WSNSGMk9uWlkmZNfDzmdsWLRrTMrNwwihHcEmWRlIuSbDt+PQ/rXsnGmJnmLQJLFBT1cse/3swxbg==
+"@fortawesome/fontawesome-svg-core@^1.2.9":
+  version "1.2.9"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.9.tgz#73fd513e219e7e781a3a06221691f42a8f2ab065"
+  integrity sha512-XErESbPjLQ9t9t0oCTwSKX2rZCqjVm3MRETErbA7lPszt3Sx/4d2oBQZ/oIsVr5O97ev0ECshpxrjEjsl/CjmA==
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.8"
+    "@fortawesome/fontawesome-common-types" "^0.2.9"
 
-"@fortawesome/free-brands-svg-icons@^5.5.0":
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/@fortawesome/free-brands-svg-icons/-/free-brands-svg-icons-5.5.0.tgz#50e020aced5b9652db1d2d9d7909c73561ff1f4a"
-  integrity sha512-R2I2eARMVofGTtfxe5+VaMRXiQYQQFoDkHj2Q1qZVn37eRFszDySvSlJuKTsqFRsOxoP4Iq+xIGFy/ppoSo3Wg==
+"@fortawesome/free-brands-svg-icons@^5.6.0":
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-brands-svg-icons/-/free-brands-svg-icons-5.6.0.tgz#1d80c0ba7f9dbecc3dcccdc95b136d7fba60e4b9"
+  integrity sha512-fMCUewReABIPWmtl+ZyY8GmO1VDYEvemnEIbNKE8mJD54TbMC+ZpXt4YE2WlsgHko5bseotx+h4gUhqcbu1ibA==
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.8"
+    "@fortawesome/fontawesome-common-types" "^0.2.9"
 
-"@fortawesome/free-solid-svg-icons@^5.5.0":
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.5.0.tgz#4d815df4bba076f209eb409bc56d9d830367a7c0"
-  integrity sha512-VawIT2owNP97EwehZmxkvZDhoKwEevU/1HOMkln6kc4OtfE+JKYr6DpyzQnHVWXvz/eFj36QElHNe6zT8gR+Tg==
+"@fortawesome/free-solid-svg-icons@^5.6.0":
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.6.0.tgz#f041f477bd2c34f0817d123eeea2a8fdade04a25"
+  integrity sha512-kbkOtjNAxE5iuRAXPzSHMMTPWFEiLWJqu/nhHQoQcZS5JcIvthDB2VeXZqyo4An2o6Ny7j9vZ0KnECRtxhokHw==
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.8"
+    "@fortawesome/fontawesome-common-types" "^0.2.9"
 
 "@fortawesome/vue-fontawesome@^0.1.3":
   version "0.1.3"
@@ -1149,9 +1149,9 @@ amdefine@>=0.0.4:
   integrity sha1-SlKCrBZHKek2Gbz9OtFR+BfOkfU=
 
 ansi-colors@^3.0.0:
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-3.2.2.tgz#e49349137dbeb6d381b91e607c189915e53265ba"
-  integrity sha512-kJmcp4PrviBBEx95fC3dYRiC/QSN3EBd0GU1XoNEk/IuUa92rsB6o90zP3w5VAyNznR38Vkc9i8vk5zK6T7TxA==
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-3.2.3.tgz#57d35b8686e851e2cc04c403f1c00203976a1813"
+  integrity sha512-LEHHyuhlPY3TmuUYMh2oz89lTShfvgbmzaBcxve9t/9Wuy7Dwf4yoAKcND7KFT1HAQfqZ12qtc+DUrBMeKF9nw==
 
 ansi-escapes@^3.0.0:
   version "3.1.0"
@@ -5545,9 +5545,9 @@ minipass@^2.2.1, minipass@^2.3.4:
     yallist "^3.0.0"
 
 minizlib@^1.1.1:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/minizlib/-/minizlib-1.2.0.tgz#59517387478fd98d8017ed0299c6cb16cbd12da3"
-  integrity sha512-vQhkoouK/oKRVuFJynustmW3wrqZEXOrfbVVirvOVeglH4TNvIkcqiyojlIbbZYYDJZSbEKEXmDudg+tyRkm6g==
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/minizlib/-/minizlib-1.2.1.tgz#dd27ea6136243c7c880684e8672bb3a45fd9b614"
+  integrity sha512-7+4oTUOWKg7AuL3vloEWekXY2/D20cevzsrNT2kGWm+39J9hGTCBv8VI5Pm5lXZ/o3/mdR4f8rflAPhnQb8mPA==
   dependencies:
     minipass "^2.2.1"
 
@@ -8625,10 +8625,10 @@ vue-style-loader@^4.1.0:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-template-compiler@^2.5.13:
-  version "2.5.17"
-  resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.5.17.tgz#52a4a078c327deb937482a509ae85c06f346c3cb"
-  integrity sha512-63uI4syCwtGR5IJvZM0LN5tVsahrelomHtCxvRkZPJ/Tf3ADm1U1wG6KWycK3qCfqR+ygM5vewUvmJ0REAYksg==
+vue-template-compiler@^2.5.18:
+  version "2.5.18"
+  resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.5.18.tgz#8a346e477c5ada6efc890a2db4857090a2c54a05"
+  integrity sha512-WG2G+r5YxqkbTyJnbpkJuISTVI9MvYNGAZVKnmn8S4AoP0R0OufIKrHEV+GKwilLa+p3t/Plo8FzJXdhL9m4Sw==
   dependencies:
     de-indent "^1.0.2"
     he "^1.1.0"
@@ -8655,10 +8655,10 @@ vue-touch@^2.0.0-beta.4:
     rollup-plugin-commonjs "^7.0.0"
     rollup-plugin-node-resolve "^2.0.0"
 
-vue@^2.5.13:
-  version "2.5.17"
-  resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.17.tgz#0f8789ad718be68ca1872629832ed533589c6ada"
-  integrity sha512-mFbcWoDIJi0w0Za4emyLiW72Jae0yjANHbCVquMKijcavBGypqlF7zHRgMa5k4sesdv7hv2rB4JPdZfR+TPfhQ==
+vue@^2.5.18:
+  version "2.5.18"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.18.tgz#885586eda5c8efc77140a497500b73620e53c1dd"
+  integrity sha512-j4oT4jQdhBf3dUxzu1ogjkhzMU44AtwqtLz7oq/u7340/lmUUogTG6/D6P4/J2cCosoM21MqMIUsQchPKS4elg==
 
 vuex@^3.0.1:
   version "3.0.1"
