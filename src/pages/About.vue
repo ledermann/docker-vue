@@ -58,11 +58,6 @@
                   </tr>
 
                   <tr>
-                    <th>memcached</th>
-                    <td>{{ backendVersions.memcached }}</td>
-                  </tr>
-
-                  <tr>
                     <th>Redis</th>
                     <td>{{ backendVersions.redis }}</td>
                   </tr>
