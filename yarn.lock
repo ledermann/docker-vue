@@ -869,12 +869,12 @@
     eslint "^4.19.1"
     eslint-plugin-vue "^4.7.1"
 
-"@vue/cli-plugin-unit-mocha@^3.5.0":
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-unit-mocha/-/cli-plugin-unit-mocha-3.5.0.tgz#1b2a998156128749fba2821e974ccd1f92c503d8"
-  integrity sha512-EPEUeYg4BhMXlzBBFwl1O6Gz3qhHGEpjAcAwN6/0h2dUecNszCMRcc2i4Of2bErDCYqytRCLHhZtQYu1yQL1bg==
+"@vue/cli-plugin-unit-mocha@^3.5.1":
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-unit-mocha/-/cli-plugin-unit-mocha-3.5.1.tgz#6c776563244bbe74f0a2fd66802e34f9d437cd26"
+  integrity sha512-sf1G+WU/4qZmycThInZ5G50oJ3pOseIrM06q1GZmx64Z/kt+OKKEm/VX3pbXF5GKH0GCY2Tv440y5YbaaD/wqA==
   dependencies:
-    "@vue/cli-shared-utils" "^3.5.0"
+    "@vue/cli-shared-utils" "^3.5.1"
     jsdom "^13.2.0"
     jsdom-global "^3.0.2"
     mocha "^5.2.0"
