@@ -23,7 +23,9 @@ Vue.use(Buefy, {
 })
 Vue.use(VueSilentbox)
 
-Vue.use(VueTimeago)
+Vue.use(VueTimeago, {
+  locale: 'en'
+})
 
 Vue.use(VuePellEditor)
 
