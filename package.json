@@ -30,14 +30,14 @@
     "vue-pell-editor": "^2.0.1",
     "vue-router": "^3.0.2",
     "vue-silentbox": "^0.1.1",
-    "vue-timeago": "^5.1.1",
+    "vue-timeago": "^5.1.2",
     "vuex": "^3.1.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.5.1",
     "@vue/cli-plugin-eslint": "^3.5.1",
     "@vue/cli-plugin-unit-mocha": "^3.5.1",
-    "@vue/cli-service": "^3.5.1",
+    "@vue/cli-service": "^3.5.2",
     "@vue/eslint-config-standard": "^4.0.0",
     "@vue/test-utils": "^1.0.0-beta.29",
     "chai": "^4.1.2",
