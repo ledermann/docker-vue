@@ -16,7 +16,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.8.1",
     "@fortawesome/free-solid-svg-icons": "^5.8.1",
     "@fortawesome/vue-fontawesome": "^0.1.6",
-    "actioncable": "^5.2.2",
+    "actioncable": "^5.2.3",
     "axios": "^0.18.0",
     "buefy": "^0.7.3",
     "debounce": "^1.1.0",
