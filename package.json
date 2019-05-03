@@ -20,7 +20,7 @@
     "axios": "^0.18.0",
     "buefy": "^0.7.5",
     "debounce": "^1.1.0",
-    "dotenv": "^7.0.0",
+    "dotenv": "^8.0.0",
     "es6-promise": "^4.2.6",
     "global-package-version": "^1.1.0",
     "jwt-decode": "^2.2.0",
