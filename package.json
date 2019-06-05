@@ -12,9 +12,9 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.18",
-    "@fortawesome/free-brands-svg-icons": "^5.8.2",
-    "@fortawesome/free-solid-svg-icons": "^5.8.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.19",
+    "@fortawesome/free-brands-svg-icons": "^5.9.0",
+    "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@fortawesome/vue-fontawesome": "^0.1.6",
     "actioncable": "^5.2.3",
     "axios": "^0.19.0",
@@ -29,7 +29,7 @@
     "vue-infinite-loading": "^2.4.4",
     "vue-pell-editor": "^2.0.1",
     "vue-router": "^3.0.6",
-    "vue-silentbox": "^0.1.7",
+    "vue-silentbox": "^0.1.8",
     "vue-timeago": "^5.1.2",
     "vuex": "^3.1.1"
   },
