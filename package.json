@@ -28,7 +28,7 @@
     "vue-axios": "^2.0.2",
     "vue-infinite-loading": "^2.4.4",
     "vue-pell-editor": "^2.0.1",
-    "vue-router": "^3.0.6",
+    "vue-router": "^3.0.7",
     "vue-silentbox": "^0.1.9",
     "vue-timeago": "^5.1.2",
     "vuex": "^3.1.1"
