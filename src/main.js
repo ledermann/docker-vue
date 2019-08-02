@@ -8,6 +8,7 @@ import { faHome, faPlus, faInfoCircle, faUserCircle, faSignOutAlt, faImage, faTr
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import 'buefy/dist/buefy.css'
+import 'bulma/css/bulma.css'
 
 import VuePellEditor from 'vue-pell-editor'
 import VueSilentbox from 'vue-silentbox'
