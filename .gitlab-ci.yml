@@ -1,8 +1,0 @@
-test:
-  before_script:
-    - echo $CI_JOB_TOKEN | docker login -u gitlab-ci-token --password-stdin $CI_REGISTRY
-
-  script:
-    - docker build --pull -t $CI_REGISTRY_IMAGE:latest .
-    - docker push $CI_REGISTRY_IMAGE:latest
-    - curl -X POST $PORTAINER_HOOK

@@ -1,0 +1,21 @@
+name: Build and deploy
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Build the production image
+        run: docker build --pull -t ${{ secrets.GITLAB_REGISTRY }}/${{ secrets.GITLAB_REPO }}:latest .
+
+      - name: Login to GitLab Docker Registry
+        run: echo ${{ secrets.GITLAB_TOKEN }} | docker login -u gitlab-ci-token --password-stdin ${{ secrets.GITLAB_REGISTRY }}
+
+      - name: Push the production image
+        run: docker push ${{ secrets.GITLAB_REGISTRY }}/${{ secrets.GITLAB_REPO }}:latest
+
+      - name: Trigger deployment
+        run: curl -X POST ${{ secrets.DEPLOY_HOOK }}
