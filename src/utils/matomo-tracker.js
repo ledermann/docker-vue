@@ -24,6 +24,7 @@ export default class MatomoTracker {
 
     window._paq.push(['setCustomUrl', document.location])
     window._paq.push(['setDocumentTitle', document.title])
+    window._paq.push(['disableCookies'])
     window._paq.push(['trackPageView'])
   }
 
