@@ -24,7 +24,7 @@
     "es6-promise": "^4.2.8",
     "global-package-version": "^1.1.0",
     "jwt-decode": "^2.2.0",
-    "vue": "^2.6.10",
+    "vue": "^2.6.11",
     "vue-axios": "^2.1.5",
     "vue-infinite-loading": "^2.4.4",
     "vue-pell-editor": "^2.0.1",
@@ -43,7 +43,7 @@
     "chai": "^4.1.2",
     "node-sass": "^4.13.0",
     "sass-loader": "^8.0.0",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.11"
   },
   "browserslist": [
     "> 1%",
