@@ -9441,10 +9441,10 @@ vue-router@^3.3.2:
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.3.2.tgz#0099de402edb2fe92f9711053ab5a2156f239cad"
   integrity sha512-5sEbcfb7MW8mY8lbUVbF4kgcipGXsagkM/X+pb6n0MhjP+RorWIUTPAPSqgPaiPOxVCXgAItBl8Vwz8vq78faA==
 
-vue-silentbox@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/vue-silentbox/-/vue-silentbox-2.0.1.tgz#11d2cacbcfc04975765ec4cbb7c28e1a504267cc"
-  integrity sha512-8pA75nJ4AAEiwzroOk86AsE0Cbq0GY4wR7xYFEYoZbHGCJZ9CBXFzsxQKjzKdiTGPg+Ri73BSmc2ysqkDvtO8w==
+vue-silentbox@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/vue-silentbox/-/vue-silentbox-2.0.2.tgz#01011f69fda6781397797fba369a33dff9e56714"
+  integrity sha512-IpSxyRViFy9+F/wJTJo6gJ1nEXqF1b/2fsu4vIdBZzaMQl3OmVwAMTvjnz7LRxvbD7DbGcY4crAccJw6qMWggA==
 
 vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
   version "4.1.2"
