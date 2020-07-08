@@ -42,7 +42,7 @@
     "@vue/test-utils": "^1.0.3",
     "chai": "^4.1.2",
     "node-sass": "^4.14.1",
-    "sass-loader": "^9.0.1",
+    "sass-loader": "^9.0.2",
     "vue-template-compiler": "^2.6.11"
   },
   "browserslist": [
