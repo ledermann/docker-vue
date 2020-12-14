@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueAxios from 'vue-axios'
 import axios from 'axios'
 import store from '@/store'
-import ActionCable from 'actioncable'
+import * as ActionCable from '@rails/actioncable'
 import Configuration from '@/utils/configuration'
 
 axios.defaults.baseURL = 'https://' + Configuration.value('backendHost') + '/api/v1'

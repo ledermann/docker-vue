@@ -20,7 +20,7 @@ This is the frontend only. The backend is a separate project called [DockerRails
 
 - User authentication using [JSON Web Token (JWT)](https://de.wikipedia.org/wiki/JSON_Web_Token)
 - Infinitive scrolling using [Vue-infinite-loading](https://github.com/PeachScript/vue-infinite-loading)
-- Auto refresh via [ActionCable](https://yarnpkg.com/en/package/actioncable)
+- Auto refresh via [ActionCable](https://yarnpkg.com/package/@rails/actioncable)
 - Searching with [Buefy Autocomplete](https://buefy.github.io/#/documentation/autocomplete)
 - Content editing with the WYSIWYG editor [Pell](https://github.com/jaredreich/pell)
 - Image gallery with [Silentbox](https://github.com/silencesys/silentbox)
