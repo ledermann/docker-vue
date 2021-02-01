@@ -9474,10 +9474,10 @@ vm-browserify@^1.0.1:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
-vue-axios@^3.2.3:
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/vue-axios/-/vue-axios-3.2.3.tgz#b50d3f082a13a646aa47643398c261623082f1de"
-  integrity sha512-9GcTI9Yx+SmlWboAWksHYHCIrlxP8rX+mOEnO7DT2l7KQnFi6cDcsJDMiQ50MFPmn/RDyZ5EsiX50q45JVcW0g==
+vue-axios@^3.2.4:
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/vue-axios/-/vue-axios-3.2.4.tgz#2334158db8ac2a0f603aa431c2626fbf6d766724"
+  integrity sha512-8Dgws6dwt+1LoKEU4HDzIPfaRgWHl0xLDLW6kxrAk/z3GAJ2thkajcXC4qZgmqj0cZRx/Z/dzooKi5HWtUQwxA==
 
 vue-eslint-parser@^2.0.3:
   version "2.0.3"
