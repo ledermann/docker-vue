@@ -1417,7 +1417,7 @@
     semver "^6.0.0"
     string.prototype.padstart "^3.0.0"
 
-"@vue/cli-shared-utils@^4.5.11", "@vue/cli-shared-utils@^4.5.12":
+"@vue/cli-shared-utils@^4.5.12":
   version "4.5.12"
   resolved "https://registry.yarnpkg.com/@vue/cli-shared-utils/-/cli-shared-utils-4.5.12.tgz#0e0693d488336d284ffa658ff33b1ea22927d065"
   integrity sha512-qnIQPJ4XckMoqYh9fJ0Y91QKMIb4Hiibrm9+k4E15QHpk5RaokuOpf10SsOr2NLPCXSWsHOLo3hduZSwHPGY/Q==
@@ -9531,10 +9531,10 @@ vue-router@^3.5.1:
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.5.1.tgz#edf3cf4907952d1e0583e079237220c5ff6eb6c9"
   integrity sha512-RRQNLT8Mzr8z7eL4p7BtKvRaTSGdCbTy2+Mm5HTJvLGYSSeG9gDzNasJPP/yOYKLy+/cLG/ftrqq5fvkFwBJEw==
 
-vue-silentbox@^2.4.3:
-  version "2.4.3"
-  resolved "https://registry.yarnpkg.com/vue-silentbox/-/vue-silentbox-2.4.3.tgz#944cf20786ad518c0fee31ce2af39fed48fca6ea"
-  integrity sha512-ZvPtmd5FexaVBIEArp8lGtrijMG6P0lE5bnD9p1/e0AY5Rc/2YSMvzQ4+zp/6DLJs0NWsFt4NrJ2WJt+WMuG9Q==
+vue-silentbox@^2.4.4:
+  version "2.4.4"
+  resolved "https://registry.yarnpkg.com/vue-silentbox/-/vue-silentbox-2.4.4.tgz#9e2951bec3c2163c65576134200de6c1c15729f0"
+  integrity sha512-4jPaHuhpfjeLXyWc8QhjuenxOpBL5nd70lWbu1t9XYSKg+xnfi4/Kw/aNdhEjR/0gBOykkwcKG6EnOUgxkIqwA==
 
 vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
   version "4.1.2"
