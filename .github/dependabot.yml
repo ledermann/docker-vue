@@ -1,21 +1,28 @@
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
 version: 2
 updates:
-- package-ecosystem: npm
-  directory: "/"
-  schedule:
-    interval: daily
-    time: "03:00"
-    timezone: Europe/Berlin
-  open-pull-requests-limit: 10
-  versioning-strategy: increase
-  ignore:
-  - dependency-name: buefy
-    versions:
-    - "> 0.8.20, < 1"
-  - dependency-name: "@vue/cli-plugin-eslint"
-    versions:
-    - 4.5.11
-    - 4.5.12
-  - dependency-name: sass-loader
-    versions:
-    - 11.0.0
+  - package-ecosystem: npm
+    directory: '/'
+    schedule:
+      interval: daily
+      time: '01:00'
+      timezone: Europe/Berlin
+    open-pull-requests-limit: 10
+    versioning-strategy: auto
+    labels:
+      - 'dependencies'
+      - 'javascript'
+
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'daily'
+      time: '01:00'
+      timezone: Europe/Berlin
+    labels:
+      - 'dependencies'
+      - 'gh-action'
