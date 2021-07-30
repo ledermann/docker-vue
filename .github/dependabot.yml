@@ -1,0 +1,21 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "03:00"
+    timezone: Europe/Berlin
+  open-pull-requests-limit: 10
+  versioning-strategy: increase
+  ignore:
+  - dependency-name: buefy
+    versions:
+    - "> 0.8.20, < 1"
+  - dependency-name: "@vue/cli-plugin-eslint"
+    versions:
+    - 4.5.11
+    - 4.5.12
+  - dependency-name: sass-loader
+    versions:
+    - 11.0.0
