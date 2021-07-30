@@ -12,10 +12,13 @@ jobs:
         run: docker build --pull -t docker.pkg.github.com/ledermann/docker-vue/docker-vue:latest .
 
       - name: Login to GitHub Package Registry
+        if: github.ref == 'refs/heads/master'
         run: docker login docker.pkg.github.com -u $GITHUB_ACTOR -p ${{ secrets.PACKAGES_TOKEN }}
 
       - name: Push the production image
+        if: github.ref == 'refs/heads/master'
         run: docker push "docker.pkg.github.com/ledermann/docker-vue/docker-vue:latest"
 
       - name: Trigger deployment
+        if: github.ref == 'refs/heads/master'
         run: curl -X POST ${{ secrets.DEPLOY_HOOK }}
