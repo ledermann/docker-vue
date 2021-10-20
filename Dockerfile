@@ -14,4 +14,4 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=Builder /app/dist /usr/share/nginx/html
 COPY entrypoint.sh /
 
-CMD ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
