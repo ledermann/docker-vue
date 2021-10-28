@@ -1363,12 +1363,12 @@
   dependencies:
     "@vue/cli-shared-utils" "^4.5.15"
 
-"@vue/cli-plugin-unit-mocha@^4.5.14":
-  version "4.5.14"
-  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-unit-mocha/-/cli-plugin-unit-mocha-4.5.14.tgz#19d9f54addc33feb5a4032c237e8e7a30fb92de5"
-  integrity sha512-H0R/3KCrPClenx2iwdA0ohY7LOQeVBD+pah/gzdvCZVilj8LXsKF2znTddpIQYEbAPDF31MTMtMbbx3WMR3GIQ==
+"@vue/cli-plugin-unit-mocha@^4.5.15":
+  version "4.5.15"
+  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-unit-mocha/-/cli-plugin-unit-mocha-4.5.15.tgz#86f625e54d759334822453b0e03ed4af799e7735"
+  integrity sha512-ZCUnZynnSe69zyEdPa7VLMR/4IpMykGTkZQHmvqP9KYlz0QtM7UkCxYcL5xqRcnh4lda8rmKasMVnLPD0NUbPw==
   dependencies:
-    "@vue/cli-shared-utils" "^4.5.14"
+    "@vue/cli-shared-utils" "^4.5.15"
     jsdom "^15.2.1"
     jsdom-global "^3.0.2"
     mocha "^6.2.2"
@@ -1460,7 +1460,7 @@
     semver "^6.0.0"
     string.prototype.padstart "^3.0.0"
 
-"@vue/cli-shared-utils@^4.5.14", "@vue/cli-shared-utils@^4.5.15":
+"@vue/cli-shared-utils@^4.5.15":
   version "4.5.15"
   resolved "https://registry.yarnpkg.com/@vue/cli-shared-utils/-/cli-shared-utils-4.5.15.tgz#dba3858165dbe3465755f256a4890e69084532d6"
   integrity sha512-SKaej9hHzzjKSOw1NlFmc6BSE0vcqUQMQiv1cxQ2DhVyy4QxZXBmzmiLBUBe+hYZZs1neXW7n//udeN9bCAY+Q==
