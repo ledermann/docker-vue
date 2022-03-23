@@ -1490,12 +1490,12 @@
   dependencies:
     "@vue/cli-shared-utils" "^4.5.16"
 
-"@vue/cli-plugin-unit-mocha@^5.0.3":
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-unit-mocha/-/cli-plugin-unit-mocha-5.0.3.tgz#0d267b17f1a2d8caa08d6ddabd8d845e5ffb8088"
-  integrity sha512-irYCWf8qbVzgwizifbgtN53GHydbL1ktnW78WOZWmqWolfvzZnnT3uV/kOVkET3sWS5/s5fCILYBnlhIBrwMVw==
+"@vue/cli-plugin-unit-mocha@^5.0.4":
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-unit-mocha/-/cli-plugin-unit-mocha-5.0.4.tgz#117ce3bb7ac08c74ebb37585b52a07720fb96829"
+  integrity sha512-Y57od2T8pJCd8n44Q8b7voPyILUqsdj5oKNJR6nYMqzp1fuORdNvsgZ24aOHtg72iEsolxRS+Q21q8KYDHTcdA==
   dependencies:
-    "@vue/cli-shared-utils" "^5.0.3"
+    "@vue/cli-shared-utils" "^5.0.4"
     jsdom "^18.0.1"
     jsdom-global "^3.0.2"
     mocha "^8.3.0"
