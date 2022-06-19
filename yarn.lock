@@ -984,10 +984,10 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "6.1.1"
 
-"@fortawesome/vue-fontawesome@^2.0.7":
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-2.0.7.tgz#44bdc9f9cfab136c42682ed42dac86697e919140"
-  integrity sha512-D1a5FJQeiCFG5a29Re5uNAUAI8SdkCPZlvf0EyfEy9XBVB7tEsL/tfXO6ToXoEOE8CAzJCwuM/PXSCHusXT5/Q==
+"@fortawesome/vue-fontawesome@^2.0.8":
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-2.0.8.tgz#9c9ae1cd2cbe7f4b0c63dd53709c26167d541aa6"
+  integrity sha512-SRmP0q9Ox4zq8ydDR/hrH+23TVU1bdwYVnugLVaAIwklOHbf56gx6JUGlwES7zjuNYqzKgl8e39iYf6ph8qSQw==
 
 "@hapi/address@2.x.x":
   version "2.1.4"
