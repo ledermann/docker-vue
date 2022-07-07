@@ -1499,12 +1499,12 @@
   dependencies:
     "@vue/cli-shared-utils" "^4.5.19"
 
-"@vue/cli-plugin-unit-mocha@^5.0.7":
-  version "5.0.7"
-  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-unit-mocha/-/cli-plugin-unit-mocha-5.0.7.tgz#58dad13286ecc6bbf4edde5d8be1784c0ad74045"
-  integrity sha512-9ylmSIpPPoGfRVxjoTDwC0Qn8aBQ3dbbWAGF+LenlDb8b0PerTtTmOjuDNJzblUdIL79qnq9/kW25+DP0drhKQ==
+"@vue/cli-plugin-unit-mocha@^5.0.8":
+  version "5.0.8"
+  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-unit-mocha/-/cli-plugin-unit-mocha-5.0.8.tgz#cad35462c5aa525131c8660a4e155d51f15ed9ca"
+  integrity sha512-t8eN1ttbSkHg+U7AjCKwpuhpV2OBsP35RjBkdSrcAPjoX3MxVwoWyqGPeYI+jWbPGX3tFxM/uMQwN0U3lmzH7A==
   dependencies:
-    "@vue/cli-shared-utils" "^5.0.7"
+    "@vue/cli-shared-utils" "^5.0.8"
     jsdom "^18.0.1"
     jsdom-global "^3.0.2"
     mocha "^8.3.0"
@@ -1614,10 +1614,10 @@
     semver "^6.1.0"
     strip-ansi "^6.0.0"
 
-"@vue/cli-shared-utils@^5.0.7":
-  version "5.0.7"
-  resolved "https://registry.yarnpkg.com/@vue/cli-shared-utils/-/cli-shared-utils-5.0.7.tgz#c6774573ea2e8106e11d3d6df342c2bd2554330a"
-  integrity sha512-SzpqSExsp31gg7w+UAsqdrFyZGxKNTIE8MVwcfkevEx4BgugpLcmUxgcelgDktMs7GGykxluPIm0ZHDk3ytXeg==
+"@vue/cli-shared-utils@^5.0.7", "@vue/cli-shared-utils@^5.0.8":
+  version "5.0.8"
+  resolved "https://registry.yarnpkg.com/@vue/cli-shared-utils/-/cli-shared-utils-5.0.8.tgz#75fc96528eba2b1c7e33cb7e989a984ddef99c8a"
+  integrity sha512-uK2YB7bBVuQhjOJF+O52P9yFMXeJVj7ozqJkwYE9PlMHL1LMHjtCYm4cSdOebuPzyP+/9p0BimM/OqxsevIopQ==
   dependencies:
     "@achrinza/node-ipc" "^9.2.5"
     chalk "^4.1.2"
