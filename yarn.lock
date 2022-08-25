@@ -10158,10 +10158,10 @@ vue-pell-editor@^2.0.1:
   resolved "https://registry.yarnpkg.com/vue-pell-editor/-/vue-pell-editor-2.0.1.tgz#1410e1529ef5e86b17d9e21d2d4e8db3fcb54880"
   integrity sha512-GlG6X/9FrTOt9+L/FYqBbNaOlXfOHciw/abfCKfY0igOLOJQL1aCDhPpGYWhh5+gIMx6HmesFvfMpHAMYTaJsw==
 
-vue-router@^3.6.3:
-  version "3.6.3"
-  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.6.3.tgz#121f8028186104fe6c3b71fe3065f45ec84d215c"
-  integrity sha512-G21CKd8o/Mr3h8Xgi6zwg2ixJ5OxBG9G5w/b5McEFfLBqyQJc/7HDGsibf2FAl2enpZla+OJ3IlYipRusGN/4w==
+vue-router@^3.6.4:
+  version "3.6.4"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.6.4.tgz#46b77eca93cd69f6840c4730b13976a130144ecc"
+  integrity sha512-QSJs5aKKPiwBH++gelVbnq0ZFbUZXjlsjAklUM+F8dtd49YY72QsD1uGpBk/cqLK1bkZ8HiqPjS8NkhaGtpqHw==
 
 vue-silentbox@^2.4.5:
   version "2.4.5"
