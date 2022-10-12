@@ -53,8 +53,8 @@
                   </tr>
 
                   <tr>
-                    <th>Elasticsearch</th>
-                    <td>{{ backendVersions.elasticsearch }}</td>
+                    <th>OpenSearch</th>
+                    <td>{{ backendVersions.opensearch }}</td>
                   </tr>
 
                   <tr>
