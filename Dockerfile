@@ -1,5 +1,6 @@
 # First step: Build with Node.js
-FROM node:lts-alpine AS Builder
+FROM node:16 AS Builder
+RUN apt-get update || : && apt-get install python -y
 WORKDIR /app
 COPY package.json yarn.lock /app/
 RUN yarn install
