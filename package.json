@@ -17,7 +17,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/vue-fontawesome": "^2.0.9",
     "@rails/actioncable": "^7.0.4",
-    "axios": "^0.27.2",
+    "axios": "^1.2.1",
     "buefy": "< 0.9.0",
     "debounce": "^1.2.1",
     "dotenv": "^16.0.3",
