@@ -29,15 +29,14 @@ This is the frontend only. The backend is a separate project called [DockerRails
 
 ## Demo
 
-There is a live demo at https://docker-vue.georg-ledermann.de/
-
+There is a live demo at https://docker-vue.ledermann.dev/
 
 ## Development
 
 First, make sure to get the backend up and running:
 https://github.com/ledermann/docker-rails
 
-Make sure the backend is available locally, for example at https://docker-rails.dev. Then:
+Make sure the backend is available locally, for example at https://docker-rails.test. Then:
 
 ```bash
 git clone git@github.com:ledermann/docker-vue.git
