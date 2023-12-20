@@ -23,7 +23,7 @@
     "dotenv": "^16.3.1",
     "es6-promise": "^4.2.8",
     "global-package-version": "^1.1.0",
-    "jwt-decode": "^3.1.2",
+    "jwt-decode": "^4.0.0",
     "vue": "^2.7.15",
     "vue-axios": "^3.5.2",
     "vue-infinite-loading": "^2.4.5",
