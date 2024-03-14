@@ -39,7 +39,7 @@
     "@vue/cli-plugin-unit-mocha": "^5.0.8",
     "@vue/cli-service": "^4.5.19",
     "@vue/eslint-config-standard": "^4.0.0",
-    "@vue/test-utils": "^1.3.6",
+    "@vue/test-utils": "^2.4.5",
     "chai": "^5.1.0",
     "node-sass": "^7.0.0",
     "sass-loader": "^10.5.2",
